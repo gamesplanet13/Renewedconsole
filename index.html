@@ -5,9 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>PS4 Products — All Variants</title>
 
-<!-- Basic Open Graph (useful when sharing the page URL on WhatsApp/social) -->
 <meta property="og:title" content="PS4 Products — PS4 Pro & Slim Variants" />
-<meta property="og:description" content="Imported PS4 Pro & Slim variants — Prepaid only. Click Buy to open WhatsApp with pre-filled message." />
+<meta property="og:description" content="Imported PS4 Pro & Slim variants — Prepaid only. Click Buy to open WhatsApp with a pre-filled order message." />
 <meta property="og:image" content="Ps4pro1tb9.0.jpeg" />
 <meta property="og:type" content="website" />
 
@@ -38,11 +37,29 @@ body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);
 .controls{display:flex;gap:10px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;text-decoration:none;font-weight:700}
 .btn.wh{background:var(--cta);color:#fff}
-.btn.quick{background:#111827;color:#fff}
-.addon{display:flex;align-items:center;gap:10px;border-radius:8px;border:1px solid #eef2ff;padding:10px;background:#fff}
-.addon img{width:72px;height:48px;object-fit:cover;border-radius:6px;border:1px solid #e6e9ef}
-.note{font-size:13px;color:var(--muted);margin-top:6px}
+.note-global{margin-top:12px;font-size:13px;color:var(--muted)}
 .footer{margin-top:18px;font-size:13px;color:var(--muted);text-align:center}
+
+/* Floating WhatsApp button */
+#floating-wa {
+  position:fixed;
+  right:16px;
+  bottom:18px;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 14px;
+  background:var(--cta);
+  color:white;
+  border-radius:999px;
+  box-shadow:0 8px 20px rgba(37,211,102,0.18);
+  text-decoration:none;
+  font-weight:800;
+  font-family:Inter,system-ui,Arial,sans-serif;
+}
+#floating-wa svg { width:20px; height:20px; display:block; }
+
 </style>
 </head>
 <body>
@@ -50,12 +67,12 @@ body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);
   <div class="header">
     <div>
       <div class="title">PS4 Products — All Variants</div>
-      <div class="sub">All listings are <strong>Prepaid only — No COD</strong>. Click Buy to open WhatsApp with a pre-filled message.</div>
+      <div class="sub">All listings are <strong>Prepaid only — No COD</strong>. Click Buy to open WhatsApp with a pre-filled order message.</div>
     </div>
     <div class="meta">WhatsApp: <strong>+91 7983624797</strong></div>
   </div>
 
-  <div class="grid">
+  <div class="grid" id="products-grid">
 
     <!-- P1 -->
     <article class="card">
@@ -79,22 +96,8 @@ body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);
       </div>
 
       <div class="controls">
-        <a class="btn wh" target="_blank" href="https://wa.me/917983624797?text=Hello%2C%20I%27m%20interested%20in%20PS4%20Pro%20(Imported)%20-%201TB%20-%20Firmware%209.0%20-%20Jailbreak%20-%2012-15%20games%20-%20Price%20Rs.34999.%20Please%20confirm%20availability%20and%20payment%20details.">Buy on WhatsApp</a>
-        <a class="btn quick" target="_blank" href="https://wa.me/917983624797?text=Quick%20Order%20-%20PS4%20Pro%201TB%209.0%20-%20Rs.34999">Quick Order</a>
+        <a class="btn wh buy-btn" href="#" data-message="Hello, I'd like to order the PS4 Pro (Imported) - 1TB - Firmware 9.0. Details: Jailbreak, 12-15 games, 1 controller, 1 month warranty. Price: Rs.34999. Please confirm availability and payment details.">Buy on WhatsApp</a>
       </div>
-
-      <div class="addon" style="margin-top:8px">
-        <img src="ps4_controller_black.jpeg" alt="PS4 Controller Black">
-        <div style="flex:1">
-          <div style="font-weight:700">PS4 Controller — Black</div>
-          <div class="meta">Rs.1,299</div>
-        </div>
-        <div>
-          <a class="btn quick" target="_blank" href="https://wa.me/917983624797?text=Interested%20in%20PS4%20Controller%20(Black)%20-%20Rs.1299">Buy Controller</a>
-        </div>
-      </div>
-
-      <div class="note">Keep <strong>Ps4pro1tb9.0.jpeg</strong> &amp; <strong>ps4_controller_black.jpeg</strong> in the same folder as this page.</div>
     </article>
 
     <!-- P2 -->
@@ -119,22 +122,8 @@ body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);
       </div>
 
       <div class="controls">
-        <a class="btn wh" target="_blank" href="https://wa.me/917983624797?text=Hello%2C%20I%27m%20interested%20in%20PS4%20Slim%20(Imported%20Japanese)%20-%201TB%20(White)%20-%20Firmware%2012.02%20-%20Price%20Rs.25500.%20Please%20confirm%20availability.">Buy on WhatsApp</a>
-        <a class="btn quick" target="_blank" href="https://wa.me/917983624797?text=Quick%20Order%20-%20PS4%20Slim%201TB%2012.02%20(White)%20-%20Rs.25500">Quick Order</a>
+        <a class="btn wh buy-btn" href="#" data-message="Hello, I'd like to order the PS4 Slim (Imported Japanese) - 1TB (White) - Firmware 12.02. Details: Jailbreak, 12-15 games, 1 controller, 1 month warranty. Price: Rs.25500. Please confirm availability and payment details.">Buy on WhatsApp</a>
       </div>
-
-      <div class="addon" style="margin-top:8px">
-        <img src="ps4_controller_black.jpeg" alt="PS4 Controller Black">
-        <div style="flex:1">
-          <div style="font-weight:700">PS4 Controller — Black</div>
-          <div class="meta">Rs.1,299</div>
-        </div>
-        <div>
-          <a class="btn quick" target="_blank" href="https://wa.me/917983624797?text=Interested%20in%20PS4%20Controller%20(Black)%20-%20Rs.1299">Buy Controller</a>
-        </div>
-      </div>
-
-      <div class="note">Keep <strong>Ps4slim1tb12.02wht.jpeg</strong> &amp; <strong>ps4_controller_black.jpeg</strong> in same folder.</div>
     </article>
 
     <!-- P3 -->
@@ -159,22 +148,8 @@ body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);
       </div>
 
       <div class="controls">
-        <a class="btn wh" target="_blank" href="https://wa.me/917983624797?text=Hello%2C%20I%27m%20interested%20in%20PS4%20Slim%20(Imported%20Japanese)%20-%20500GB%20-%20Firmware%2011.50%20-%20Price%20Rs.24500.%20Please%20confirm%20availability.">Buy on WhatsApp</a>
-        <a class="btn quick" target="_blank" href="https://wa.me/917983624797?text=Quick%20Order%20-%20PS4%20Slim%20500GB%2011.50%20-%20Rs.24500">Quick Order</a>
+        <a class="btn wh buy-btn" href="#" data-message="Hello, I'd like to order the PS4 Slim (Imported Japanese) - 500GB - Firmware 11.50. Details: Jailbreak, 12-15 games, 1 controller, 1 month warranty. Price: Rs.24500. Please confirm availability and payment details.">Buy on WhatsApp</a>
       </div>
-
-      <div class="addon" style="margin-top:8px">
-        <img src="ps4_controller_black.jpeg" alt="PS4 Controller Black">
-        <div style="flex:1">
-          <div style="font-weight:700">PS4 Controller — Black</div>
-          <div class="meta">Rs.1,299</div>
-        </div>
-        <div>
-          <a class="btn quick" target="_blank" href="https://wa.me/917983624797?text=Interested%20in%20PS4%20Controller%20(Black)%20-%20Rs.1299">Buy Controller</a>
-        </div>
-      </div>
-
-      <div class="note">Keep <strong>Ps4slim500gb11.50wht.jpeg</strong> &amp; <strong>ps4_controller_black.jpeg</strong> alongside this file.</div>
     </article>
 
     <!-- P4 -->
@@ -199,22 +174,8 @@ body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);
       </div>
 
       <div class="controls">
-        <a class="btn wh" target="_blank" href="https://wa.me/917983624797?text=Hello%2C%20I%27m%20interested%20in%20PS4%20Slim%20(Imported%20Japanese)%20-%201TB%20(Black)%20-%20Firmware%2012.02%20-%20Price%20Rs.25000.%20Please%20confirm%20availability.">Buy on WhatsApp</a>
-        <a class="btn quick" target="_blank" href="https://wa.me/917983624797?text=Quick%20Order%20-%20PS4%20Slim%201TB%2012.02%20(Black)%20-%20Rs.25000">Quick Order</a>
+        <a class="btn wh buy-btn" href="#" data-message="Hello, I'd like to order the PS4 Slim (Imported Japanese) - 1TB (Black) - Firmware 12.02. Details: Jailbreak, 12-15 games, 1 controller, 1 month warranty. Price: Rs.25000. Please confirm availability and payment details.">Buy on WhatsApp</a>
       </div>
-
-      <div class="addon" style="margin-top:8px">
-        <img src="ps4_controller_black.jpeg" alt="PS4 Controller Black">
-        <div style="flex:1">
-          <div style="font-weight:700">PS4 Controller — Black</div>
-          <div class="meta">Rs.1,299</div>
-        </div>
-        <div>
-          <a class="btn quick" target="_blank" href="https://wa.me/917983624797?text=Interested%20in%20PS4%20Controller%20(Black)%20-%20Rs.1299">Buy Controller</a>
-        </div>
-      </div>
-
-      <div class="note">Keep <strong>Ps4slim12.02blk.jpeg</strong> nearby.</div>
     </article>
 
     <!-- P5 -->
@@ -239,25 +200,11 @@ body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);
       </div>
 
       <div class="controls">
-        <a class="btn wh" target="_blank" href="https://wa.me/917983624797?text=Hello%2C%20I%27m%20interested%20in%20PS4%20Pro%20(Imported%20Japanese)%20-%202TB%20-%20Firmware%209.0%20-%20Price%20Rs.37499.%20Please%20confirm%20availability.">Buy on WhatsApp</a>
-        <a class="btn quick" target="_blank" href="https://wa.me/917983624797?text=Quick%20Order%20-%20PS4%20Pro%202TB%209.0%20-%20Rs.37499">Quick Order</a>
+        <a class="btn wh buy-btn" href="#" data-message="Hello, I'd like to order the PS4 Pro (Imported Japanese) - 2TB - Firmware 9.0. Details: Jailbreak, 25-30 games, 1 controller, 1 month warranty. Price: Rs.37499. Please confirm availability and payment details.">Buy on WhatsApp</a>
       </div>
-
-      <div class="addon" style="margin-top:8px">
-        <img src="ps4_controller_black.jpeg" alt="PS4 Controller Black">
-        <div style="flex:1">
-          <div style="font-weight:700">PS4 Controller — Black</div>
-          <div class="meta">Rs.1,299</div>
-        </div>
-        <div>
-          <a class="btn quick" target="_blank" href="https://wa.me/917983624797?text=Interested%20in%20PS4%20Controller%20(Black)%20-%20Rs.1299">Buy Controller</a>
-        </div>
-      </div>
-
-      <div class="note">Keep <strong>Ps4pro2tb.jpeg</strong> in same folder.</div>
     </article>
 
-    <!-- P6 (duplicate) -->
+    <!-- P6 duplicate -->
     <article class="card">
       <div class="thumb"><img src="Ps4slim1tb12.02wht.jpeg" alt="PS4 Slim 1TB 12.02 White"></div>
       <div class="row">
@@ -279,29 +226,95 @@ body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);
       </div>
 
       <div class="controls">
-        <a class="btn wh" target="_blank" href="https://wa.me/917983624797?text=Hello%2C%20I%27m%20interested%20in%20PS4%20Slim%20(Imported%20Japanese)%20-%201TB%20(White)%20-%20Firmware%2012.02%20-%20Price%20Rs.25000.%20Please%20confirm%20availability.">Buy on WhatsApp</a>
-        <a class="btn quick" target="_blank" href="https://wa.me/917983624797?text=Quick%20Order%20-%20PS4%20Slim%201TB%2012.02%20(White)%20Duplicate%20-%20Rs.25000">Quick Order</a>
+        <a class="btn wh buy-btn" href="#" data-message="Hello, I'd like to order the PS4 Slim (Imported Japanese) - 1TB (White) - Firmware 12.02. Details: Jailbreak, 12-15 games, 1 controller, 1 month warranty. Price: Rs.25000. Please confirm availability and payment details.">Buy on WhatsApp</a>
       </div>
-
-      <div class="addon" style="margin-top:8px">
-        <img src="ps4_controller_black.jpeg" alt="PS4 Controller Black">
-        <div style="flex:1">
-          <div style="font-weight:700">PS4 Controller — Black</div>
-          <div class="meta">Rs.1,299</div>
-        </div>
-        <div>
-          <a class="btn quick" target="_blank" href="https://wa.me/917983624797?text=Interested%20in%20PS4%20Controller%20(Black)%20-%20Rs.1299">Buy Controller</a>
-        </div>
-      </div>
-
-      <div class="note">Keep <strong>Ps4slim1tb12.02wht.jpeg</strong> in same folder.</div>
     </article>
 
   </div>
 
+  <div class="note-global">
+    (Single page — host this HTML and the image files on your webserver. For WhatsApp preview cards, share the page via a public HTTPS URL.)
+  </div>
+
   <div class="footer">
-    Upload these files & images to your webserver under the same folder. To get WhatsApp link previews (image + title), share the public HTTPS URL of this page (e.g. https://yourdomain.com/index.html) — local files won't generate preview cards.
+    Need edits to the prefilled text or want the WhatsApp number changed? Tell me the exact text or the new number (with country code).
   </div>
 </div>
+
+<!-- Floating WhatsApp button -->
+<a id="floating-wa" href="#" aria-label="Open WhatsApp chat">
+  <!-- WhatsApp icon -->
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M20.52 3.48A11.92 11.92 0 0 0 12 .08C5.73.08.93 4.88.93 11.17c0 1.97.52 3.86 1.5 5.56L.3 23.1l6.6-2.08c1.63.9 3.48 1.36 5.3 1.36h.02c6.28 0 11.08-4.8 11.08-11.09 0-3-1.17-5.82-3.48-7.89z" fill="white" opacity="0.08"/>
+    <path d="M17.472 14.382c-.297-.149-1.76-.867-2.033-.965-.273-.099-.472-.148-.67.15-.198.297-.768.965-.94 1.162-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.884-.788-1.48-1.761-1.654-2.059-.173-.297-.018-.458.13-.606.134-.134.297-.347.446-.52.149-.173.198-.297.298-.495.099-.198.05-.372-.025-.52-.074-.149-.67-1.612-.918-2.206-.242-.579-.487-.5-.67-.51l-.572-.01c-.198 0-.52.074-.794.372-.273.297-1.04 1.016-1.04 2.47 0 1.454 1.064 2.863 1.212 3.06.149.198 2.09 3.192 5.066 4.48 2.977 1.287 2.977.857 3.516.804.539-.05 1.76-.719 2.007-1.413.248-.695.248-1.29.173-1.413-.074-.122-.273-.198-.57-.347z" fill="white"/>
+  </svg>
+  <span>WhatsApp</span>
+</a>
+
+<script>
+(function(){
+  const WA_NUMBER = '917983624797'; // country code + number (without +)
+  let lastMessage = ''; // stores last product message user clicked
+
+  // helper to open wa with encoded text
+  function openWhatsAppWithMessage(message){
+    const encoded = encodeURIComponent(message);
+    const url = `https://wa.me/${WA_NUMBER}?text=${encoded}`;
+    window.open(url, '_blank');
+  }
+
+  // attach click handlers to product buy buttons
+  document.querySelectorAll('.buy-btn').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      const msg = btn.getAttribute('data-message') || 'Hello, I want to order.';
+      lastMessage = msg;
+      openWhatsAppWithMessage(msg);
+    });
+  });
+
+  // floating button behavior
+  const floating = document.getElementById('floating-wa');
+  floating.addEventListener('click', function (e) {
+    e.preventDefault();
+    if(lastMessage && lastMessage.trim().length > 5){
+      openWhatsAppWithMessage(lastMessage);
+    } else {
+      // generic message if user hasn't clicked a product yet
+      const generic = "Hello, I'm interested in your PS4 listings. Please share availability and payment details.";
+      openWhatsAppWithMessage(generic);
+    }
+  });
+
+  // also make floating button draggable (small UX nicety)
+  (function makeDraggable(el){
+    let dragging=false, startX=0, startY=0, origX=0, origY=0;
+    el.addEventListener('pointerdown', (ev)=>{
+      dragging=true;
+      startX=ev.clientX;
+      startY=ev.clientY;
+      const rect = el.getBoundingClientRect();
+      origX = rect.right; // distance from right
+      origY = rect.bottom; // distance from bottom
+      el.setPointerCapture(ev.pointerId);
+    });
+    window.addEventListener('pointermove', (ev)=>{
+      if(!dragging) return;
+      const dx = ev.clientX - startX;
+      const dy = ev.clientY - startY;
+      // update bottom/right via transform for simplicity
+      el.style.transform = `translate(${-dx}px,${-dy}px)`;
+    });
+    ['pointerup','pointercancel'].forEach(evt=>{
+      window.addEventListener(evt, ()=>{
+        if(!dragging) return;
+        dragging=false;
+        el.style.transform = ''; // reset transform
+      });
+    });
+  })(floating);
+
+})();
+</script>
 </body>
 </html>
