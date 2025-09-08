@@ -27,7 +27,7 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 /* Grid */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
 .card{background:var(--card);border-radius:12px;padding:14px;box-shadow:0 6px 20px rgba(6,21,36,0.06);display:flex;flex-direction:column;gap:12px}
-.thumb{width:100%;max-height:260px;overflow:hidden;border-radius:10px;border:1px solid #e6e9ef;display:flex;justify-content:center;align-items:center;background:#fff}
+.thumb{width:100%;max-height:260px;overflow:hidden;border-radius:10px;border:1px solid #e6e9ef;display:flex;justify-content:center;align-items:center;background:#fff;cursor:zoom-in}
 .thumb img{width:100%;height:auto;object-fit:contain;display:block}
 
 /* Card content */
@@ -64,6 +64,55 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 
 /* small helpers */
 .kv{display:block;color:var(--muted);font-size:13px;margin-top:6px}
+
+/* Image modal (full-screen) */
+.img-modal {
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background: rgba(0,0,0,0.75);
+  z-index:1200;
+  padding:18px;
+}
+.img-modal.open { display:flex; }
+.img-modal .modal-inner{
+  position:relative;
+  max-width:1200px;
+  max-height:90vh;
+  width:100%;
+  border-radius:10px;
+  overflow:hidden;
+  background:#0b0b0b;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.img-modal img{
+  max-width:100%;
+  max-height:90vh;
+  object-fit:contain;
+  display:block;
+  border-radius:4px;
+}
+.img-modal .close-btn{
+  position:absolute;
+  top:10px;
+  right:10px;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.9);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 6px 18px rgba(2,6,23,0.25);
+  border:none;
+}
+.img-modal .close-btn:focus{outline:2px solid #fff}
 </style>
 </head>
 <body>
@@ -139,8 +188,28 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
       <div class="kv">Contact: <strong>WhatsApp +91 7983624797</strong></div>
       <div class="kv">Note: This page and policies are part of the sale terms. By ordering you confirm that you have read and accepted these terms.</div>
     </div>
+
+    <!-- NEW: Important product note inserted here -->
+    <div style="margin-top:14px" class="policy-item" aria-live="polite">
+      <div class="policy-icon">ℹ️</div>
+      <div class="policy-body">
+        <strong>Important product note</strong><br>
+        All consoles are <strong>renewed</strong> and may not arrive in original retail packaging. Minor cosmetic marks or scratches can sometimes be present — this does not affect performance. We guarantee that the quality of the console is never compromised: units are not returned-opened or repaired before sale, and we ensure the best possible quality.<br><br>
+        Each console is shipped with either a <strong>brand-new True Replica controller</strong> (fully functional in all games) or a <strong>refurbished original controller</strong>, depending on available stock. Both options are tested and verified. If you want, you may add an <strong>extra controller</strong> as an add-on; additional charges will apply.<br><br>
+        Prices displayed on the website are <strong>inclusive of standard courier and packaging</strong>. We do not offer fast or premium delivery options, but we take responsibility for ensuring that the product is delivered to you safely.
+      </div>
+    </div>
+
   </section>
 
+</div>
+
+<!-- Image modal -->
+<div id="imgModal" class="img-modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-inner" role="document">
+    <button class="close-btn" id="modalClose" aria-label="Close image (Esc)">×</button>
+    <img id="modalImg" src="" alt="Enlarged product image">
+  </div>
 </div>
 
 <script>
@@ -166,7 +235,9 @@ PRODUCTS.forEach(p=>{
   const card=document.createElement('article');
   card.className='card';
   card.innerHTML=`
-    <div class="thumb"><img src="${p.image}" alt="${p.title}"></div>
+    <div class="thumb" data-src="${p.image}" tabindex="0" role="button" aria-label="Open image of ${p.title}">
+      <img src="${p.image}" alt="${p.title}">
+    </div>
     <div class="row">
       <div>
         <div style="font-weight:800">${p.title}</div>
@@ -192,17 +263,87 @@ PRODUCTS.forEach(p=>{
 
 /* Buy Now click → navigate to prefill page with query params */
 document.addEventListener('click',e=>{
-  const btn = e.target.closest('.buy-now'); if(!btn) return;
-  const id = btn.getAttribute('data-id');
-  const product = PRODUCTS.find(x=>x.id===id); if(!product) return;
+  const buy = e.target.closest('.buy-now'); if(buy){
+    const id = buy.getAttribute('data-id');
+    const product = PRODUCTS.find(x=>x.id===id); if(!product) return;
 
-  const params = new URLSearchParams();
-  params.set('product', product.title);
-  params.set('variant', `Firmware ${product.fw}, ${product.storage}`);
-  params.set('base', String(product.price));
+    const params = new URLSearchParams();
+    params.set('product', product.title);
+    params.set('variant', `Firmware ${product.fw}, ${product.storage}`);
+    params.set('base', String(product.price));
 
-  // open the prefill page in same folder
-  window.location.href = PREFILL_PAGE + '?' + params.toString();
+    // open the prefill page in same folder
+    window.location.href = PREFILL_PAGE + '?' + params.toString();
+    return;
+  }
+
+  /* image click -> open modal */
+  const thumb = e.target.closest('.thumb');
+  if(thumb){
+    const src = thumb.getAttribute('data-src') || thumb.querySelector('img')?.src;
+    openImageModal(src, thumb);
+  }
+
+  /* modal close button */
+  if(e.target.id === 'modalClose' || e.target.classList.contains('img-modal')){
+    closeImageModal();
+  }
+});
+
+/* keyboard support: Enter on thumb opens; Esc closes */
+document.addEventListener('keydown', (ev) => {
+  if(ev.key === 'Escape'){ closeImageModal(); return; }
+  if(ev.key === 'Enter'){
+    const active = document.activeElement;
+    if(active && active.classList && active.classList.contains('thumb')){
+      const src = active.getAttribute('data-src') || active.querySelector('img')?.src;
+      openImageModal(src, active);
+    }
+  }
+});
+
+/* Also open on focusing and pressing Space (accessibility) */
+document.addEventListener('keypress', (ev) => {
+  if(ev.key === ' '){
+    const active = document.activeElement;
+    if(active && active.classList && active.classList.contains('thumb')){
+      ev.preventDefault();
+      const src = active.getAttribute('data-src') || active.querySelector('img')?.src;
+      openImageModal(src, active);
+    }
+  }
+});
+
+/* modal functions */
+const modal = document.getElementById('imgModal');
+const modalImg = document.getElementById('modalImg');
+const modalCloseBtn = document.getElementById('modalClose');
+
+function openImageModal(src, triggerEl){
+  if(!src) return;
+  modalImg.src = src;
+  modalImg.alt = 'Product image';
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden','false');
+  modalCloseBtn.focus();
+  // remember trigger to restore focus when closed
+  modal._trigger = triggerEl || document.activeElement;
+}
+
+function closeImageModal(){
+  if(!modal.classList.contains('open')) return;
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden','true');
+  modalImg.src = '';
+  // restore focus to trigger
+  try{ modal._trigger && modal._trigger.focus(); }catch(e){}
+}
+
+/* close when clicking overlay (but not when clicking image) */
+modal.addEventListener('click', (ev) => {
+  if(ev.target === modal){
+    closeImageModal();
+  }
 });
 </script>
 
