@@ -59,7 +59,7 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 .policy-body{font-size:14px;color:var(--muted)}
 .policy-body strong{color:var(--accent);font-weight:700}
 
-/* final small note */
+/* final small note (moved to bottom) */
 .policy-foot{margin-top:12px;font-size:13px;color:var(--muted);text-align:left}
 
 /* small helpers */
@@ -113,6 +113,10 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
   border:none;
 }
 .img-modal .close-btn:focus{outline:2px solid #fff}
+
+/* bottom footer wrapper */
+.site-footer{margin-top:20px;padding:12px 6px 36px 6px;text-align:left;font-size:13px;color:var(--muted)}
+.site-footer strong{color:var(--accent)}
 </style>
 </head>
 <body>
@@ -183,12 +187,6 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 
     </div>
 
-    <div class="policy-foot">
-      <div style="margin-top:10px"><strong>After delivery:</strong> Contact us immediately — we will guide you through final setup and show how to run the console and offline games.</div>
-      <div class="kv">Contact: <strong>WhatsApp +91 7983624797</strong></div>
-      <div class="kv">Note: This page and policies are part of the sale terms. By ordering you confirm that you have read and accepted these terms.</div>
-    </div>
-
     <!-- NEW: Important product note inserted here -->
     <div style="margin-top:14px" class="policy-item" aria-live="polite">
       <div class="policy-icon">ℹ️</div>
@@ -202,6 +200,13 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 
   </section>
 
+  <!-- Footer area (placed at very bottom of page) -->
+  <div class="site-footer" role="contentinfo" aria-label="After delivery and contact information">
+    <div><strong>After delivery:</strong> Contact us immediately — we will guide you through final setup and show how to run the console and offline games.</div>
+    <div class="kv"><strong>Contact:</strong> WhatsApp +91 7983624797</div>
+    <div class="kv"><strong>Note:</strong> This page and policies are part of the sale terms. By ordering you confirm that you have read and accepted these terms.</div>
+  </div>
+
 </div>
 
 <!-- Image modal -->
@@ -214,14 +219,13 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 
 <script>
 /* ---------- PRODUCTS DATA ----------
-   Keep IDs p1..p6. Update images/prices if needed. */
+   Keep IDs p1..p5. Removed duplicate p6. Update images/prices if needed. */
 const PRODUCTS = [
   { id: 'p1', title:'PS4 Pro (Imported) — 1TB', fw:'9.0', games:'12–15', warranty:'1 month', storage:'1TB', price:34999, image:'Ps4pro1tb9.0.jpeg' },
   { id: 'p2', title:'PS4 Slim (Imported Japanese) — 1TB (White)', fw:'12.02', games:'12–15', warranty:'1 month', storage:'1TB', price:25500, image:'Ps4slim1tb12.02wht.jpeg' },
   { id: 'p3', title:'PS4 Slim (Imported Japanese) — 500GB', fw:'11.50', games:'12–15', warranty:'1 month', storage:'500GB', price:24500, image:'Ps4slim500gb11.50wht.jpeg' },
   { id: 'p4', title:'PS4 Slim (Imported Japanese) — 1TB (Black)', fw:'12.02', games:'12–15', warranty:'1 month', storage:'1TB', price:25000, image:'Ps4slim12.02blk.jpeg' },
-  { id: 'p5', title:'PS4 Pro (Imported Japanese) — 2TB', fw:'9.0', games:'25–30', warranty:'1 month', storage:'2TB', price:37499, image:'Ps4pro2tb.jpeg' },
-  { id: 'p6', title:'PS4 Slim (Imported Japanese) — 1TB (White) — Duplicate', fw:'12.02', games:'12–15', warranty:'1 month', storage:'1TB', price:25000, image:'Ps4slim1tb12.02wht.jpeg' }
+  { id: 'p5', title:'PS4 Pro (Imported Japanese) — 2TB', fw:'9.0', games:'25–30', warranty:'1 month', storage:'2TB', price:37499, image:'Ps4pro2tb.jpeg' }
 ];
 
 const PREFILL_PAGE = 'order-prefill.html';
@@ -284,7 +288,7 @@ document.addEventListener('click',e=>{
     openImageModal(src, thumb);
   }
 
-  /* modal close button */
+  /* modal close button / overlay */
   if(e.target.id === 'modalClose' || e.target.classList.contains('img-modal')){
     closeImageModal();
   }
