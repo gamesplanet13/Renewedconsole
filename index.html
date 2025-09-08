@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>PS4 Products — All Variants</title>
+<title>PS4 Products — Games Planet</title>
 <style>
 :root{
   --bg:#f6f7fb;
@@ -14,14 +14,77 @@
   --danger:#c2410c;
   --glass: rgba(255,255,255,0.6);
   --social-bg: #f3f4f6;
+  --yt-red: #FF0000;
 }
+
+/* ---------- Glowing animated headline ---------- */
+.hero {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px 12px 6px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.00));
+  -webkit-backdrop-filter: blur(0.0px);
+  backdrop-filter: blur(0.0px);
+}
+.hero h1 {
+  margin:0;
+  font-weight:900;
+  /* responsive size: min 34px, scales with viewport, max 96px */
+  font-size: clamp(34px, 8vw, 96px);
+  line-height:1;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  /* animated gradient fill */
+  background: linear-gradient(90deg,
+    #ff416c 0%,
+    #ff7b00 18%,
+    #ffd400 36%,
+    #32d583 54%,
+    #00b4ff 72%,
+    #7b5cff 90%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientShift 14s linear infinite;
+  /* subtle glow outside text */
+  text-shadow:
+    0 2px 12px rgba(124,58,237,0.10),
+    0 6px 30px rgba(3,105,161,0.06);
+  /* for users who prefer reduced motion */
+  transition: text-shadow .2s linear;
+}
+
+/* extra glow pulse (soft, slow) */
+.hero h1::after{
+  content: "";
+  display:block;
+  position:relative;
+  width:0; height:0;
+  pointer-events:none;
+}
+
+/* keyframes for smooth gradient movement */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; filter: drop-shadow(0 0 0px rgba(0,0,0,0)); }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .hero h1 { animation: none; background-size: 100% 100%; -webkit-background-clip: text; }
+}
+
+/* ---------- Page base styles (kept from prior file) ---------- */
 *{box-sizing:border-box}
 body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);color:var(--accent);-webkit-font-smoothing:antialiased}
 .container{max-width:1200px;margin:0 auto;padding:18px}
 
 /* Header */
 header{margin-bottom:18px;text-align:center}
-header h1{margin:0;font-size:24px;font-weight:800}
+header h2{margin:0;font-size:20px;font-weight:800}
 header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 .header-whatsapp{margin-top:6px;font-weight:700;display:inline-block}
 
@@ -129,7 +192,7 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 .btn-website{background:#111827;color:#fff}
 .btn-indiamart{background:#0a9d58;color:#fff}
 .btn-amazon{background:#FF9900;color:#000}
-.btn-youtube{background:#FF0000;color:#fff} /* all YouTube use this */
+.btn-youtube{background:var(--yt-red);color:#fff}
 .btn-instagram{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);color:#fff}
 .btn-x{background:#0ea5e9;color:#fff}
 .btn-facebook{background:#1877F2;color:#fff}
@@ -178,10 +241,16 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 </style>
 </head>
 <body>
+
+<!-- Glowing big title at the very top -->
+<div class="hero" role="banner" aria-label="Games Planet">
+  <h1>GAMES PLANET</h1>
+</div>
+
 <div class="container">
   <!-- Header -->
   <header>
-    <h1>PS4 Products — All Variants</h1>
+    <h2>PS4 Products — All Variants</h2>
     <p>Prepaid only · No COD · Click <strong>Buy Now</strong> to continue to order prefill.</p>
 
     <!-- Click-to-WhatsApp in header -->
@@ -247,7 +316,7 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
       </div>
     </div>
 
-    <!-- NEW: Important product note inserted here -->
+    <!-- Important product note -->
     <div style="margin-top:14px" class="policy-item" aria-live="polite">
       <div class="policy-icon">ℹ️</div>
       <div class="policy-body">
@@ -288,25 +357,25 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
         Amazon Store
       </a>
 
-      <!-- ALL YouTube buttons use red color and show channel names -->
-      <a class="social-link btn-youtube" href="https://www.youtube.com/c/singhtechgaming" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - SinghTechGaming">
+      <!-- YouTube buttons (red) -->
+      <a class="social-link btn-youtube" href="https://www.youtube.com/c/singhtechgaming" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - SinghTechGaming (Main)">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15l5-3-5-3zM21 8s-.2-1.4-.8-2c-.7-.8-1.5-.8-1.9-.9C15.7 4.8 12 4.8 12 4.8s-3.7 0-6.3.3c-.4 0-1.2.1-1.9.9C3.2 6.6 3 8 3 8S2.7 9.6 2.7 11.1v1.8C2.7 14.4 3 16 3 16s.2 1.4.8 2c.7.8 1.7.8 2.1.9 1.5.2 6.4.3 6.4.3s3.7 0 6.3-.3c.4 0 1.2-.1 1.9-.9.6-.6.8-2 .8-2s.3-1.6.3-3.1v-1.8C21.3 9.6 21 8 21 8z"/></svg>
         SinghTechGaming (Main)
       </a>
 
-      <a class="social-link btn-youtube" href="https://www.youtube.com/@gamesplanet13" target="_blank" rel="noopener noreferrer nofollow me" aria-label="GamesPlanet">
+      <a class="social-link btn-youtube" href="https://www.youtube.com/@gamesplanet13" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - GamesPlanet Setup Guidance">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15l5-3-5-3z"/></svg>
-        GamesPlanet
+        GamesPlanet — Setup Guidance
       </a>
 
-      <a class="social-link btn-youtube" href="https://www.youtube.com/@gamesvallah" target="_blank" rel="noopener noreferrer nofollow me" aria-label="GamesVallah">
+      <a class="social-link btn-youtube" href="https://www.youtube.com/@gamesvallah" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - GamesVallah (Tracks)">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15l5-3-5-3z"/></svg>
-        GamesVallah
+        GamesVallah — Tracks
       </a>
 
-      <a class="social-link btn-youtube" href="https://www.youtube.com/@gamingtechindi" target="_blank" rel="noopener noreferrer nofollow me" aria-label="GamingTechHindi">
+      <a class="social-link btn-youtube" href="https://www.youtube.com/@gamingtechindi" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - GamingTechIndi (New)">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15l5-3-5-3z"/></svg>
-        Gaming Tech Hindi
+        GamingTechIndi — New
       </a>
 
       <a class="social-link btn-instagram" href="https://www.instagram.com/singhtech1/" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Instagram">
@@ -338,13 +407,8 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
         title="Google Map - Invent Computers & Games Planet Rampur"></iframe>
 
       <div class="map-actions">
-        <!-- Open place in Maps (short link provided earlier) -->
         <a class="map-btn" href="https://maps.app.goo.gl/3EdTqEw37URqFSMU8" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
-
-        <!-- GET DIRECTIONS: exact URL you provided -->
         <a class="map-btn" href="https://www.google.com/maps/dir/28.7725003,79.0306025/Invent+Computers+%26+Games+Planet+Rampur,+Radha+Road,+JK's+tyre+Front+of+Raza+suger+mill+gate,+gurdwara+road,+Adarsh+Colony,+Civil+Lines,+Rampur,+Uttar+Pradesh/@28.7777301,79.0230641,16z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x390a92aa19d1975f:0x75b8dc5d12a87650!2m2!1d79.0245045!2d28.7831285?entry=ttu&g_ep=EgoyMDI1MDkwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Get directions</a>
-
-        <!-- View larger map (short link) -->
         <a class="map-btn" href="https://maps.app.goo.gl/3EdTqEw37URqFSMU8" target="_blank" rel="noopener noreferrer">View larger map</a>
       </div>
 
@@ -367,7 +431,7 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 <!-- Floating WhatsApp chat button (fixed to right) -->
 <a id="waChatBtn" class="whatsapp-float" href="#" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
   <span class="whatsapp-floating-icon-only" aria-hidden="true">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.88 11.88 0 0012 .5 11.9 11.9 0 003.48 3.48 11.83 11.83 0 000 12c0 2.1.55 4.16 1.59 5.97L0 24l6.3-1.65A11.86 11.86 0 0012 24c5.31 0 9.71-3.88 10.52-9.02.73-4.68-1.44-8.88-2-11.5zM12 21.5c-1.27 0-2.51-.3-3.64-.9l-.26-.14-3.74.98.98-3.65-.16-.28A8.5 8.5 0 113.5 12 8.45 8.45 0 0012 20.5zM17 14.5c-.26-.13-1.53-.76-1.77-.85s-.41-.13-.59.13-.68.85-.84 1.02-.31.2-.58.07a9.1 9.1 0 01-2.67-1.64c-.99-.98-1.66-2.18-1.85-2.55s0-.56.19-.74.42-.45.63-.68a.8.8 0 00.13-.6c-.03-.2-.59-1.44-.81-1.97s-.43-.45-.59-.46-.35-.01-.53-.01-.46.07-.7.34c-.25.28-.94.91-.94 2.22s.96 2.58 1.09 2.76c.12.19 1.9 2.9 4.61 3.96 3.22 1.27 3.22.85 3.8.79.59-.06 1.56-.62 1.78-1.22.22-.6.22-1.12.15-1.22-.07-.1-.26-.14-.52-.27z"></path></svg>
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.88 11.88 0 0012 .5 11.9 11.9 0 003.48 3.48 11.83 11.83 0 000 12c0 2.1.55 4.16 1.59 5.97L0 24l6.3-1.65A11.86 11.86 0 0012 24c5.31 0 9.71-3.88 10.52-9.02.73-4.68-1.44-8.88-2-11.5zM12 21.5c-1.27 0-2.51-.3-3.64-.9l-.26-.14-3.74.98.98-3.65-.16-.28A8.5 8.5 0 113.5 12 8.45 8.45 0 0012 20.5zM17 14.5c-.26-.13-1.53-.76-1.77-.85s-.41-.13-.59.13-.68.85-.84 1.02-.31.2-.58.07a9.1 9.1 0 01-2.67-1.64c-.99-.98-1.66-2.18-1.85-2.55s0-.56.19-.74.42-.45.63-.68a.8.8 0 00.13-.6c-.03-.2-.59-1.44-.81-1.97s-.43-.45-.59-.46-.35-.01-.53-.01-.46.07-.7.34c-.25.28-.94.91-.94 2.22s.96 2.58 1.09 2.76c.12.19 1.9 2.9 4.61 3.96 3.22 1.27 3.22.85 3.8.79.59-.06 1.56-.62 1.78-1.22.22-.6.22-1.12.15-1.22-.07-.1-.26-.14-.52-.27z"/></svg>
   </span>
   <span style="margin-left:6px">Chat on WhatsApp</span>
 </a>
