@@ -24,18 +24,14 @@
   justify-content:center;
   padding:28px 12px 6px;
   background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.00));
-  -webkit-backdrop-filter: blur(0.0px);
-  backdrop-filter: blur(0.0px);
 }
 .hero h1 {
   margin:0;
   font-weight:900;
-  /* responsive size: min 34px, scales with viewport, max 96px */
   font-size: clamp(34px, 8vw, 96px);
   line-height:1;
   letter-spacing: -1px;
   text-transform: uppercase;
-  /* animated gradient fill */
   background: linear-gradient(90deg,
     #ff416c 0%,
     #ff7b00 18%,
@@ -48,41 +44,23 @@
   background-clip: text;
   color: transparent;
   animation: gradientShift 14s linear infinite;
-  /* subtle glow outside text */
   text-shadow:
     0 2px 12px rgba(124,58,237,0.10),
     0 6px 30px rgba(3,105,161,0.06);
-  /* for users who prefer reduced motion */
-  transition: text-shadow .2s linear;
 }
-
-/* extra glow pulse (soft, slow) */
-.hero h1::after{
-  content: "";
-  display:block;
-  position:relative;
-  width:0; height:0;
-  pointer-events:none;
-}
-
-/* keyframes for smooth gradient movement */
 @keyframes gradientShift {
-  0% { background-position: 0% 50%; filter: drop-shadow(0 0 0px rgba(0,0,0,0)); }
+  0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-
-/* Respect user motion preferences */
 @media (prefers-reduced-motion: reduce) {
-  .hero h1 { animation: none; background-size: 100% 100%; -webkit-background-clip: text; }
+  .hero h1 { animation: none; background-size: 100% 100%; }
 }
 
-/* ---------- Page base styles (kept from prior file) ---------- */
+/* ---------- Page base styles ---------- */
 *{box-sizing:border-box}
 body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);color:var(--accent);-webkit-font-smoothing:antialiased}
 .container{max-width:1200px;margin:0 auto;padding:18px}
-
-/* Header */
 header{margin-bottom:18px;text-align:center}
 header h2{margin:0;font-size:20px;font-weight:800}
 header p{color:var(--muted);margin:6px 0 0;font-size:14px}
@@ -108,81 +86,26 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 12px;border-radius:8px;text-decoration:none;font-weight:800;border:none;cursor:pointer;font-size:14px}
 .btn.buy-now{background:var(--cta);color:#fff;flex:1}
 
-/* Footer note */
-.note-global{margin-top:14px;font-size:13px;color:var(--muted);text-align:center}
-
-/* Policy card (bottom) */
+/* Policy card */
 .policy-wrap{margin-top:22px;border-radius:12px;padding:16px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(249,250,252,0.9));box-shadow:0 8px 26px rgba(6,21,36,0.05);border:1px solid #eef2ff}
 .policy-title{font-weight:800;margin-bottom:10px;font-size:16px}
 .policy-grid{display:grid;grid-template-columns:1fr;gap:12px}
 @media(min-width:900px){ .policy-grid{grid-template-columns:repeat(2,1fr)} }
-
-/* Policy item */
 .policy-item{background:rgba(0,0,0,0.02);padding:12px;border-radius:8px;border:1px dashed #eef4ff;display:flex;gap:12px;align-items:flex-start}
 .policy-icon{font-size:20px;margin-top:2px}
 .policy-body{font-size:14px;color:var(--muted)}
 .policy-body strong{color:var(--accent);font-weight:700}
 
-/* final small note (moved to bottom) */
-.policy-foot{margin-top:12px;font-size:13px;color:var(--muted);text-align:left}
-
-/* small helpers */
-.kv{display:block;color:var(--muted);font-size:13px;margin-top:6px}
-
-/* Image modal (full-screen) */
-.img-modal {
-  position:fixed;
-  inset:0;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  background: rgba(0,0,0,0.75);
-  z-index:1200;
-  padding:18px;
-}
+/* Image modal */
+.img-modal { position:fixed; inset:0; display:none; align-items:center; justify-content:center; background: rgba(0,0,0,0.75); z-index:1200; padding:18px; }
 .img-modal.open { display:flex; }
-.img-modal .modal-inner{
-  position:relative;
-  max-width:1200px;
-  max-height:90vh;
-  width:100%;
-  border-radius:10px;
-  overflow:hidden;
-  background:#0b0b0b;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.img-modal img{
-  max-width:100%;
-  max-height:90vh;
-  object-fit:contain;
-  display:block;
-  border-radius:4px;
-}
-.img-modal .close-btn{
-  position:absolute;
-  top:10px;
-  right:10px;
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  background:rgba(255,255,255,0.9);
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:800;
-  cursor:pointer;
-  box-shadow:0 6px 18px rgba(2,6,23,0.25);
-  border:none;
-}
+.img-modal .modal-inner{ position:relative; max-width:1200px; max-height:90vh; width:100%; border-radius:10px; overflow:hidden; background:#0b0b0b; display:flex; align-items:center; justify-content:center; }
+.img-modal img{ max-width:100%; max-height:90vh; object-fit:contain; display:block; border-radius:4px }
+.img-modal .close-btn{ position:absolute; top:10px; right:10px; width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,0.9); display:inline-flex; align-items:center; justify-content:center; font-weight:800; cursor:pointer; box-shadow:0 6px 18px rgba(2,6,23,0.25); border:none; }
 .img-modal .close-btn:focus{outline:2px solid #fff}
 
-/* bottom footer wrapper */
+/* Social & map */
 .site-footer{margin-top:20px;padding:12px 6px 36px 6px;text-align:left;font-size:13px;color:var(--muted)}
-.site-footer strong{color:var(--accent)}
-
-/* Social area */
 .social-wrap{margin-top:18px;padding:14px;border-radius:10px;background:var(--social-bg);display:flex;flex-direction:column;gap:12px}
 .social-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .social-link{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;color:#fff;text-decoration:none;font-weight:700;border:0;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
@@ -204,204 +127,114 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 .map-actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
 .map-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:8px;background:#0f172a;color:#fff;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
 
-/* Floating WhatsApp chat button (right) */
-.whatsapp-float{
-  position:fixed;
-  right:18px;
-  bottom:24px;
-  z-index:1300;
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:12px 14px;
-  border-radius:999px;
-  background:linear-gradient(90deg,#25D366,#1DA851);
-  color:white;
-  text-decoration:none;
-  box-shadow:0 8px 26px rgba(2,6,23,0.18);
-  font-weight:800;
-  align-items:center;
-}
-.whatsapp-float svg{width:20px;height:20px;display:block}
-.whatsapp-floating-icon-only{
-  width:56px;height:56px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:#25D366;color:#fff;border:none;box-shadow:0 8px 26px rgba(2,6,23,0.2)
-}
-@media(min-width:900px){
-  .whatsapp-float{right:18px;bottom:24px}
-}
-
-/* clickable phone link style */
+/* Floating WhatsApp */
+.whatsapp-float{ position:fixed; right:18px; bottom:24px; z-index:1300; display:inline-flex; align-items:center; gap:10px; padding:12px 14px; border-radius:999px; background:linear-gradient(90deg,#25D366,#1DA851); color:white; text-decoration:none; box-shadow:0 8px 26px rgba(2,6,23,0.18); font-weight:800; align-items:center; }
+.whatsapp-floating-icon-only{ width:56px;height:56px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:#25D366;color:#fff;border:none;box-shadow:0 8px 26px rgba(2,6,23,0.2) }
 .phone-link{color:var(--cta);font-weight:800;text-decoration:none}
 
-/* small screen adjust for footer layout */
-@media(max-width:640px){
-  .social-row{flex-direction:column;align-items:stretch}
-  .map-embed{height:220px}
-}
+@media(max-width:640px){ .social-row{flex-direction:column;align-items:stretch} .map-embed{height:220px} }
 </style>
 </head>
 <body>
 
-<!-- Glowing big title at the very top -->
+<!-- Glowing title -->
 <div class="hero" role="banner" aria-label="Games Planet">
   <h1>GAMES PLANET</h1>
 </div>
 
 <div class="container">
-  <!-- Header -->
   <header>
     <h2>PS4 Products — All Variants</h2>
     <p>Prepaid only · No COD · Click <strong>Buy Now</strong> to continue to order prefill.</p>
-
-    <!-- Click-to-WhatsApp in header -->
     <div class="header-whatsapp">
       <a class="phone-link" id="headerWa" href="#" target="_blank" rel="noopener noreferrer">WhatsApp: +91 7983624797</a>
     </div>
   </header>
 
-  <!-- Product Grid -->
   <main class="grid" id="products-grid" aria-live="polite"></main>
 
-  <!-- Policy (styled, grouped) -->
   <section class="policy-wrap" aria-labelledby="policy-heading">
     <div id="policy-heading" class="policy-title">Seller Policy & Warranty — Important</div>
-
     <div class="policy-grid">
-      <div class="policy-item">
-        <div class="policy-icon">🛡️</div>
-        <div class="policy-body">
-          <strong>What we sell</strong><br>
-          We sell only <strong>renewed</strong> and <strong>imported</strong> PS4 consoles. We do <em>not</em> compete with or match cheaper, used, or repaired units from the market — those are often inexpensive because their build quality and durability are not comparable to our products.
-        </div>
-      </div>
-
-      <div class="policy-item">
-        <div class="policy-icon">⚠️</div>
-        <div class="policy-body">
-          <strong>Price & bargaining</strong><br>
-          If you find a significantly cheaper unit elsewhere, feel free to buy from that seller — we have no scope for bargaining. Please do not compare our units directly to low-cost used/repaired items.
-        </div>
-      </div>
-
-      <div class="policy-item">
-        <div class="policy-icon">🔧</div>
-        <div class="policy-body">
-          <strong>1 month seller warranty</strong><br>
-          We provide a <strong>1 month seller warranty</strong> on the console hardware only. This warranty covers defects in the console unit as sold by us.
-        </div>
-      </div>
-
-      <div class="policy-item">
-        <div class="policy-icon">💾</div>
-        <div class="policy-body">
-          <strong>Jailbreak, software & games — <span style="color:var(--danger)">Not covered</span></strong><br>
-          Jailbreak (JB) software, installed games, and any game data are <strong>not</strong> part of the warranty. We are <strong>not responsible</strong> if game files get deleted or become corrupted. In such cases you will need to pay for re-installation.
-        </div>
-      </div>
-
-      <div class="policy-item">
-        <div class="policy-icon">📶</div>
-        <div class="policy-body">
-          <strong>Important: Do NOT connect to the internet</strong><br>
-          The sets are provided on a JB firmware where offline games run properly. If you connect the console to the internet and the system updates, you become responsible for any resulting issues. Downgrading after an online update can cost <strong>₹3,000–₹4,000</strong> (games not included). Game installation charges are extra.
-        </div>
-      </div>
-
-      <div class="policy-item">
-        <div class="policy-icon">🚚</div>
-        <div class="policy-body">
-          <strong>Shipping / courier</strong><br>
-          Courier charges for both sides (seller → buyer and buyer → seller) are the buyer's responsibility unless otherwise agreed. If return shipping is required under warranty, the courier cost(s) are borne by the buyer.
-        </div>
-      </div>
+      <div class="policy-item"><div class="policy-icon">🛡️</div><div class="policy-body"><strong>What we sell</strong><br>We sell only <strong>renewed</strong> and <strong>imported</strong> PS4 consoles.</div></div>
+      <div class="policy-item"><div class="policy-icon">⚠️</div><div class="policy-body"><strong>Price & bargaining</strong><br>If you find a significantly cheaper unit elsewhere, feel free to buy from that seller.</div></div>
+      <div class="policy-item"><div class="policy-icon">🔧</div><div class="policy-body"><strong>1 month seller warranty</strong><br>We provide a <strong>1 month seller warranty</strong> on the console hardware only.</div></div>
+      <div class="policy-item"><div class="policy-icon">💾</div><div class="policy-body"><strong>Jailbreak, software & games — <span style="color:var(--danger)">Not covered</span></strong><br>JB software, installed games, and game data are not part of the warranty.</div></div>
+      <div class="policy-item"><div class="policy-icon">📶</div><div class="policy-body"><strong>Important: Do NOT connect to the internet</strong><br>Connecting may update the system and cause issues; downgrade costs apply.</div></div>
+      <div class="policy-item"><div class="policy-icon">🚚</div><div class="policy-body"><strong>Shipping / courier</strong><br>Courier charges for returns under warranty are borne by the buyer unless agreed otherwise.</div></div>
     </div>
 
-    <!-- Important product note -->
     <div style="margin-top:14px" class="policy-item" aria-live="polite">
       <div class="policy-icon">ℹ️</div>
       <div class="policy-body">
         <strong>Important product note</strong><br>
-        All consoles are <strong>renewed</strong> and may not arrive in original retail packaging. Minor cosmetic marks or scratches can sometimes be present — this does not affect performance. We guarantee that the quality of the console is never compromised: units are not returned-opened or repaired before sale, and we ensure the best possible quality.<br><br>
-        Each console is shipped with either a <strong>brand-new True Replica controller</strong> (fully functional in all games) or a <strong>refurbished original controller</strong>, depending on available stock. Both options are tested and verified. If you want, you may add an <strong>extra controller</strong> as an add-on; additional charges will apply.<br><br>
-        Prices displayed on the website are <strong>inclusive of standard courier and packaging</strong>. We do not offer fast or premium delivery options, but we take responsibility for ensuring that the product is delivered to you safely.
+        All consoles are <strong>renewed</strong> and may not arrive in original retail packaging. Minor cosmetic marks or scratches can sometimes be present — this does not affect performance. Each console ships with either a <strong>brand-new True Replica controller</strong> or a <strong>refurbished original controller</strong> depending on stock. Prices shown include standard courier & packaging.
       </div>
     </div>
-
   </section>
 
-  <!-- Footer area (placed at very bottom of page) -->
   <div class="site-footer" role="contentinfo" aria-label="After delivery and contact information">
     <div><strong>After delivery:</strong> Contact us immediately — we will guide you through final setup and show how to run the console and offline games.</div>
-    <!-- Clickable footer WhatsApp number -->
     <div class="kv"><strong>Contact:</strong> <a id="footerWa" class="phone-link" href="#" target="_blank" rel="noopener noreferrer">WhatsApp +91 7983624797</a></div>
     <div class="kv"><strong>Note:</strong> This page and policies are part of the sale terms. By ordering you confirm that you have read and accepted these terms.</div>
   </div>
 
-  <!-- Social & map area (very bottom) -->
   <section class="social-wrap" aria-label="Social media and location">
     <div style="font-weight:800">Connect with us</div>
 
     <div class="social-row" role="navigation" aria-label="Social links">
-      <a class="social-link btn-website" href="https://gamesplanet.shop" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Visit our website">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l9 8h-3v7h-4v-5H10v5H6v-7H3z"/></svg>
-        Website
+      <a class="social-link btn-website" href="https://gamesplanet.shop" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Website">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l9 8h-3v7h-4v-5H10v5H6v-7H3z"/></svg> Website
       </a>
 
-      <a class="social-link btn-indiamart" href="https://www.indiamart.com/gamesplanet/?srsltid=AfmBOopSrM8pUorP7nUB93rFKxqYgisXTS5zXn00xBUgytNPbHLu2ZvZ" target="_blank" rel="noopener noreferrer nofollow me" aria-label="IndiaMART page">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h18v2H3zM5 10h14v8H5z"/></svg>
-        IndiaMART
+      <a class="social-link btn-indiamart" href="https://www.indiamart.com/gamesplanet/?srsltid=AfmBOopSrM8pUorP7nUB93rFKxqYgisXTS5zXn00xBUgytNPbHLu2ZvZ" target="_blank" rel="noopener noreferrer nofollow me" aria-label="IndiaMART">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h18v2H3zM5 10h14v8H5z"/></svg> IndiaMART
       </a>
 
-      <a class="social-link btn-amazon" href="https://amzn.to/462ogbG" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Amazon store">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h2l1.68 7.39L9 21h10v-2H9.6L8.1 9H20V7H7.5"/></svg>
-        Amazon Store
+      <a class="social-link btn-amazon" href="https://amzn.to/462ogbG" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Amazon">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h2l1.68 7.39L9 21h10v-2H9.6L8.1 9H20V7H7.5"/></svg> Amazon Store
       </a>
 
-      <!-- YouTube buttons (red) -->
-      <a class="social-link btn-youtube" href="https://www.youtube.com/c/singhtechgaming" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - SinghTechGaming (Main)">
+      <!-- YouTube buttons with the exact channel names you asked for -->
+      <a class="social-link btn-youtube" href="https://www.youtube.com/c/singhtechgaming" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - SinghTechGaming">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15l5-3-5-3zM21 8s-.2-1.4-.8-2c-.7-.8-1.5-.8-1.9-.9C15.7 4.8 12 4.8 12 4.8s-3.7 0-6.3.3c-.4 0-1.2.1-1.9.9C3.2 6.6 3 8 3 8S2.7 9.6 2.7 11.1v1.8C2.7 14.4 3 16 3 16s.2 1.4.8 2c.7.8 1.7.8 2.1.9 1.5.2 6.4.3 6.4.3s3.7 0 6.3-.3c.4 0 1.2-.1 1.9-.9.6-.6.8-2 .8-2s.3-1.6.3-3.1v-1.8C21.3 9.6 21 8 21 8z"/></svg>
-        SinghTechGaming (Main)
+        SinghTechGaming
       </a>
 
-      <a class="social-link btn-youtube" href="https://www.youtube.com/@gamesplanet13" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - GamesPlanet Setup Guidance">
+      <a class="social-link btn-youtube" href="https://www.youtube.com/@gamesplanet13" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - GamesPlanet">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15l5-3-5-3z"/></svg>
-        GamesPlanet — Setup Guidance
+        GamesPlanet
       </a>
 
-      <a class="social-link btn-youtube" href="https://www.youtube.com/@gamesvallah" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - GamesVallah (Tracks)">
+      <a class="social-link btn-youtube" href="https://www.youtube.com/@gamesvallah" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - GamesVallah">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15l5-3-5-3z"/></svg>
-        GamesVallah — Tracks
+        GamesVallah
       </a>
 
-      <a class="social-link btn-youtube" href="https://www.youtube.com/@gamingtechindi" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - GamingTechIndi (New)">
+      <a class="social-link btn-youtube" href="https://www.youtube.com/@gamingtechindi" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - GamingAA">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15l5-3-5-3z"/></svg>
-        GamingTechIndi — New
+        GamingAA
       </a>
 
       <a class="social-link btn-instagram" href="https://www.instagram.com/singhtech1/" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5.5A4.5 4.5 0 1016.5 12 4.5 4.5 0 0012 7.5zM18 6.7a1 1 0 11-1-1 1 1 0 011 1z"/></svg>
-        Instagram
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5.5A4.5 4.5 0 1016.5 12 4.5 4.5 0 0012 7.5zM18 6.7a1 1 0 11-1-1 1 1 0 011 1z"/></svg> Instagram
       </a>
 
-      <a class="social-link btn-x" href="https://x.com/singhtechgaming" target="_blank" rel="noopener noreferrer nofollow me" aria-label="X (Twitter)">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 5.9c-.6.3-1.2.5-1.8.6.6-.4 1.1-1 1.3-1.7-.6.4-1.3.8-2.1 1-1.3-1.4-3.6-1-4.8.5-1 1.3-.8 3.1.6 4-.5 0-1-.2-1.5-.4-.4 1.7.6 3.3 2.3 3.7-.5.1-1 .1-1.5 0 .4 1.4 1.7 2.2 3.1 2.2-1.4 1.1-3.3 1.6-5 1.4 1.9 1.2 4.2 1.3 6.3.3 2.2-1 3.6-3.2 3.6-5.8v-.3c.7-.5 1.2-1.3 1.6-2z"/></svg>
-        X
+      <a class="social-link btn-x" href="https://x.com/singhtechgaming" target="_blank" rel="noopener noreferrer nofollow me" aria-label="X">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 5.9c-.6.3-1.2.5-1.8.6.6-.4 1.1-1 1.3-1.7-.6.4-1.3.8-2.1 1-1.3-1.4-3.6-1-4.8.5-1 1.3-.8 3.1.6 4-.5 0-1-.2-1.5-.4-.4 1.7.6 3.3 2.3 3.7-.5.1-1 .1-1.5 0 .4 1.4 1.7 2.2 3.1 2.2-1.4 1.1-3.3 1.6-5 1.4 1.9 1.2 4.2 1.3 6.3.3 2.2-1 3.6-3.2 3.6-5.8v-.3c.7-.5 1.2-1.3 1.6-2z"/></svg> X
       </a>
 
       <a class="social-link btn-facebook" href="https://www.facebook.com/SINGHTECH1/" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Facebook">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 10-11.5 9.9v-7H8.9v-2.9h1.6V9.5c0-1.6.96-2.5 2.43-2.5.7 0 1.43.13 1.43.13v1.6h-.82c-.81 0-1.06.5-1.06 1.02v1.23h1.8l-.29 2.9h-1.5v7A10 10 0 0022 12z"/></svg>
-        Facebook
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 10-11.5 9.9v-7H8.9v-2.9h1.6V9.5c0-1.6.96-2.5 2.43-2.5.7 0 1.43.13 1.43.13v1.6h-.82c-.81 0-1.06.5-1.06 1.02v1.23h1.8l-.29 2.9h-1.5v7A10 10 0 0022 12z"/></svg> Facebook
       </a>
 
       <a class="social-link btn-blog" href="https://singhtechgaming.blogspot.com/" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Blog">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h16v2H4zM4 8h10v2H4zM4 12h16v6H4z"/></svg>
-        Blog
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h16v2H4zM4 8h10v2H4zM4 12h16v6H4z"/></svg> Blog
       </a>
     </div>
 
     <div style="font-weight:700; margin-top:8px">Our location</div>
     <div class="map-wrap" aria-hidden="false" style="display:block">
-      <!-- Embedded map using coordinates/zoom -->
       <iframe class="map-embed" loading="lazy"
         src="https://www.google.com/maps?q=28.7831285,79.0245045&z=21&output=embed"
         title="Google Map - Invent Computers & Games Planet Rampur"></iframe>
@@ -428,7 +261,7 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
   </div>
 </div>
 
-<!-- Floating WhatsApp chat button (fixed to right) -->
+<!-- Floating WhatsApp -->
 <a id="waChatBtn" class="whatsapp-float" href="#" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
   <span class="whatsapp-floating-icon-only" aria-hidden="true">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.88 11.88 0 0012 .5 11.9 11.9 0 003.48 3.48 11.83 11.83 0 000 12c0 2.1.55 4.16 1.59 5.97L0 24l6.3-1.65A11.86 11.86 0 0012 24c5.31 0 9.71-3.88 10.52-9.02.73-4.68-1.44-8.88-2-11.5zM12 21.5c-1.27 0-2.51-.3-3.64-.9l-.26-.14-3.74.98.98-3.65-.16-.28A8.5 8.5 0 113.5 12 8.45 8.45 0 0012 20.5zM17 14.5c-.26-.13-1.53-.76-1.77-.85s-.41-.13-.59.13-.68.85-.84 1.02-.31.2-.58.07a9.1 9.1 0 01-2.67-1.64c-.99-.98-1.66-2.18-1.85-2.55s0-.56.19-.74.42-.45.63-.68a.8.8 0 00.13-.6c-.03-.2-.59-1.44-.81-1.97s-.43-.45-.59-.46-.35-.01-.53-.01-.46.07-.7.34c-.25.28-.94.91-.94 2.22s.96 2.58 1.09 2.76c.12.19 1.9 2.9 4.61 3.96 3.22 1.27 3.22.85 3.8.79.59-.06 1.56-.62 1.78-1.22.22-.6.22-1.12.15-1.22-.07-.1-.26-.14-.52-.27z"/></svg>
@@ -437,8 +270,7 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 </a>
 
 <script>
-/* ---------- PRODUCTS DATA ----------
-   Keep IDs p1..p5. Update images/prices if needed. */
+/* Products */
 const PRODUCTS = [
   { id: 'p1', title:'PS4 Pro (Imported) — 1TB', fw:'9.0', games:'12–15', warranty:'1 month', storage:'1TB', price:34999, image:'Ps4pro1tb9.0.jpeg' },
   { id: 'p2', title:'PS4 Slim (Imported Japanese) — 1TB (White)', fw:'12.02', games:'12–15', warranty:'1 month', storage:'1TB', price:25500, image:'Ps4slim1tb12.02wht.jpeg' },
@@ -446,13 +278,8 @@ const PRODUCTS = [
   { id: 'p4', title:'PS4 Slim (Imported Japanese) — 1TB (Black)', fw:'12.02', games:'12–15', warranty:'1 month', storage:'1TB', price:25000, image:'Ps4slim12.02blk.jpeg' },
   { id: 'p5', title:'PS4 Pro (Imported Japanese) — 2TB', fw:'9.0', games:'25–30', warranty:'1 month', storage:'2TB', price:37499, image:'Ps4pro2tb.jpeg' }
 ];
-
 const PREFILL_PAGE = 'order-prefill.html';
-
-/* helper */
 function formatRs(n){return '₹'+(Number(n)||0).toLocaleString('en-IN');}
-
-/* render grid */
 const grid=document.getElementById('products-grid');
 PRODUCTS.forEach(p=>{
   const card=document.createElement('article');
@@ -484,110 +311,44 @@ PRODUCTS.forEach(p=>{
   grid.appendChild(card);
 });
 
-/* Buy Now click → navigate to prefill page with query params */
+/* Image modal & keyboard */
 document.addEventListener('click',e=>{
   const buy = e.target.closest('.buy-now'); if(buy){
-    const id = buy.getAttribute('data-id');
-    const product = PRODUCTS.find(x=>x.id===id); if(!product) return;
-
+    const id = buy.getAttribute('data-id'); const product = PRODUCTS.find(x=>x.id===id); if(!product) return;
     const params = new URLSearchParams();
     params.set('product', product.title);
     params.set('variant', `Firmware ${product.fw}, ${product.storage}`);
     params.set('base', String(product.price));
-
-    // open the prefill page in same folder
     window.location.href = PREFILL_PAGE + '?' + params.toString();
     return;
   }
-
-  /* image click -> open modal */
   const thumb = e.target.closest('.thumb');
-  if(thumb){
-    const src = thumb.getAttribute('data-src') || thumb.querySelector('img')?.src;
-    openImageModal(src, thumb);
-  }
-
-  /* modal close button / overlay */
-  if(e.target.id === 'modalClose' || e.target.classList.contains('img-modal')){
-    closeImageModal();
-  }
+  if(thumb){ const src = thumb.getAttribute('data-src') || thumb.querySelector('img')?.src; openImageModal(src, thumb); }
+  if(e.target.id === 'modalClose' || e.target.classList.contains('img-modal')){ closeImageModal(); }
 });
-
-/* keyboard support: Enter on thumb opens; Esc closes */
 document.addEventListener('keydown', (ev) => {
   if(ev.key === 'Escape'){ closeImageModal(); return; }
-  if(ev.key === 'Enter'){
-    const active = document.activeElement;
-    if(active && active.classList && active.classList.contains('thumb')){
-      const src = active.getAttribute('data-src') || active.querySelector('img')?.src;
-      openImageModal(src, active);
-    }
-  }
+  if(ev.key === 'Enter'){ const active = document.activeElement; if(active && active.classList && active.classList.contains('thumb')){ const src = active.getAttribute('data-src') || active.querySelector('img')?.src; openImageModal(src, active); } }
 });
-
-/* Also open on focusing and pressing Space (accessibility) */
 document.addEventListener('keypress', (ev) => {
-  if(ev.key === ' '){
-    const active = document.activeElement;
-    if(active && active.classList && active.classList.contains('thumb')){
-      ev.preventDefault();
-      const src = active.getAttribute('data-src') || active.querySelector('img')?.src;
-      openImageModal(src, active);
-    }
-  }
+  if(ev.key === ' '){ const active = document.activeElement; if(active && active.classList && active.classList.contains('thumb')){ ev.preventDefault(); const src = active.getAttribute('data-src') || active.querySelector('img')?.src; openImageModal(src, active); } }
 });
-
-/* modal functions */
 const modal = document.getElementById('imgModal');
 const modalImg = document.getElementById('modalImg');
 const modalCloseBtn = document.getElementById('modalClose');
+function openImageModal(src, triggerEl){ if(!src) return; modalImg.src = src; modalImg.alt = 'Product image'; modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); modalCloseBtn.focus(); modal._trigger = triggerEl || document.activeElement; }
+function closeImageModal(){ if(!modal.classList.contains('open')) return; modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); modalImg.src = ''; try{ modal._trigger && modal._trigger.focus(); }catch(e){} }
+modal.addEventListener('click', (ev) => { if(ev.target === modal){ closeImageModal(); } });
 
-function openImageModal(src, triggerEl){
-  if(!src) return;
-  modalImg.src = src;
-  modalImg.alt = 'Product image';
-  modal.classList.add('open');
-  modal.setAttribute('aria-hidden','false');
-  modalCloseBtn.focus();
-  // remember trigger to restore focus when closed
-  modal._trigger = triggerEl || document.activeElement;
-}
-
-function closeImageModal(){
-  if(!modal.classList.contains('open')) return;
-  modal.classList.remove('open');
-  modal.setAttribute('aria-hidden','true');
-  modalImg.src = '';
-  // restore focus to trigger
-  try{ modal._trigger && modal._trigger.focus(); }catch(e){}
-}
-
-/* close when clicking overlay (but not when clicking image) */
-modal.addEventListener('click', (ev) => {
-  if(ev.target === modal){
-    closeImageModal();
-  }
-});
-
-/* ---------------- WhatsApp floating button ----------------
-   Uses your WhatsApp number and a prefilled message.
------------------------------------------------------------*/
-const rawNumber = '+91 7983624797';
-const waDigits = '917983624797'; // phone in international digits (no +)
+/* WhatsApp links */
+const waDigits = '917983624797';
 const prefill = encodeURIComponent('Hello, I want to buy a PS4 and I agree with your console prices. Please give me payment options.');
 const waApi = `https://api.whatsapp.com/send?phone=${waDigits}&text=${prefill}`;
-
-/* Set floating WA button */
 const waBtn = document.getElementById('waChatBtn');
 waBtn.href = waApi;
-
-/* Make header & footer phone links open WA too */
 document.getElementById('headerWa').href = waApi;
 document.getElementById('footerWa').href = waApi;
-
-/* Also useful: make any future elements with class .wa-link point to WA */
 document.querySelectorAll('.wa-link').forEach(el => el.href = waApi);
-
 </script>
 
 </body>
