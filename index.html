@@ -14,7 +14,7 @@
   --danger:#c2410c;
   --glass: rgba(255,255,255,0.6);
   --social-bg: #f3f4f6;
-  --yt-red: #FF0000;
+  --yt-red:#FF0000;
 }
 
 /* ---------- Glowing animated headline ---------- */
@@ -26,38 +26,16 @@
   background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.00));
 }
 .hero h1 {
-  margin:0;
-  font-weight:900;
-  font-size: clamp(34px, 8vw, 96px);
-  line-height:1;
-  letter-spacing: -1px;
-  text-transform: uppercase;
-  background: linear-gradient(90deg,
-    #ff416c 0%,
-    #ff7b00 18%,
-    #ffd400 36%,
-    #32d583 54%,
-    #00b4ff 72%,
-    #7b5cff 90%);
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: gradientShift 14s linear infinite;
-  text-shadow:
-    0 2px 12px rgba(124,58,237,0.10),
-    0 6px 30px rgba(3,105,161,0.06);
+  margin:0;font-weight:900;font-size:clamp(34px,8vw,96px);line-height:1;letter-spacing:-1px;text-transform:uppercase;
+  background: linear-gradient(90deg,#ff416c 0%,#ff7b00 18%,#ffd400 36%,#32d583 54%,#00b4ff 72%,#7b5cff 90%);
+  background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:gradientShift 14s linear infinite;
+  text-shadow:0 2px 12px rgba(124,58,237,0.10),0 6px 30px rgba(3,105,161,0.06);
 }
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero h1 { animation: none; background-size: 100% 100%; }
-}
+@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@media (prefers-reduced-motion: reduce){ .hero h1{ animation:none; background-size:100% 100%; } }
 
-/* ---------- Page base styles ---------- */
+/* ---------- Base page styles ---------- */
 *{box-sizing:border-box}
 body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);color:var(--accent);-webkit-font-smoothing:antialiased}
 .container{max-width:1200px;margin:0 auto;padding:18px}
@@ -66,13 +44,11 @@ header h2{margin:0;font-size:20px;font-weight:800}
 header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 .header-whatsapp{margin-top:6px;font-weight:700;display:inline-block}
 
-/* Grid */
+/* Grid & cards */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
 .card{background:var(--card);border-radius:12px;padding:14px;box-shadow:0 6px 20px rgba(6,21,36,0.06);display:flex;flex-direction:column;gap:12px}
 .thumb{width:100%;max-height:260px;overflow:hidden;border-radius:10px;border:1px solid #e6e9ef;display:flex;justify-content:center;align-items:center;background:#fff;cursor:zoom-in}
 .thumb img{width:100%;height:auto;object-fit:contain;display:block}
-
-/* Card content */
 .row{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .price{font-size:18px;font-weight:800;color:#0f172a}
 .meta{font-size:13px;color:var(--muted)}
@@ -80,13 +56,11 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 .prepaid{display:inline-block;background:#eefbf2;color:#066a3b;padding:4px 8px;border-radius:8px;font-weight:600;font-size:12px}
 .specs{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;font-size:13px;color:var(--muted)}
 .specs div{background:#fbfdff;padding:8px;border-radius:8px;border:1px solid #eef2ff}
-
-/* Buttons */
 .controls{display:flex;gap:8px}
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 12px;border-radius:8px;text-decoration:none;font-weight:800;border:none;cursor:pointer;font-size:14px}
 .btn.buy-now{background:var(--cta);color:#fff;flex:1}
 
-/* Policy card */
+/* Policy */
 .policy-wrap{margin-top:22px;border-radius:12px;padding:16px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(249,250,252,0.9));box-shadow:0 8px 26px rgba(6,21,36,0.05);border:1px solid #eef2ff}
 .policy-title{font-weight:800;margin-bottom:10px;font-size:16px}
 .policy-grid{display:grid;grid-template-columns:1fr;gap:12px}
@@ -96,7 +70,7 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 .policy-body{font-size:14px;color:var(--muted)}
 .policy-body strong{color:var(--accent);font-weight:700}
 
-/* Image modal */
+/* Modal */
 .img-modal { position:fixed; inset:0; display:none; align-items:center; justify-content:center; background: rgba(0,0,0,0.75); z-index:1200; padding:18px; }
 .img-modal.open { display:flex; }
 .img-modal .modal-inner{ position:relative; max-width:1200px; max-height:90vh; width:100%; border-radius:10px; overflow:hidden; background:#0b0b0b; display:flex; align-items:center; justify-content:center; }
@@ -110,8 +84,6 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 .social-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .social-link{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;color:#fff;text-decoration:none;font-weight:700;border:0;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
 .social-link svg{width:18px;height:18px;display:block;opacity:0.98}
-
-/* Brand colors */
 .btn-website{background:#111827;color:#fff}
 .btn-indiamart{background:#0a9d58;color:#fff}
 .btn-amazon{background:#FF9900;color:#000}
@@ -120,19 +92,81 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 .btn-x{background:#0ea5e9;color:#fff}
 .btn-facebook{background:#1877F2;color:#fff}
 .btn-blog{background:#0f172a;color:#fff}
-
-/* Map */
 .map-wrap{border:1px solid #e6e9ef;border-radius:8px;overflow:hidden;padding:12px;background:#fff}
 .map-embed{width:100%;height:300px;border:0;display:block}
 .map-actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
 .map-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:8px;background:#0f172a;color:#fff;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
 
-/* Floating WhatsApp */
-.whatsapp-float{ position:fixed; right:18px; bottom:24px; z-index:1300; display:inline-flex; align-items:center; gap:10px; padding:12px 14px; border-radius:999px; background:linear-gradient(90deg,#25D366,#1DA851); color:white; text-decoration:none; box-shadow:0 8px 26px rgba(2,6,23,0.18); font-weight:800; align-items:center; }
-.whatsapp-floating-icon-only{ width:56px;height:56px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:#25D366;color:#fff;border:none;box-shadow:0 8px 26px rgba(2,6,23,0.2) }
-.phone-link{color:var(--cta);font-weight:800;text-decoration:none}
+/* Small circular floating buttons (WhatsApp + Call) */
+.float-stack{
+  position:fixed;
+  right:18px;
+  bottom:22px;
+  z-index:1400;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:center;
+}
+.float-btn{
+  width:52px;
+  height:52px;
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 10px 24px rgba(2,6,23,0.18);
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.float-btn:active{ transform:scale(.98); }
+.float-btn:focus{ outline:3px solid rgba(37,211,102,0.18); outline-offset:2px; }
 
-@media(max-width:640px){ .social-row{flex-direction:column;align-items:stretch} .map-embed{height:220px} }
+/* whatsapp style (green) */
+.float-wa{
+  background:linear-gradient(180deg,#25D366,#1DA851);
+  color:#fff;
+  width:48px;height:48px;
+}
+
+/* call style (dark neutral) */
+.float-call{
+  background:#111827;
+  color:#fff;
+  width:48px;height:48px;
+}
+
+/* small label that appears on hover (desktop) */
+.float-label{
+  display:none;
+  position:relative;
+  right:70px;
+  background:rgba(0,0,0,0.85);
+  color:#fff;
+  padding:8px 10px;
+  border-radius:8px;
+  font-weight:700;
+  font-size:13px;
+  white-space:nowrap;
+}
+.float-item{display:flex;align-items:center;gap:8px;}
+
+/* show label on hover for pointer devices */
+@media (hover:hover) and (pointer:fine){
+  .float-item:hover .float-label{display:block}
+}
+
+/* responsive tweak for very small screens */
+@media(max-width:420px){
+  .float-stack{ right:12px; bottom:12px; gap:8px; }
+  .float-btn{ width:44px;height:44px; }
+  .float-label{ right:62px; font-size:12px; padding:6px 8px;}
+}
+
+/* clickable phone link style used elsewhere */
+.phone-link{color:var(--cta);font-weight:800;text-decoration:none}
 </style>
 </head>
 <body>
@@ -183,54 +217,28 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
     <div style="font-weight:800">Connect with us</div>
 
     <div class="social-row" role="navigation" aria-label="Social links">
-      <a class="social-link btn-website" href="https://gamesplanet.shop" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Website">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l9 8h-3v7h-4v-5H10v5H6v-7H3z"/></svg> Website
-      </a>
+      <a class="social-link btn-website" href="https://gamesplanet.shop" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Website"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l9 8h-3v7h-4v-5H10v5H6v-7H3z"/></svg> Website</a>
 
-      <a class="social-link btn-indiamart" href="https://www.indiamart.com/gamesplanet/?srsltid=AfmBOopSrM8pUorP7nUB93rFKxqYgisXTS5zXn00xBUgytNPbHLu2ZvZ" target="_blank" rel="noopener noreferrer nofollow me" aria-label="IndiaMART">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h18v2H3zM5 10h14v8H5z"/></svg> IndiaMART
-      </a>
+      <a class="social-link btn-indiamart" href="https://www.indiamart.com/gamesplanet/?srsltid=AfmBOopSrM8pUorP7nUB93rFKxqYgisXTS5zXn00xBUgytNPbHLu2ZvZ" target="_blank" rel="noopener noreferrer nofollow me" aria-label="IndiaMART"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h18v2H3zM5 10h14v8H5z"/></svg> IndiaMART</a>
 
-      <a class="social-link btn-amazon" href="https://amzn.to/462ogbG" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Amazon">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h2l1.68 7.39L9 21h10v-2H9.6L8.1 9H20V7H7.5"/></svg> Amazon Store
-      </a>
+      <a class="social-link btn-amazon" href="https://amzn.to/462ogbG" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Amazon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h2l1.68 7.39L9 21h10v-2H9.6L8.1 9H20V7H7.5"/></svg> Amazon Store</a>
 
-      <!-- YouTube buttons with the exact channel names you asked for -->
-      <a class="social-link btn-youtube" href="https://www.youtube.com/c/singhtechgaming" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - SinghTechGaming">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15l5-3-5-3zM21 8s-.2-1.4-.8-2c-.7-.8-1.5-.8-1.9-.9C15.7 4.8 12 4.8 12 4.8s-3.7 0-6.3.3c-.4 0-1.2.1-1.9.9C3.2 6.6 3 8 3 8S2.7 9.6 2.7 11.1v1.8C2.7 14.4 3 16 3 16s.2 1.4.8 2c.7.8 1.7.8 2.1.9 1.5.2 6.4.3 6.4.3s3.7 0 6.3-.3c.4 0 1.2-.1 1.9-.9.6-.6.8-2 .8-2s.3-1.6.3-3.1v-1.8C21.3 9.6 21 8 21 8z"/></svg>
-        SinghTechGaming
-      </a>
+      <!-- YouTube buttons (exact channel labels) -->
+      <a class="social-link btn-youtube" href="https://www.youtube.com/c/singhtechgaming" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - SinghTechGaming"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15l5-3-5-3zM21 8s-.2-1.4-.8-2c-.7-.8-1.5-.8-1.9-.9C15.7 4.8 12 4.8 12 4.8s-3.7 0-6.3.3c-.4 0-1.2.1-1.9.9C3.2 6.6 3 8 3 8S2.7 9.6 2.7 11.1v1.8C2.7 14.4 3 16 3 16s.2 1.4.8 2c.7.8 1.7.8 2.1.9 1.5.2 6.4.3 6.4.3s3.7 0 6.3-.3c.4 0 1.2-.1 1.9-.9.6-.6.8-2 .8-2s.3-1.6.3-3.1v-1.8C21.3 9.6 21 8 21 8z"/></svg> SinghTechGaming</a>
 
-      <a class="social-link btn-youtube" href="https://www.youtube.com/@gamesplanet13" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - GamesPlanet">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15l5-3-5-3z"/></svg>
-        GamesPlanet
-      </a>
+      <a class="social-link btn-youtube" href="https://www.youtube.com/@gamesplanet13" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - GamesPlanet"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15l5-3-5-3z"/></svg> GamesPlanet</a>
 
-      <a class="social-link btn-youtube" href="https://www.youtube.com/@gamesvallah" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - GamesVallah">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15l5-3-5-3z"/></svg>
-        GamesVallah
-      </a>
+      <a class="social-link btn-youtube" href="https://www.youtube.com/@gamesvallah" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - GamesVallah"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15l5-3-5-3z"/></svg> GamesVallah</a>
 
-      <a class="social-link btn-youtube" href="https://www.youtube.com/@gamingtechindi" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - GamingAA">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15l5-3-5-3z"/></svg>
-        GamingAA
-      </a>
+      <a class="social-link btn-youtube" href="https://www.youtube.com/@gamingtechindi" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - GamingAA"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15l5-3-5-3z"/></svg> GamingAA</a>
 
-      <a class="social-link btn-instagram" href="https://www.instagram.com/singhtech1/" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5.5A4.5 4.5 0 1016.5 12 4.5 4.5 0 0012 7.5zM18 6.7a1 1 0 11-1-1 1 1 0 011 1z"/></svg> Instagram
-      </a>
+      <a class="social-link btn-instagram" href="https://www.instagram.com/singhtech1/" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5.5A4.5 4.5 0 1016.5 12 4.5 4.5 0 0012 7.5zM18 6.7a1 1 0 11-1-1 1 1 0 011 1z"/></svg> Instagram</a>
 
-      <a class="social-link btn-x" href="https://x.com/singhtechgaming" target="_blank" rel="noopener noreferrer nofollow me" aria-label="X">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 5.9c-.6.3-1.2.5-1.8.6.6-.4 1.1-1 1.3-1.7-.6.4-1.3.8-2.1 1-1.3-1.4-3.6-1-4.8.5-1 1.3-.8 3.1.6 4-.5 0-1-.2-1.5-.4-.4 1.7.6 3.3 2.3 3.7-.5.1-1 .1-1.5 0 .4 1.4 1.7 2.2 3.1 2.2-1.4 1.1-3.3 1.6-5 1.4 1.9 1.2 4.2 1.3 6.3.3 2.2-1 3.6-3.2 3.6-5.8v-.3c.7-.5 1.2-1.3 1.6-2z"/></svg> X
-      </a>
+      <a class="social-link btn-x" href="https://x.com/singhtechgaming" target="_blank" rel="noopener noreferrer nofollow me" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 5.9c-.6.3-1.2.5-1.8.6.6-.4 1.1-1 1.3-1.7-.6.4-1.3.8-2.1 1-1.3-1.4-3.6-1-4.8.5-1 1.3-.8 3.1.6 4-.5 0-1-.2-1.5-.4-.4 1.7.6 3.3 2.3 3.7-.5.1-1 .1-1.5 0 .4 1.4 1.7 2.2 3.1 2.2-1.4 1.1-3.3 1.6-5 1.4 1.9 1.2 4.2 1.3 6.3.3 2.2-1 3.6-3.2 3.6-5.8v-.3c.7-.5 1.2-1.3 1.6-2z"/></svg> X</a>
 
-      <a class="social-link btn-facebook" href="https://www.facebook.com/SINGHTECH1/" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Facebook">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 10-11.5 9.9v-7H8.9v-2.9h1.6V9.5c0-1.6.96-2.5 2.43-2.5.7 0 1.43.13 1.43.13v1.6h-.82c-.81 0-1.06.5-1.06 1.02v1.23h1.8l-.29 2.9h-1.5v7A10 10 0 0022 12z"/></svg> Facebook
-      </a>
+      <a class="social-link btn-facebook" href="https://www.facebook.com/SINGHTECH1/" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 10-11.5 9.9v-7H8.9v-2.9h1.6V9.5c0-1.6.96-2.5 2.43-2.5.7 0 1.43.13 1.43.13v1.6h-.82c-.81 0-1.06.5-1.06 1.02v1.23h1.8l-.29 2.9h-1.5v7A10 10 0 0022 12z"/></svg> Facebook</a>
 
-      <a class="social-link btn-blog" href="https://singhtechgaming.blogspot.com/" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Blog">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h16v2H4zM4 8h10v2H4zM4 12h16v6H4z"/></svg> Blog
-      </a>
+      <a class="social-link btn-blog" href="https://singhtechgaming.blogspot.com/" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Blog"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h16v2H4zM4 8h10v2H4zM4 12h16v6H4z"/></svg> Blog</a>
     </div>
 
     <div style="font-weight:700; margin-top:8px">Our location</div>
@@ -245,9 +253,7 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
         <a class="map-btn" href="https://maps.app.goo.gl/3EdTqEw37URqFSMU8" target="_blank" rel="noopener noreferrer">View larger map</a>
       </div>
 
-      <div style="margin-top:8px;font-size:13px;color:var(--muted)">
-        <strong>Place:</strong> Invent Computers & Games Planet Rampur — <a href="https://maps.app.goo.gl/3EdTqEw37URqFSMU8" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
-      </div>
+      <div style="margin-top:8px;font-size:13px;color:var(--muted)"><strong>Place:</strong> Invent Computers & Games Planet Rampur — <a href="https://maps.app.goo.gl/3EdTqEw37URqFSMU8" target="_blank" rel="noopener noreferrer">Open in Google Maps</a></div>
     </div>
   </section>
 
@@ -261,16 +267,32 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
   </div>
 </div>
 
-<!-- Floating WhatsApp -->
-<a id="waChatBtn" class="whatsapp-float" href="#" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-  <span class="whatsapp-floating-icon-only" aria-hidden="true">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.88 11.88 0 0012 .5 11.9 11.9 0 003.48 3.48 11.83 11.83 0 000 12c0 2.1.55 4.16 1.59 5.97L0 24l6.3-1.65A11.86 11.86 0 0012 24c5.31 0 9.71-3.88 10.52-9.02.73-4.68-1.44-8.88-2-11.5zM12 21.5c-1.27 0-2.51-.3-3.64-.9l-.26-.14-3.74.98.98-3.65-.16-.28A8.5 8.5 0 113.5 12 8.45 8.45 0 0012 20.5zM17 14.5c-.26-.13-1.53-.76-1.77-.85s-.41-.13-.59.13-.68.85-.84 1.02-.31.2-.58.07a9.1 9.1 0 01-2.67-1.64c-.99-.98-1.66-2.18-1.85-2.55s0-.56.19-.74.42-.45.63-.68a.8.8 0 00.13-.6c-.03-.2-.59-1.44-.81-1.97s-.43-.45-.59-.46-.35-.01-.53-.01-.46.07-.7.34c-.25.28-.94.91-.94 2.22s.96 2.58 1.09 2.76c.12.19 1.9 2.9 4.61 3.96 3.22 1.27 3.22.85 3.8.79.59-.06 1.56-.62 1.78-1.22.22-.6.22-1.12.15-1.22-.07-.1-.26-.14-.52-.27z"/></svg>
-  </span>
-  <span style="margin-left:6px">Chat on WhatsApp</span>
-</a>
+<!-- Floating small buttons: WhatsApp (icon) + Call (icon) -->
+<div class="float-stack" aria-hidden="false" aria-label="Chat and call actions">
+  <div class="float-item">
+    <a id="waIconBtn" class="float-btn float-wa" href="#" role="button" aria-label="Chat on WhatsApp (opens in new tab)" target="_blank" rel="noopener noreferrer">
+      <!-- WhatsApp SVG -->
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20.52 3.48A11.88 11.88 0 0012 .5 11.9 11.9 0 003.48 3.48 11.83 11.83 0 000 12c0 2.1.55 4.16 1.59 5.97L0 24l6.3-1.65A11.86 11.86 0 0012 24c5.31 0 9.71-3.88 10.52-9.02.73-4.68-1.44-8.88-2-11.5z" fill="#fff"/>
+        <path d="M17 14.5c-.26-.13-1.53-.76-1.77-.85s-.41-.13-.59.13-.68.85-.84 1.02-.31.2-.58.07a9.1 9.1 0 01-2.67-1.64c-.99-.98-1.66-2.18-1.85-2.55s0-.56.19-.74.42-.45.63-.68a.8.8 0 00.13-.6c-.03-.2-.59-1.44-.81-1.97s-.43-.45-.59-.46-.35-.01-.53-.01-.46.07-.7.34c-.25.28-.94.91-.94 2.22s.96 2.58 1.09 2.76c.12.19 1.9 2.9 4.61 3.96 3.22 1.27 3.22.85 3.8.79.59-.06 1.56-.62 1.78-1.22.22-.6.22-1.12.15-1.22-.07-.1-.26-.14-.52-.27z" fill="#fff"/>
+      </svg>
+    </a>
+    <div class="float-label" aria-hidden="true">Chat on WhatsApp</div>
+  </div>
+
+  <div class="float-item">
+    <a id="callIconBtn" class="float-btn float-call" href="tel:+917983624797" role="button" aria-label="Call +91 7983624797">
+      <!-- Phone SVG -->
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.6 10a15.1 15.1 0 006.4 6.4l2.2-2.2a1 1 0 01.9-.25c1 .25 2 .38 3 .38a1 1 0 011 1v3a1 1 0 01-1 1C9.9 20 4 14.1 4 6.5A1 1 0 015 5.5h3a1 1 0 011 1c0 1 .12 2 .38 3a1 1 0 01-.25.9L6.6 10z" fill="#fff"/>
+      </svg>
+    </a>
+    <div class="float-label" aria-hidden="true">Call us</div>
+  </div>
+</div>
 
 <script>
-/* Products */
+/* ---------- PRODUCTS DATA ---------- */
 const PRODUCTS = [
   { id: 'p1', title:'PS4 Pro (Imported) — 1TB', fw:'9.0', games:'12–15', warranty:'1 month', storage:'1TB', price:34999, image:'Ps4pro1tb9.0.jpeg' },
   { id: 'p2', title:'PS4 Slim (Imported Japanese) — 1TB (White)', fw:'12.02', games:'12–15', warranty:'1 month', storage:'1TB', price:25500, image:'Ps4slim1tb12.02wht.jpeg' },
@@ -311,7 +333,7 @@ PRODUCTS.forEach(p=>{
   grid.appendChild(card);
 });
 
-/* Image modal & keyboard */
+/* Click handlers: Buy, thumbnails, modal close */
 document.addEventListener('click',e=>{
   const buy = e.target.closest('.buy-now'); if(buy){
     const id = buy.getAttribute('data-id'); const product = PRODUCTS.find(x=>x.id===id); if(!product) return;
@@ -326,6 +348,8 @@ document.addEventListener('click',e=>{
   if(thumb){ const src = thumb.getAttribute('data-src') || thumb.querySelector('img')?.src; openImageModal(src, thumb); }
   if(e.target.id === 'modalClose' || e.target.classList.contains('img-modal')){ closeImageModal(); }
 });
+
+/* Keyboard & accessibility */
 document.addEventListener('keydown', (ev) => {
   if(ev.key === 'Escape'){ closeImageModal(); return; }
   if(ev.key === 'Enter'){ const active = document.activeElement; if(active && active.classList && active.classList.contains('thumb')){ const src = active.getAttribute('data-src') || active.querySelector('img')?.src; openImageModal(src, active); } }
@@ -333,22 +357,36 @@ document.addEventListener('keydown', (ev) => {
 document.addEventListener('keypress', (ev) => {
   if(ev.key === ' '){ const active = document.activeElement; if(active && active.classList && active.classList.contains('thumb')){ ev.preventDefault(); const src = active.getAttribute('data-src') || active.querySelector('img')?.src; openImageModal(src, active); } }
 });
+
+/* Modal functions */
 const modal = document.getElementById('imgModal');
 const modalImg = document.getElementById('modalImg');
 const modalCloseBtn = document.getElementById('modalClose');
-function openImageModal(src, triggerEl){ if(!src) return; modalImg.src = src; modalImg.alt = 'Product image'; modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); modalCloseBtn.focus(); modal._trigger = triggerEl || document.activeElement; }
+function openImageModal(src, triggerEl){ if(!src) return; modalImg.src = src; modalImg.alt = 'Product image'; modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); modalCloseBtn.focus(); modal._trigger = triggerEl || document.activeElement;}
 function closeImageModal(){ if(!modal.classList.contains('open')) return; modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); modalImg.src = ''; try{ modal._trigger && modal._trigger.focus(); }catch(e){} }
 modal.addEventListener('click', (ev) => { if(ev.target === modal){ closeImageModal(); } });
 
-/* WhatsApp links */
-const waDigits = '917983624797';
-const prefill = encodeURIComponent('Hello, I want to buy a PS4 and I agree with your console prices. Please give me payment options.');
-const waApi = `https://api.whatsapp.com/send?phone=${waDigits}&text=${prefill}`;
-const waBtn = document.getElementById('waChatBtn');
-waBtn.href = waApi;
-document.getElementById('headerWa').href = waApi;
-document.getElementById('footerWa').href = waApi;
-document.querySelectorAll('.wa-link').forEach(el => el.href = waApi);
+/* ------------- WhatsApp & Call links ------------- */
+const waDigits = '917983624797'; // international without +
+const waPrefill = encodeURIComponent('Hello, I want to buy a PS4 and I agree with your console prices. Please give me payment options.');
+const waUrl = `https://api.whatsapp.com/send?phone=${waDigits}&text=${waPrefill}`;
+
+// Set header/footer number links to WhatsApp
+document.getElementById('headerWa').href = waUrl;
+document.getElementById('footerWa').href = waUrl;
+
+// Floating WhatsApp button
+const waIconBtn = document.getElementById('waIconBtn');
+waIconBtn.href = waUrl;
+
+// Floating Call button (tel link already set in markup) — ensure supported format
+const callIconBtn = document.getElementById('callIconBtn');
+callIconBtn.href = 'tel:+917983624797';
+
+/* For keyboard users: open WhatsApp when Enter/Space on icon */
+waIconBtn.addEventListener('keydown', (e) => { if(e.key==='Enter' || e.key===' ') { e.preventDefault(); window.open(waUrl, '_blank'); } });
+callIconBtn.addEventListener('keydown', (e) => { if(e.key==='Enter' || e.key===' ') { e.preventDefault(); window.location.href = 'tel:+917983624797'; } });
+
 </script>
 
 </body>
