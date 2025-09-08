@@ -23,6 +23,7 @@ body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);
 header{margin-bottom:18px;text-align:center}
 header h1{margin:0;font-size:24px;font-weight:800}
 header p{color:var(--muted);margin:6px 0 0;font-size:14px}
+.header-whatsapp{margin-top:6px;font-weight:700;display:inline-block}
 
 /* Grid */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
@@ -121,12 +122,27 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 /* Social area */
 .social-wrap{margin-top:18px;padding:14px;border-radius:10px;background:var(--social-bg);display:flex;flex-direction:column;gap:12px}
 .social-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.social-link{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;background:#fff;border:1px solid #e6e9ef;text-decoration:none;color:var(--accent);font-weight:700}
-.social-link svg{width:18px;height:18px;display:block}
+.social-link{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;color:#fff;text-decoration:none;font-weight:700;border:0;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
+.social-link svg{width:18px;height:18px;display:block;opacity:0.98}
+
+/* Brand colors (background) - readable white text */
+.btn-website{background:#111827;color:#fff}           /* dark neutral */
+.btn-indiamart{background:#0a9d58;color:#fff}         /* IndiaMART green */
+.btn-amazon{background:#FF9900;color:#000}            /* Amazon orange (black text for contrast) */
+.btn-youtube{background:#FF0000;color:#fff}          /* YouTube red */
+.btn-youtube-setup{background:#FF0000;color:#fff}
+.btn-youtube-tracks{background:#FF0000;color:#fff}
+.btn-youtube-new{background:#FF0000;color:#fff}
+.btn-instagram{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);color:#fff} /* Instagram gradient */
+.btn-x{background:#0ea5e9;color:#fff}                 /* X/Twitter blue */
+.btn-facebook{background:#1877F2;color:#fff}         /* Facebook blue */
+.btn-blog{background:#0f172a;color:#fff}             /* dark neutral for blog */
 
 /* Map */
-.map-wrap{border:1px solid #e6e9ef;border-radius:8px;overflow:hidden}
+.map-wrap{border:1px solid #e6e9ef;border-radius:8px;overflow:hidden;padding:12px;background:#fff}
 .map-embed{width:100%;height:300px;border:0;display:block}
+.map-actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.map-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:8px;background:#0f172a;color:#fff;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
 
 /* Floating WhatsApp chat button (right) */
 .whatsapp-float{
@@ -154,6 +170,9 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
   .whatsapp-float{right:18px;bottom:24px}
 }
 
+/* clickable phone link style */
+.phone-link{color:var(--cta);font-weight:800;text-decoration:none}
+
 /* small screen adjust for footer layout */
 @media(max-width:640px){
   .social-row{flex-direction:column;align-items:stretch}
@@ -167,7 +186,11 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
   <header>
     <h1>PS4 Products — All Variants</h1>
     <p>Prepaid only · No COD · Click <strong>Buy Now</strong> to continue to order prefill.</p>
-    <p style="margin-top:6px"><strong>WhatsApp: +91 7983624797</strong></p>
+
+    <!-- Click-to-WhatsApp in header -->
+    <div class="header-whatsapp">
+      <a class="phone-link" id="headerWa" href="#" target="_blank" rel="noopener noreferrer">WhatsApp: +91 7983624797</a>
+    </div>
   </header>
 
   <!-- Product Grid -->
@@ -243,7 +266,8 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
   <!-- Footer area (placed at very bottom of page) -->
   <div class="site-footer" role="contentinfo" aria-label="After delivery and contact information">
     <div><strong>After delivery:</strong> Contact us immediately — we will guide you through final setup and show how to run the console and offline games.</div>
-    <div class="kv"><strong>Contact:</strong> WhatsApp +91 7983624797</div>
+    <!-- Clickable footer WhatsApp number -->
+    <div class="kv"><strong>Contact:</strong> <a id="footerWa" class="phone-link" href="#" target="_blank" rel="noopener noreferrer">WhatsApp +91 7983624797</a></div>
     <div class="kv"><strong>Note:</strong> This page and policies are part of the sale terms. By ordering you confirm that you have read and accepted these terms.</div>
   </div>
 
@@ -252,27 +276,82 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
     <div style="font-weight:800">Connect with us</div>
 
     <div class="social-row" role="navigation" aria-label="Social links">
-      <a class="social-link" href="https://gamesplanet.shop" target="_blank" rel="noopener noreferrer">Website</a>
-      <a class="social-link" href="https://www.indiamart.com/gamesplanet/?srsltid=AfmBOopSrM8pUorP7nUB93rFKxqYgisXTS5zXn00xBUgytNPbHLu2ZvZ" target="_blank" rel="noopener noreferrer">IndiaMART</a>
-      <a class="social-link" href="https://amzn.to/462ogbG" target="_blank" rel="noopener noreferrer">Amazon Store</a>
+      <a class="social-link btn-website" href="https://gamesplanet.shop" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Visit our website">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l9 8h-3v7h-4v-5H10v5H6v-7H3z"/></svg>
+        Website
+      </a>
 
-      <a class="social-link" href="https://www.youtube.com/c/singhtechgaming" target="_blank" rel="noopener noreferrer">YouTube - Main</a>
-      <a class="social-link" href="https://www.youtube.com/@gamesplanet13" target="_blank" rel="noopener noreferrer">YouTube - Setup/Guidance</a>
-      <a class="social-link" href="https://www.youtube.com/@gamesvallah" target="_blank" rel="noopener noreferrer">YouTube - Tracks</a>
-      <a class="social-link" href="https://www.youtube.com/@gamingtechindi" target="_blank" rel="noopener noreferrer">YouTube - New</a>
+      <a class="social-link btn-indiamart" href="https://www.indiamart.com/gamesplanet/?srsltid=AfmBOopSrM8pUorP7nUB93rFKxqYgisXTS5zXn00xBUgytNPbHLu2ZvZ" target="_blank" rel="noopener noreferrer nofollow me" aria-label="IndiaMART page">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h18v2H3zM5 10h14v8H5z"/></svg>
+        IndiaMART
+      </a>
 
-      <a class="social-link" href="https://www.instagram.com/singhtech1/" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a class="social-link" href="https://x.com/singhtechgaming" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
-      <a class="social-link" href="https://www.facebook.com/SINGHTECH1/" target="_blank" rel="noopener noreferrer">Facebook</a>
-      <a class="social-link" href="https://singhtechgaming.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog</a>
+      <a class="social-link btn-amazon" href="https://amzn.to/462ogbG" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Amazon store">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h2l1.68 7.39L9 21h10v-2H9.6L8.1 9H20V7H7.5"/></svg>
+        Amazon Store
+      </a>
+
+      <a class="social-link btn-youtube" href="https://www.youtube.com/c/singhtechgaming" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - Main">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15l5-3-5-3zM21 8s-.2-1.4-.8-2c-.7-.8-1.5-.8-1.9-.9C15.7 4.8 12 4.8 12 4.8s-3.7 0-6.3.3c-.4 0-1.2.1-1.9.9C3.2 6.6 3 8 3 8S2.7 9.6 2.7 11.1v1.8C2.7 14.4 3 16 3 16s.2 1.4.8 2c.7.8 1.7.8 2.1.9 1.5.2 6.4.3 6.4.3s3.7 0 6.3-.3c.4 0 1.2-.1 1.9-.9.6-.6.8-2 .8-2s.3-1.6.3-3.1v-1.8C21.3 9.6 21 8 21 8z"/></svg>
+        YouTube - Main
+      </a>
+
+      <a class="social-link btn-youtube-setup" href="https://www.youtube.com/@gamesplanet13" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - Setup/Guidance">
+        YouTube - Setup
+      </a>
+
+      <a class="social-link btn-youtube-tracks" href="https://www.youtube.com/@gamesvallah" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - Tracks">
+        YouTube - Tracks
+      </a>
+
+      <a class="social-link btn-youtube-new" href="https://www.youtube.com/@gamingtechindi" target="_blank" rel="noopener noreferrer nofollow me" aria-label="YouTube - New">
+        YouTube - New
+      </a>
+
+      <a class="social-link btn-instagram" href="https://www.instagram.com/singhtech1/" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5.5A4.5 4.5 0 1016.5 12 4.5 4.5 0 0012 7.5zM18 6.7a1 1 0 11-1-1 1 1 0 011 1z"/></svg>
+        Instagram
+      </a>
+
+      <a class="social-link btn-x" href="https://x.com/singhtechgaming" target="_blank" rel="noopener noreferrer nofollow me" aria-label="X (Twitter)">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 5.9c-.6.3-1.2.5-1.8.6.6-.4 1.1-1 1.3-1.7-.6.4-1.3.8-2.1 1-1.3-1.4-3.6-1-4.8.5-1 1.3-.8 3.1.6 4-.5 0-1-.2-1.5-.4-.4 1.7.6 3.3 2.3 3.7-.5.1-1 .1-1.5 0 .4 1.4 1.7 2.2 3.1 2.2-1.4 1.1-3.3 1.6-5 1.4 1.9 1.2 4.2 1.3 6.3.3 2.2-1 3.6-3.2 3.6-5.8v-.3c.7-.5 1.2-1.3 1.6-2z"/></svg>
+        X
+      </a>
+
+      <a class="social-link btn-facebook" href="https://www.facebook.com/SINGHTECH1/" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 10-11.5 9.9v-7H8.9v-2.9h1.6V9.5c0-1.6.96-2.5 2.43-2.5.7 0 1.43.13 1.43.13v1.6h-.82c-.81 0-1.06.5-1.06 1.02v1.23h1.8l-.29 2.9h-1.5v7A10 10 0 0022 12z"/></svg>
+        Facebook
+      </a>
+
+      <a class="social-link btn-blog" href="https://singhtechgaming.blogspot.com/" target="_blank" rel="noopener noreferrer nofollow me" aria-label="Blog">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h16v2H4zM4 8h10v2H4zM4 12h16v6H4z"/></svg>
+        Blog
+      </a>
     </div>
 
     <div style="font-weight:700; margin-top:8px">Our location</div>
     <div class="map-wrap" aria-hidden="false" style="display:block">
-      <!-- Embedded map using the coordinates and high zoom level you provided -->
+      <!-- Embedded map using coordinates/zoom -->
       <iframe class="map-embed" loading="lazy"
         src="https://www.google.com/maps?q=28.7831285,79.0245045&z=21&output=embed"
         title="Google Map - Invent Computers & Games Planet Rampur"></iframe>
+
+      <div class="map-actions">
+        <!-- Open place in Maps -->
+        <a class="map-btn" href="https://www.google.com/maps/place/Invent+Computers+%26+Games+Planet+Rampur/@28.7831023,79.0244282,21z" target="_blank" rel="noopener noreferrer">
+          Open in Google Maps
+        </a>
+
+        <!-- Directions button (opens Google Maps directions to coordinates) -->
+        <a class="map-btn" href="https://www.google.com/maps/dir/?api=1&destination=28.7831285,79.0245045" target="_blank" rel="noopener noreferrer">
+          Get directions
+        </a>
+
+        <!-- Open location in Street View (optional, using same coords) -->
+        <a class="map-btn" href="https://www.google.com/maps?q=28.7831285,79.0245045&z=21" target="_blank" rel="noopener noreferrer">
+          View larger map
+        </a>
+      </div>
 
       <div style="margin-top:8px;font-size:13px;color:var(--muted)">
         <strong>Place:</strong> Invent Computers & Games Planet Rampur — <a href="https://www.google.com/maps/place/Invent+Computers+%26+Games+Planet+Rampur/@28.7831023,79.0244282,21z/data=!4m6!3m5!1s0x390a92aa19d1975f:0x75b8dc5d12a87650!8m2!3d28.7831285!4d79.0245045!16s%2Fg%2F11b6wflnhr?hl=en-US&entry=ttu&g_ep=EgoyMDI1MDkwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
@@ -434,15 +513,22 @@ modal.addEventListener('click', (ev) => {
 /* ---------------- WhatsApp floating button ----------------
    Uses your WhatsApp number and a prefilled message.
 -----------------------------------------------------------*/
-const waNumber = '+917983624797'; // international format
+const rawNumber = '+91 7983624797';
+const waDigits = '917983624797'; // phone in international digits (no +)
 const prefill = encodeURIComponent('Hello, I want to buy a PS4 and I agree with your console prices. Please give me payment options.');
-const waUrl = `https://api.whatsapp.com/send?phone=${waNumber.replace(/[^\d+]/g,'')}&text=${prefill}`;
+const waApi = `https://api.whatsapp.com/send?phone=${waDigits}&text=${prefill}`;
 
+/* Set floating WA button */
 const waBtn = document.getElementById('waChatBtn');
-waBtn.href = waUrl;
-waBtn.addEventListener('click', ()=> {
-  // link opens WhatsApp in a new tab
-});
+waBtn.href = waApi;
+
+/* Make header & footer phone links open WA too */
+document.getElementById('headerWa').href = waApi;
+document.getElementById('footerWa').href = waApi;
+
+/* Also useful: make any future elements with class .wa-link point to WA */
+document.querySelectorAll('.wa-link').forEach(el => el.href = waApi);
+
 </script>
 
 </body>
