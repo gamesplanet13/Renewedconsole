@@ -97,7 +97,6 @@
     <!-- Mini Preview under pincode -->
     <div id="miniPreview" class="hint" style="margin-top:8px; display:none">
       <div>🟢 <b>Prepaid</b> — ⏳ ETA: <span id="preEta">—</span> • 📅 Delivery: <span id="preRange">—</span></div>
-      <div>🔴 <b>COD</b> — ⏳ ETA: <span id="codEta">—</span> • 📅 Delivery: <span id="codRange">—</span></div>
     </div>
 
     <div class="grid3" style="margin-top:8px">
@@ -157,31 +156,27 @@
         <select id="addonSelect">
           <option value="" data-price="0">— Select —</option>
 
-          <!-- Controllers -->
-          <option value="Wire Gamepad (PS2 wired controller)" data-price="399">Wire Gamepad (PS2 wired controller) — ₹399</option>
-          <option value="USB Wired Controller (PC)" data-price="399">USB Wired Controller (PC) — ₹399</option>
-          <option value="Wireless Gamepad" data-price="749">Wireless Gamepad — ₹749</option>
+          <!-- Custom list as requested (spelling & sentences corrected) -->
+          <option value="BLACK CONTROLLER (Generic)" data-price="1199">BLACK CONTROLLER (Generic) — ₹1199</option>
+          <option value="BLACK CONTROLLER (OG)" data-price="2999">BLACK CONTROLLER (OG) — ₹2999</option>
+          <option value="PLAYx Controller" data-price="1599">PLAYx Controller — ₹1599</option>
+          <option value="PlayX Controller (Spiderman Theme)" data-price="1799">PlayX Controller (Spiderman Theme) — ₹1799</option>
+          <option value="USB Cable (OG) Micro USB for Controller Charge" data-price="399">USB Cable (OG) Micro USB for Controller Charge — ₹399</option>
+          <option value="USB Cable (Generic) Micro USB for Controller Charge" data-price="99">USB Cable (Generic) Micro USB for Controller Charge — ₹99</option>
+          <option value="PS4 Slim Power Cable" data-price="299">PS4 Slim Power Cable — ₹299</option>
+          <option value="PS4 Slim Sticker" data-price="99">PS4 Slim Sticker — ₹99</option>
+          <option value="PS4 Controller Skin" data-price="299">PS4 Controller Skin — ₹299</option>
+          <option value="PS4-5 Thumb Grip" data-price="50">PS4-5 Thumb Grip — ₹50</option>
+          <option value="USB to C Type Cable for PS4 and PS5 (OG)" data-price="399">USB to C Type Cable for PS4 and PS5 (OG) — ₹399</option>
+          <option value="USB to C Type Cable for PS4 and PS5 (Generic)" data-price="99">USB to C Type Cable for PS4 and PS5 (Generic) — ₹99</option>
+          <option value="HDMI Generic 1.5m" data-price="99">HDMI Generic 1.5m — ₹99</option>
+          <option value="HDMI P5 1.5m" data-price="399">HDMI P5 1.5m — ₹399</option>
+          <option value="HDMI Honeywell 2m (Premium Cable)" data-price="650">HDMI Honeywell 2m (Premium Cable) — ₹650</option>
+          <option value="5m Generic HDMI Cable" data-price="299">5m Generic HDMI Cable — ₹299</option>
+          <option value="500GB USB External HDD (Preloaded with Games)" data-price="2999">500GB USB External HDD (Preloaded with Games) — ₹2999</option>
+          <option value="1TB USB External HDD (Preloaded with Games)" data-price="5699">1TB USB External HDD (Preloaded with Games) — ₹5699</option>
+          <option value="2TB USB External HDD (Preloaded with Games)" data-price="10999">2TB USB External HDD (Preloaded with Games) — ₹10999</option>
 
-          <!-- Cables / HDMI -->
-          <option value="HDMI Converter" data-price="499">HDMI Converter — ₹499</option>
-          <option value="HDMI Cable" data-price="99">HDMI Cable — ₹99</option>
-          <option value="Best HDMI Cable" data-price="349">Best HDMI Cable — ₹349</option>
-
-          <!-- Memory / cards -->
-          <option value="Blank Memory Card 8MB" data-price="549">Blank Memory Card 8MB — ₹549</option>
-
-          <!-- Stickers / small -->
-          <option value="PS2 Slim Sticker/Skin" data-price="60">PS2 Slim Sticker/Skin — ₹60</option>
-
-          <!-- Batteries (Duracell separate items) -->
-          <option value="AAA Batteries of Duracell PACK OF 4" data-price="88">AAA Batteries of Duracell PACK OF 4 — ₹88</option>
-          <option value="AA Batteries of Duracell PACK OF 4" data-price="88">AA Batteries of Duracell PACK OF 4 — ₹88</option>
-          <option value="AAA RECHARGEABLE BATTERIES PACK OF 4" data-price="599">AAA RECHARGEABLE BATTERIES PACK OF 4 — ₹599</option>
-          <option value="AAA/AA BATTERIES CHARGER 4 SLOT" data-price="450">AAA/AA BATTERIES CHARGER 4 SLOT — ₹450</option>
-          <option value="AAA 4 BATTERIES AND 4 PORT CHARGER COMBO" data-price="919">AAA 4 BATTERIES AND 4 PORT CHARGER COMBO — ₹919</option>
-
-          <!-- Courier / service -->
-          <option value="TRACKON.IN PRIME COURIER SERVICE" data-price="200">TRACKON.IN PRIME COURIER SERVICE — ₹200</option>
         </select>
       </div>
       <div>
@@ -193,7 +188,7 @@
         <input id="addonQty" type="number" min="1" step="1" value="1" />
       </div>
       <div style="align-self:flex-end">
-        <button id="addAddonBtn" class="ghost" onclick="addAddonFromPicker()" disabled>Add this to your order</button>
+        <button id="addAddonBtn" class="ghost" aria-label="add-addon" onclick="addAddonFromPicker()" disabled>Add this to your order</button>
       </div>
     </div>
     <div class="hint" id="addonsHelp">Add-ons are optional. Pick from dropdown → set Qty → “Add this to your order”. Names & prices fixed; only quantity editable.</div>
@@ -203,10 +198,10 @@
   <div class="card">
     <span class="badge">Payment Mode</span>
     <div class="btns">
+      <!-- COD button removed; only Prepaid -->
       <button id="btn-prepaid" class="ghost" onclick="setMode('prepaid')">🟢 Prepaid</button>
-      <button id="btn-cod" class="ghost" onclick="setMode('cod')">🔴 COD</button>
     </div>
-    <div class="hint" id="codNote">COD rules: ≥ ₹1899 → ₹0 • ₹1399–₹1898 → ₹99 • &lt; ₹1399 → No COD</div>
+    <div class="hint" id="codNote">Only Prepaid payments are allowed.</div>
   </div>
 
   <!-- Coupon (Prepaid only) -->
@@ -232,7 +227,7 @@
       <input id="amountPaid_pre" type="number" placeholder="₹ (auto)" readonly>
     </div>
 
-    <!-- COD only -->
+    <!-- COD block left in code but will remain hidden because COD button removed and mode won't be set to cod -->
     <div id="codBlock" style="display:none">
       <div class="label">COD Charges</div>
       <input id="codCharges" type="number" placeholder="₹ (auto)" readonly>
@@ -278,7 +273,7 @@ const WHATSAPP_PHONE="917983624797";
 const UPI_ID="paytmqr5hyx5o@ptys";
 const UPI_NAME="Surender Kaur";
 
-/* === COD RULES === */
+/* === COD RULES (kept for compatibility but COD UI removed) === */
 const COD_ALLOW_MIN = 1399;      // below this → No COD
 const COD_FREE_THRESHOLD = 1899;  // ≥ this → COD charges 0
 const COD_MID_CHARGE = 99;        // between 1399 and 1898 → ₹99
@@ -480,35 +475,42 @@ function currentCodCharge(sub){
   return null; // not allowed
 }
 function updateCodButton(){
-  const codBtn=document.getElementById("btn-cod");
+  // guard: btn-cod may be removed from DOM — handle safely
+  const codBtn = document.getElementById("btn-cod");
   const sub=getSubtotal();
   const eligible=codEligible();
   const charge=currentCodCharge(sub);
 
-  if(!eligible){
-    codBtn.setAttribute("disabled","disabled");
-    document.getElementById("codNote").textContent="COD not available below ₹1399";
+  if(codBtn){
+    if(!eligible){
+      codBtn.setAttribute("disabled","disabled");
+      const noteEl = document.getElementById("codNote");
+      if(noteEl) noteEl.textContent="COD not available below ₹1399";
+      if(mode==="cod"){ mode="prepaid"; setModeBadge(); document.getElementById("prepaidBlock").style.display="block"; document.getElementById("codBlock").style.display="none"; }
+    }else{
+      codBtn.removeAttribute("disabled");
+      const noteEl = document.getElementById("codNote");
+      if(noteEl) noteEl.textContent = (charge===0)
+        ? "COD charges: ₹0 (Subtotal ≥ ₹1899)"
+        : "COD charges: ₹99 (Subtotal ₹1399–₹1898)";
+    }
+  } else {
+    // no COD button in UI; ensure COD block hidden and prepaid active
+    const noteEl = document.getElementById("codNote");
+    if(noteEl) noteEl.textContent = "Only Prepaid payments are allowed.";
     if(mode==="cod"){ mode="prepaid"; setModeBadge(); document.getElementById("prepaidBlock").style.display="block"; document.getElementById("codBlock").style.display="none"; }
-  }else{
-    codBtn.removeAttribute("disabled");
-    document.getElementById("codNote").textContent = (charge===0)
-      ? "COD charges: ₹0 (Subtotal ≥ ₹1899)"
-      : "COD charges: ₹99 (Subtotal ₹1399–₹1898)";
   }
 }
 
 /* ===== Mode toggle ===== */
 function setMode(m){
-  if(m==="cod" && !codEligible()){
-    alert("Subtotal ₹1399 se niche hai — COD allowed nahi.");
-    return;
-  }
-  mode=m;
-  document.getElementById("btn-prepaid").className=(m==="prepaid"?"ghost act":"ghost");
-  document.getElementById("btn-cod").className=(m==="cod"?"ghost act":"ghost");
-  document.getElementById("couponCard").style.display=(m==="prepaid")?"block":"none";
-  document.getElementById("prepaidBlock").style.display=(m==="prepaid")?"block":"none";
-  document.getElementById("codBlock").style.display=(m==="cod")?"block":"none";
+  // Only Prepaid mode is allowed in this patched version.
+  mode = 'prepaid';
+  document.getElementById("btn-prepaid").className=(mode==="prepaid"?"ghost act":"ghost");
+  // ensure coupon & blocks show prepaid
+  document.getElementById("couponCard").style.display="block";
+  document.getElementById("prepaidBlock").style.display="block";
+  document.getElementById("codBlock").style.display="none";
   setModeBadge();
   computeTotals();
 }
@@ -540,6 +542,7 @@ function computeTotals(){
     }
     document.getElementById("amountPaid_pre").value = paid;
   }else{
+    // COD branch left for compatibility but will not be used in this patched version
     document.getElementById("prepaidBlock").style.display="none";
     document.getElementById("codBlock").style.display="block";
     const charge = currentCodCharge(subtotal);
@@ -582,7 +585,8 @@ function productWithAddons(){
 
 /* ===== WA template (House no. merged into Address, amounts no-commas) ===== */
 function buildWhatsAppTemplate(forMode){
-  const isCod = (forMode==="cod");
+  // always prepaid in patched version
+  const isCod = false;
   const basePrice = +document.getElementById("basePrice").value || 0;
 
   // Build Address with House no. prefixed if present
@@ -593,8 +597,6 @@ function buildWhatsAppTemplate(forMode){
   // eta/date
   const etaPre = document.getElementById("etaText").value || "";
   const rangePre = document.getElementById("dateRange").value || "";
-  const etaCod = document.getElementById("etaTextCod")?.value || etaPre;
-  const rangeCod = document.getElementById("dateRangeCOD")?.value || rangePre;
 
   const common = [
     `Order ID: ${document.getElementById("orderId").value || orderIdNow()}`,
@@ -613,40 +615,23 @@ function buildWhatsAppTemplate(forMode){
     `Base Price: ${rs(basePrice)}`
   ];
 
-  if(!isCod){
-    const paid = +document.getElementById("amountPaid_pre").value || 0;
-    return [
-      "🟢 Prepaid Order on WhatsApp",
-      "",
-      ...common,
-      `Discount Applied:${(typeof discountValue==='number' && discountValue>0) ? " "+rs(discountValue) : ""}`,
-      `Amount Paid: ${rs(paid)}`,
-      "",
-      `📏 Distance: ${document.getElementById("distance").value || ""}`,
-      `⏳ Prepaid Order ETA: ${etaPre}`,
-      `📅 Estimated Delivery: ${rangePre}`
-    ].join("\n");
-  }else{
-    const paid = +document.getElementById("amountPaid_cod").value || 0;
-    const rest = +document.getElementById("restAmount").value || 0;
-    return [
-      "🔴 COD Order on WhatsApp",
-      "",
-      ...common,
-      `Discount Applied:`,
-      `Amount Paid: ${rs(paid)}`,
-      `Rest on Delivery: ${rs(rest)}`,
-      "",
-      `📏 Distance: ${document.getElementById("distance").value || ""}`,
-      `⏳ COD Order ETA: ${etaCod}`,
-      `📅 Estimated Delivery: ${rangeCod}`
-    ].join("\n");
-  }
+  const paid = +document.getElementById("amountPaid_pre").value || 0;
+  return [
+    "🟢 Prepaid Order on WhatsApp",
+    "",
+    ...common,
+    `Discount Applied:${(typeof discountValue==='number' && discountValue>0) ? " "+rs(discountValue) : ""}`,
+    `Amount Paid: ${rs(paid)}`,
+    "",
+    `📏 Distance: ${document.getElementById("distance").value || ""}`,
+    `⏳ Prepaid Order ETA: ${etaPre}`,
+    `📅 Estimated Delivery: ${rangePre}`
+  ].join("\n");
 }
 
 /* ===== Single action: Submit this order ===== */
 function submitOrder(){
-  const text = buildWhatsAppTemplate(mode === "cod" ? "cod" : "prepaid");
+  const text = buildWhatsAppTemplate("prepaid");
   window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(text)}`,'_blank','noopener,noreferrer');
 }
 
@@ -732,31 +717,15 @@ document.getElementById("pincode").addEventListener("input",function(){
           const pre=parseEta(eta);
           const preRangeFull = formatDateRange(pre.min, pre.max);
 
-          // COD = Prepaid +2 to +3 days
-          const cod={min: pre.min+2, max: pre.max+3};
-          const codEtaText = (cod.min===cod.max) ? `${cod.min} days` : `${cod.min}–${cod.max} days`;
-          const codRangeFull = formatDateRange(cod.min, cod.max);
-
           // Keep meta in hidden inputs
           document.getElementById("distance").value=`${d} km`;
           document.getElementById("etaText").value=eta;
           document.getElementById("dateRange").value=preRangeFull;
 
-          // Hidden for COD template
-          if(!document.getElementById("etaTextCod")){
-            const h1=document.createElement("input"); h1.type="hidden"; h1.id="etaTextCod";
-            const h2=document.createElement("input"); h2.type="hidden"; h2.id="dateRangeCOD";
-            document.body.appendChild(h1); document.body.appendChild(h2);
-          }
-          document.getElementById("etaTextCod").value = codEtaText;
-          document.getElementById("dateRangeCOD").value = codRangeFull;
-
           // Mini preview under pincode
           document.getElementById("deliveryEstimate").innerText=`📍 Distance: ${d} km\n⏳ Prepaid ETA: ${eta}\n📅 Prepaid Delivery: ${preRangeFull}`;
           document.getElementById("preEta").textContent = eta;
           document.getElementById("preRange").textContent = preRangeFull;
-          document.getElementById("codEta").textContent = codEtaText;
-          document.getElementById("codRange").textContent = codRangeFull;
           document.getElementById("miniPreview").style.display="block";
         }
       }
