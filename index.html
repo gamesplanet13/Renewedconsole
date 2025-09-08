@@ -7,59 +7,148 @@
 
 <style>
 :root{
-  --bg:#f6f7fb; --card:#fff; --muted:#6b7280; --cta:#25D366; --accent:#111827;
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --cta:#25D366;
+  --accent:#111827;
+  --danger:#c2410c;
+  --glass: rgba(255,255,255,0.6);
 }
 *{box-sizing:border-box}
-body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);color:var(--accent)}
-.container{max-width:1200px;margin:0 auto;padding:16px}
+body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);color:var(--accent);-webkit-font-smoothing:antialiased}
+.container{max-width:1200px;margin:0 auto;padding:18px}
 
-/* Sections */
-header, footer{margin-bottom:20px;text-align:center}
+/* Header */
+header{margin-bottom:18px;text-align:center}
 header h1{margin:0;font-size:24px;font-weight:800}
 header p{color:var(--muted);margin:6px 0 0;font-size:14px}
-footer{font-size:13px;color:var(--muted);padding:12px 0;border-top:1px solid #e6e9ef}
 
-/* Product Grid */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
-.card{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 6px 20px rgba(0,0,0,0.08);display:flex;flex-direction:column;gap:12px}
-.thumb{width:100%;aspect-ratio:16/10;overflow:hidden;border-radius:10px;border:1px solid #e6e9ef}
-.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+/* Grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.card{background:var(--card);border-radius:12px;padding:14px;box-shadow:0 6px 20px rgba(6,21,36,0.06);display:flex;flex-direction:column;gap:12px}
+.thumb{width:100%;max-height:260px;overflow:hidden;border-radius:10px;border:1px solid #e6e9ef;display:flex;justify-content:center;align-items:center;background:#fff}
+.thumb img{width:100%;height:auto;object-fit:contain;display:block}
+
+/* Card content */
 .row{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .price{font-size:18px;font-weight:800;color:#0f172a}
 .meta{font-size:13px;color:var(--muted)}
-.badge{display:inline-block;background:#fff6f0;color:#c2410c;padding:4px 8px;border-radius:8px;font-weight:600;font-size:12px}
+.badge{display:inline-block;background:#fff6f0;color:var(--danger);padding:4px 8px;border-radius:8px;font-weight:600;font-size:12px}
 .prepaid{display:inline-block;background:#eefbf2;color:#066a3b;padding:4px 8px;border-radius:8px;font-weight:600;font-size:12px}
-.specs{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;font-size:13px;color:var(--muted)}
-.specs div{background:#fbfdff;padding:6px;border-radius:6px;border:1px solid #eef2ff}
-.btn{display:inline-flex;align-items:center;justify-content:center;width:100%;padding:12px;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px;cursor:pointer;border:none}
-.btn.buy-now{background:var(--cta);color:#fff}
+.specs{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;font-size:13px;color:var(--muted)}
+.specs div{background:#fbfdff;padding:8px;border-radius:8px;border:1px solid #eef2ff}
+
+/* Buttons */
+.controls{display:flex;gap:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 12px;border-radius:8px;text-decoration:none;font-weight:800;border:none;cursor:pointer;font-size:14px}
+.btn.buy-now{background:var(--cta);color:#fff;flex:1}
+
+/* Footer note */
+.note-global{margin-top:14px;font-size:13px;color:var(--muted);text-align:center}
+
+/* Policy card (bottom) */
+.policy-wrap{margin-top:22px;border-radius:12px;padding:16px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(249,250,252,0.9));box-shadow:0 8px 26px rgba(6,21,36,0.05);border:1px solid #eef2ff}
+.policy-title{font-weight:800;margin-bottom:10px;font-size:16px}
+.policy-grid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:900px){ .policy-grid{grid-template-columns:repeat(2,1fr)} }
+
+/* Policy item */
+.policy-item{background:rgba(0,0,0,0.02);padding:12px;border-radius:8px;border:1px dashed #eef4ff;display:flex;gap:12px;align-items:flex-start}
+.policy-icon{font-size:20px;margin-top:2px}
+.policy-body{font-size:14px;color:var(--muted)}
+.policy-body strong{color:var(--accent);font-weight:700}
+
+/* final small note */
+.policy-foot{margin-top:12px;font-size:13px;color:var(--muted);text-align:left}
+
+/* small helpers */
+.kv{display:block;color:var(--muted);font-size:13px;margin-top:6px}
 </style>
 </head>
 <body>
 <div class="container">
-
-  <!-- HEADER -->
+  <!-- Header -->
   <header>
     <h1>PS4 Products — All Variants</h1>
-    <p>Prepaid only · No COD · Select any product and click Buy Now to proceed.</p>
-    <p><strong>WhatsApp: +91 7983624797</strong></p>
+    <p>Prepaid only · No COD · Click <strong>Buy Now</strong> to continue to order prefill.</p>
+    <p style="margin-top:6px"><strong>WhatsApp: +91 7983624797</strong></p>
   </header>
 
-  <!-- PRODUCT GRID -->
-  <section class="grid" id="products-grid">
-    <!-- Cards injected by JS -->
-  </section>
+  <!-- Product Grid -->
+  <main class="grid" id="products-grid"></main>
 
-  <!-- FOOTER -->
-  <footer>
-    © 2025 GamesPlanet — All rights reserved. <br>
-    This page auto-opens <strong>order-prefill (4).html</strong> with selected product details.
-  </footer>
+  <!-- Global note -->
+  <div class="note-global">Host this file, your images and <code>order-prefill (4).html</code> in the same folder on your server (HTTPS recommended).</div>
+
+  <!-- Policy (styled, grouped) -->
+  <section class="policy-wrap" aria-labelledby="policy-heading">
+    <div id="policy-heading" class="policy-title">Seller Policy & Warranty — Important</div>
+
+    <div class="policy-grid">
+
+      <div class="policy-item">
+        <div class="policy-icon">🛡️</div>
+        <div class="policy-body">
+          <strong>What we sell</strong><br>
+          We sell only <strong>renewed</strong> and <strong>imported</strong> PS4 consoles. We do <em>not</em> compete with or match cheaper, used, or repaired units from the market — those are often inexpensive because their build quality and durability are not comparable to our products.
+        </div>
+      </div>
+
+      <div class="policy-item">
+        <div class="policy-icon">⚠️</div>
+        <div class="policy-body">
+          <strong>Price & bargaining</strong><br>
+          If you find a significantly cheaper unit elsewhere, feel free to buy from that seller — we have no scope for bargaining. Please do not compare our units directly to low-cost used/repaired items.
+        </div>
+      </div>
+
+      <div class="policy-item">
+        <div class="policy-icon">🔧</div>
+        <div class="policy-body">
+          <strong>1 month seller warranty</strong><br>
+          We provide a <strong>1 month seller warranty</strong> on the console hardware only. This warranty covers defects in the console unit as sold by us.
+        </div>
+      </div>
+
+      <div class="policy-item">
+        <div class="policy-icon">💾</div>
+        <div class="policy-body">
+          <strong>Jailbreak, software & games — <span style="color:var(--danger)">Not covered</span></strong><br>
+          Jailbreak (JB) software, installed games, and any game data are <strong>not</strong> part of the warranty. We are <strong>not responsible</strong> if game files get deleted or become corrupted. In such cases you will need to pay for re-installation.
+        </div>
+      </div>
+
+      <div class="policy-item">
+        <div class="policy-icon">📶</div>
+        <div class="policy-body">
+          <strong>Important: Do NOT connect to the internet</strong><br>
+          The sets are provided on a JB firmware where offline games run properly. If you connect the console to the internet and the system updates, you become responsible for any resulting issues. Downgrading after an online update can cost <strong>₹3,000–₹4,000</strong> (games not included). Game installation charges are extra.
+        </div>
+      </div>
+
+      <div class="policy-item">
+        <div class="policy-icon">🚚</div>
+        <div class="policy-body">
+          <strong>Shipping / courier</strong><br>
+          Courier charges for both sides (seller → buyer and buyer → seller) are the buyer's responsibility unless otherwise agreed. If return shipping is required under warranty, the courier cost(s) are borne by the buyer.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="policy-foot">
+      <div style="margin-top:10px"><strong>After delivery:</strong> Contact us immediately — we will guide you through final setup and show how to run the console and offline games.</div>
+      <div class="kv">Contact: <strong>WhatsApp +91 7983624797</strong></div>
+      <div class="kv">Note: This page and policies are part of the sale terms. By ordering you confirm that you have read and accepted these terms.</div>
+    </div>
+  </section>
 
 </div>
 
 <script>
-/* Product data */
+/* ---------- PRODUCTS DATA ----------
+   Keep IDs p1..p6. Update images/prices if needed. */
 const PRODUCTS = [
   { id: 'p1', title:'PS4 Pro (Imported) — 1TB', fw:'9.0', games:'12–15', warranty:'1 month', storage:'1TB', price:34999, image:'Ps4pro1tb9.0.jpeg' },
   { id: 'p2', title:'PS4 Slim (Imported Japanese) — 1TB (White)', fw:'12.02', games:'12–15', warranty:'1 month', storage:'1TB', price:25500, image:'Ps4slim1tb12.02wht.jpeg' },
@@ -74,7 +163,7 @@ const PREFILL_PAGE = 'order-prefill (4).html';
 /* helper */
 function formatRs(n){return '₹'+(Number(n)||0).toLocaleString('en-IN');}
 
-/* render */
+/* render grid */
 const grid=document.getElementById('products-grid');
 PRODUCTS.forEach(p=>{
   const card=document.createElement('article');
@@ -84,7 +173,7 @@ PRODUCTS.forEach(p=>{
     <div class="row">
       <div>
         <div style="font-weight:800">${p.title}</div>
-        <div class="meta">Firmware: ${p.fw} · ${p.games} games · 1 controller · ${p.warranty} warranty</div>
+        <div class="meta">Firmware: ${p.fw} · ${p.games} · 1 controller · ${p.warranty}</div>
       </div>
       <div style="text-align:right">
         <div class="price">${formatRs(p.price)}</div>
@@ -104,19 +193,21 @@ PRODUCTS.forEach(p=>{
   grid.appendChild(card);
 });
 
-/* button click → go to prefill */
+/* Buy Now click → navigate to prefill page with query params */
 document.addEventListener('click',e=>{
-  const btn=e.target.closest('.buy-now'); if(!btn) return;
-  const id=btn.getAttribute('data-id');
-  const product=PRODUCTS.find(x=>x.id===id); if(!product) return;
+  const btn = e.target.closest('.buy-now'); if(!btn) return;
+  const id = btn.getAttribute('data-id');
+  const product = PRODUCTS.find(x=>x.id===id); if(!product) return;
 
-  const params=new URLSearchParams();
-  params.set('product',product.title);
-  params.set('variant',`Firmware ${product.fw}, ${product.storage}`);
-  params.set('base',product.price);
+  const params = new URLSearchParams();
+  params.set('product', product.title);
+  params.set('variant', `Firmware ${product.fw}, ${product.storage}`);
+  params.set('base', String(product.price));
 
-  window.location.href=PREFILL_PAGE+'?'+params.toString();
+  // open the prefill page in same folder
+  window.location.href = PREFILL_PAGE + '?' + params.toString();
 });
 </script>
+
 </body>
 </html>
