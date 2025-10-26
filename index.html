@@ -16,12 +16,10 @@
   --social-bg: #f3f4f6;
   --yt-red:#FF0000;
 }
+/* base */
 *{box-sizing:border-box}
 body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);color:var(--accent);-webkit-font-smoothing:antialiased}
 .container{max-width:1200px;margin:0 auto;padding:18px}
-header{margin-bottom:18px;text-align:center}
-header h2{margin:0;font-size:20px;font-weight:800}
-header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 .header-whatsapp{margin-top:6px;font-weight:700;display:inline-block}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
 .card{background:var(--card);border-radius:12px;padding:14px;box-shadow:0 6px 20px rgba(6,21,36,0.06);display:flex;flex-direction:column;gap:12px}
@@ -37,8 +35,8 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 .controls{display:flex;gap:8px}
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 12px;border-radius:8px;text-decoration:none;font-weight:800;border:none;cursor:pointer;font-size:14px}
 .btn.buy-now{background:var(--cta);color:#fff;flex:1}
+.btn.out{background:#ff5c5c;color:#fff;flex:1;cursor:not-allowed}
 .policy-wrap{margin-top:22px;border-radius:12px;padding:16px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(249,250,252,0.9));box-shadow:0 8px 26px rgba(6,21,36,0.05);border:1px solid #eef2ff}
-.policy-title{font-weight:800;margin-bottom:10px;font-size:16px}
 .img-modal { position:fixed; inset:0; display:none; align-items:center; justify-content:center; background: rgba(0,0,0,0.75); z-index:1200; padding:18px; }
 .img-modal.open { display:flex; }
 .img-modal .modal-inner{ position:relative; max-width:1200px; max-height:90vh; width:100%; border-radius:10px; overflow:hidden; background:#0b0b0b; display:flex; align-items:center; justify-content:center; }
@@ -57,6 +55,7 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 </head>
 <body>
 <div class="hero" role="banner" aria-label="Games Planet"><h1 style="margin:0;font-weight:900;font-size:clamp(34px,8vw,56px);line-height:1;text-transform:uppercase;background:linear-gradient(90deg,#ff416c,#00b4ff);-webkit-background-clip:text;color:transparent">GAMES PLANET</h1></div>
+
 <div class="container">
 <header>
 <h2>Used and Renewed Consoles (PlayStations and Xbox)</h2>
@@ -70,19 +69,19 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 
 <section class="policy-wrap" aria-labelledby="policy-heading">
 <div class="policy-title" id="policy-heading">Seller Policy &amp; Warranty — Important</div>
-<div class="policy-grid" style="display:grid;grid-template-columns:1fr;gap:12px">
-  <div class="policy-item"><div class="policy-icon">🛡️</div><div class="policy-body"><strong>What we sell</strong><br/>We sell only <strong>renewed</strong> and <strong>imported</strong> PS4 consoles.</div></div>
-  <div class="policy-item"><div class="policy-icon">⚠️</div><div class="policy-body"><strong>Price &amp; bargaining</strong><br/>If you find a significantly cheaper unit elsewhere, feel free to buy from that seller.</div></div>
+<div style="display:grid;grid-template-columns:1fr;gap:12px">
+  <div style="background:rgba(0,0,0,0.02);padding:12px;border-radius:8px;border:1px dashed #eef4ff"><strong>What we sell</strong><br/>We sell only <strong>renewed</strong> and <strong>imported</strong> PS4 consoles.</div>
+  <div style="background:rgba(0,0,0,0.02);padding:12px;border-radius:8px;border:1px dashed #eef4ff"><strong>1 month seller warranty</strong><br/>We provide a 1 month seller warranty on hardware only.</div>
 </div>
 </section>
 
-<div class="site-footer" role="contentinfo" aria-label="After delivery and contact information">
+<div class="site-footer" role="contentinfo" aria-label="After delivery and contact information" style="margin-top:18px">
 <div><strong>After delivery:</strong> Contact us immediately — we will guide you through final setup and show how to run the console and offline games.</div>
 <div class="kv"><strong>Contact:</strong> <a class="phone-link" id="footerWa" href="#" target="_blank">WhatsApp: +91 7983624797</a></div>
 </div>
-
 </div>
 
+<!-- image modal -->
 <div class="img-modal" id="imgModal" role="dialog" aria-modal="true" aria-hidden="true">
   <div class="modal-inner" role="document">
     <button class="close-btn" id="modalClose" aria-label="Close image (Esc)">×</button>
@@ -90,10 +89,10 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
   </div>
 </div>
 
+<!-- floating actions -->
 <div class="float-stack" aria-hidden="false" aria-label="Chat and call actions">
   <div class="float-item">
     <a id="waIconBtn" class="float-btn float-wa" href="#" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-      <!-- WhatsApp icon (svg) -->
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20.52 3.48A11.88 11.88 0 0012 .5 11.9 11.9 0 003.48 3.48 11.83 11.83 0 000 12c0 2.1.55 4.16 1.59 5.97L0 24l6.3-1.65A11.86 11.86 0 0012 24c5.31 0 9.71-3.88 10.52-9.02.73-4.68-1.44-8.88-2-11.5z" fill="#fff"/></svg>
     </a>
     <div class="float-label">Chat on WhatsApp</div>
@@ -107,18 +106,18 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 </div>
 
 <script>
-/* ---------- PRODUCTS DATA (images synced to your uploaded filenames) ---------- */
+/* ---------- PRODUCTS DATA (images synced) ---------- */
 
 const PRODUCTS = [
-  // PS4 Slim - Whites
+  // PS4 Slim - Whites (both out of stock)
   { id:'ps4s-white-500', title:'PS4 Slim (White) — 500GB', image:'Ps4slim500gb11.50wht.jpeg', storage:'500 GB', games:'—', fw:'12.02', price:24999, warranty:'60 days', outofstock:true },
   { id:'ps4s-white-1tb', title:'PS4 Slim (White) — 1TB', image:'Ps4slim1tb12.02wht.jpeg', storage:'1 TB', games:'—', fw:'12.02', price:27499, warranty:'60 days', outofstock:true },
 
-  // PS4 Slim - Blacks (use same single image for black variants)
-  { id:'ps4s-black-500', title:'PS4 Slim (Black) — 500GB', image:'Ps4slim12.02blk.jpeg', storage:'500 GB', games:'—', fw:'12.02', price:24999, warranty:'60 days', available:true },
+  // PS4 Slim - Blacks (500GB out of stock; 1TB available)
+  { id:'ps4s-black-500', title:'PS4 Slim (Black) — 500GB', image:'Ps4slim12.02blk.jpeg', storage:'500 GB', games:'—', fw:'12.02', price:24999, warranty:'60 days', outofstock:true },
   { id:'ps4s-black-1tb', title:'PS4 Slim (Black) — 1TB', image:'Ps4slim12.02blk.jpeg', storage:'1 TB', games:'—', fw:'12.02', price:27499, warranty:'60 days', available:true },
 
-  // PS4 Pro images (from your uploads)
+  // PS4 Pro images
   { id:'ps4pro-used', title:'PS4 Pro (Used) — 1TB', image:'Ps4pro1tb9.0.jpeg', storage:'1 TB', games:'—', fw:'12.02', price:24999, warranty:'15 days (testing)', available:true },
   { id:'ps4pro-9-1tb', title:'PS4 Pro (Imported) — 1TB', image:'Ps4pro1tb9.0.jpeg', storage:'1 TB', games:'—', fw:'9.00', price:33999, warranty:'60 days', available:true },
   { id:'ps4pro-12-1tb-a', title:'PS4 Pro (Imported) — 1TB', image:'Ps4pro1tb9.0.jpeg', storage:'1 TB', games:'—', fw:'12.02', price:32999, warranty:'60 days', available:true },
@@ -132,21 +131,24 @@ const PRODUCTS = [
   // Xbox 360
   { id:'xbox360-500', title:'Xbox 360 (JTAG) — 500GB Black', image:'YOURQRIMAGE.jpg', storage:'500 GB', games:'—', fw:'JTAG', price:13999, warranty:'30 days', available:true },
 
-  // PS2 (keep default/no change)
+  // PS2
   { id:'ps2-7xxx', title:'PS2 (Model 7xxxx Series) — 64GB/128GB/256GB/500GB (Black/White/Silver)', image:'YOURQRIMAGE.jpg', storage:'Varies', games:'—', fw:'FMCB Compatible', price:6299, warranty:'30 days', ps2now:true }
 ];
 
 const PREFILL_PAGE = 'order-prefill.html';
 function formatRs(n){return '₹'+(Number(n)||0).toLocaleString('en-IN');}
 const grid=document.getElementById('products-grid');
-grid.innerHTML = ''; // clear
+grid.innerHTML = '';
 
 PRODUCTS.forEach(p=>{
   const card=document.createElement('article');
   card.className='card';
-
-  // ensure image fallback if not present
   const imgSrc = p.image ? p.image : 'Qr.jpg';
+  // determine button markup
+  const isOut = !!p.outofstock;
+  const btnHtml = isOut
+    ? `<button class="btn out" disabled data-id="${p.id}">Out of Stock</button>`
+    : `<button class="btn buy-now" data-id="${p.id}">Buy Now</button>`;
 
   card.innerHTML=`
     <div class="thumb" data-src="${imgSrc}" tabindex="0" role="button" aria-label="Open image of ${p.title}">
@@ -168,9 +170,7 @@ PRODUCTS.forEach(p=>{
       <div><strong>Warranty</strong><div>${p.warranty}</div></div>
       <div><strong>Storage</strong><div>${p.storage || '—'}</div></div>
     </div>
-    <div class="controls">
-      <button class="btn buy-now" data-id="${p.id}" ${p.outofstock ? 'disabled style="background:#ff6b6b;cursor:not-allowed"' : ''}>Buy Now</button>
-    </div>
+    <div class="controls">${btnHtml}</div>
   `;
   grid.appendChild(card);
 });
@@ -179,7 +179,6 @@ PRODUCTS.forEach(p=>{
 document.addEventListener('click',e=>{
   const buy = e.target.closest('.buy-now'); if(buy){
     const id = buy.getAttribute('data-id'); const product = PRODUCTS.find(x=>x.id===id); if(!product) return;
-    if(product.outofstock){ alert('Sorry, this item is currently out of stock.'); return; }
     const params = new URLSearchParams();
     params.set('product', product.title);
     params.set('variant', `Firmware ${product.fw}, ${product.storage}`);
@@ -218,7 +217,6 @@ document.getElementById('footerWa').href = waUrl;
 document.getElementById('waIconBtn').href = waUrl;
 document.getElementById('waIconBtn').addEventListener('keydown', (e) => { if(e.key==='Enter' || e.key===' ') { e.preventDefault(); window.open(waUrl, '_blank'); } });
 document.getElementById('callIconBtn').addEventListener('keydown', (e) => { if(e.key==='Enter' || e.key===' ') { e.preventDefault(); window.location.href = 'tel:+917983624797'; } });
-
 </script>
 </body>
 </html>
