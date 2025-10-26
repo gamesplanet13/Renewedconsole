@@ -12,11 +12,7 @@
   --cta:#25D366;
   --accent:#111827;
   --danger:#c2410c;
-  --glass: rgba(255,255,255,0.6);
-  --social-bg: #f3f4f6;
-  --yt-red:#FF0000;
 }
-/* base */
 *{box-sizing:border-box}
 body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);color:var(--accent);-webkit-font-smoothing:antialiased}
 .container{max-width:1200px;margin:0 auto;padding:18px}
@@ -26,7 +22,6 @@ body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);
 .thumb{width:100%;max-height:260px;overflow:hidden;border-radius:10px;border:1px solid #e6e9ef;display:flex;justify-content:center;align-items:center;background:#fff;cursor:zoom-in}
 .thumb img{width:100%;height:auto;object-fit:contain;display:block}
 .row{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.price{font-size:18px;font-weight:800;color:#0f172a}
 .meta{font-size:13px;color:var(--muted)}
 .badge{display:inline-block;background:#fff6f0;color:var(--danger);padding:4px 8px;border-radius:8px;font-weight:600;font-size:12px}
 .prepaid{display:inline-block;background:#eefbf2;color:#066a3b;padding:4px 8px;border-radius:8px;font-weight:600;font-size:12px}
@@ -70,8 +65,8 @@ body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);
 <section class="policy-wrap" aria-labelledby="policy-heading">
 <div class="policy-title" id="policy-heading">Seller Policy &amp; Warranty — Important</div>
 <div style="display:grid;grid-template-columns:1fr;gap:12px">
-  <div style="background:rgba(0,0,0,0.02);padding:12px;border-radius:8px;border:1px dashed #eef4ff"><strong>What we sell</strong><br/>We sell only <strong>renewed</strong> and <strong>imported</strong> PS4 consoles.</div>
-  <div style="background:rgba(0,0,0,0.02);padding:12px;border-radius:8px;border:1px dashed #eef4ff"><strong>1 month seller warranty</strong><br/>We provide a 1 month seller warranty on hardware only.</div>
+  <div style="background:rgba(0,0,0,0.02);padding:12px;border-radius:8px;border:1px dashed #eef4ff"><strong>What we sell</strong><br/>We sell only <strong>renewed</strong> and <strong>imported</strong> consoles.</div>
+  <div style="background:rgba(0,0,0,0.02);padding:12px;border-radius:8px;border:1px dashed #eef4ff"><strong>Important:</strong> Do NOT connect to the internet — software/jailbreak not covered.</div>
 </div>
 </section>
 
@@ -106,89 +101,93 @@ body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);
 </div>
 
 <script>
-/* ---------- PRODUCTS DATA (images synced) ---------- */
+/* ---------- PRODUCTS DATA (price / variant / warranty removed from UI and prefill) ---------- */
 
 const PRODUCTS = [
-  // PS4 Slim - Whites (both out of stock)
-  { id:'ps4s-white-500', title:'PS4 Slim (White) — 500GB', image:'Ps4slim500gb11.50wht.jpeg', storage:'500 GB', games:'—', fw:'12.02', price:24999, warranty:'60 days', outofstock:true },
-  { id:'ps4s-white-1tb', title:'PS4 Slim (White) — 1TB', image:'Ps4slim1tb12.02wht.jpeg', storage:'1 TB', games:'—', fw:'12.02', price:27499, warranty:'60 days', outofstock:true },
+  { id:'ps4s-white-500', title:'PS4 Slim (White) — 500GB', image:'Ps4slim500gb11.50wht.jpeg', storage:'500 GB', games:'—', fw:'12.02', outofstock:true },
+  { id:'ps4s-white-1tb', title:'PS4 Slim (White) — 1TB', image:'Ps4slim1tb12.02wht.jpeg', storage:'1 TB', games:'—', fw:'12.02', outofstock:true },
 
-  // PS4 Slim - Blacks (500GB out of stock; 1TB available)
-  { id:'ps4s-black-500', title:'PS4 Slim (Black) — 500GB', image:'Ps4slim12.02blk.jpeg', storage:'500 GB', games:'—', fw:'12.02', price:24999, warranty:'60 days', outofstock:true },
-  { id:'ps4s-black-1tb', title:'PS4 Slim (Black) — 1TB', image:'Ps4slim12.02blk.jpeg', storage:'1 TB', games:'—', fw:'12.02', price:27499, warranty:'60 days', available:true },
+  { id:'ps4s-black-500', title:'PS4 Slim (Black) — 500GB', image:'Ps4slim12.02blk.jpeg', storage:'500 GB', games:'—', fw:'12.02', outofstock:true },
+  { id:'ps4s-black-1tb', title:'PS4 Slim (Black) — 1TB', image:'Ps4slim12.02blk.jpeg', storage:'1 TB', games:'—', fw:'12.02', available:true },
 
-  // PS4 Pro images
-  { id:'ps4pro-used', title:'PS4 Pro (Used) — 1TB', image:'Ps4pro1tb9.0.jpeg', storage:'1 TB', games:'—', fw:'12.02', price:24999, warranty:'15 days (testing)', available:true },
-  { id:'ps4pro-9-1tb', title:'PS4 Pro (Imported) — 1TB', image:'Ps4pro1tb9.0.jpeg', storage:'1 TB', games:'—', fw:'9.00', price:33999, warranty:'60 days', available:true },
-  { id:'ps4pro-12-1tb-a', title:'PS4 Pro (Imported) — 1TB', image:'Ps4pro1tb9.0.jpeg', storage:'1 TB', games:'—', fw:'12.02', price:32999, warranty:'60 days', available:true },
-  { id:'ps4pro-12-1tb-b', title:'PS4 Pro (Imported) — 1TB', image:'Ps4pro1tb9.0.jpeg', storage:'1 TB', games:'—', fw:'12.02', price:32999, warranty:'60 days', available:true },
-  { id:'ps4pro-9-2tb', title:'PS4 Pro (Imported) — 2TB', image:'Ps4pro2tb.jpeg', storage:'2 TB', games:'—', fw:'9.00', price:37499, warranty:'60 days', available:true },
+  { id:'ps4pro-used', title:'PS4 Pro (Used) — 1TB', image:'Ps4pro1tb9.0.jpeg', storage:'1 TB', games:'—', fw:'12.02', available:true },
+  { id:'ps4pro-9-1tb', title:'PS4 Pro (Imported) — 1TB', image:'Ps4pro1tb9.0.jpeg', storage:'1 TB', games:'—', fw:'9.00', available:true },
+  { id:'ps4pro-12-1tb-a', title:'PS4 Pro (Imported) — 1TB', image:'Ps4pro1tb9.0.jpeg', storage:'1 TB', games:'—', fw:'12.02', available:true },
+  { id:'ps4pro-12-1tb-b', title:'PS4 Pro (Imported) — 1TB', image:'Ps4pro1tb9.0.jpeg', storage:'1 TB', games:'—', fw:'12.02', available:true },
+  { id:'ps4pro-9-2tb', title:'PS4 Pro (Imported) — 2TB', image:'Ps4pro2tb.jpeg', storage:'2 TB', games:'—', fw:'9.00', available:true },
 
-  // PS3
-  { id:'ps3-slim-500', title:'PS3 Slim (Used) — 500GB', image:'YOURQRIMAGE.jpg', storage:'500 GB', games:'—', fw:'4.92', price:15999, warranty:'30 days', available:true },
-  { id:'ps3-super-500', title:'PS3 Super Slim (Used) — 500GB', image:'YOURQRIMAGE.jpg', storage:'500 GB', games:'—', fw:'4.90+', price:12499, warranty:'15 days', available:true },
+  { id:'ps3-slim-500', title:'PS3 Slim (Used) — 500GB', image:'YOURQRIMAGE.jpg', storage:'500 GB', games:'—', fw:'4.92', available:true },
+  { id:'ps3-super-500', title:'PS3 Super Slim (Used) — 500GB', image:'YOURQRIMAGE.jpg', storage:'500 GB', games:'—', fw:'4.90+', available:true },
 
-  // Xbox 360
-  { id:'xbox360-500', title:'Xbox 360 (JTAG) — 500GB Black', image:'YOURQRIMAGE.jpg', storage:'500 GB', games:'—', fw:'JTAG', price:13999, warranty:'30 days', available:true },
+  { id:'xbox360-500', title:'Xbox 360 (JTAG) — 500GB Black', image:'YOURQRIMAGE.jpg', storage:'500 GB', games:'—', fw:'JTAG', available:true },
 
-  // PS2
-  { id:'ps2-7xxx', title:'PS2 (Model 7xxxx Series) — 64GB/128GB/256GB/500GB (Black/White/Silver)', image:'YOURQRIMAGE.jpg', storage:'Varies', games:'—', fw:'FMCB Compatible', price:6299, warranty:'30 days', ps2now:true }
+  { id:'ps2-7xxx', title:'PS2 (Model 7xxxx Series) — 64GB/128GB/256GB/500GB', image:'YOURQRIMAGE.jpg', storage:'Varies', games:'—', fw:'FMCB Compatible', ps2now:true }
 ];
 
 const PREFILL_PAGE = 'order-prefill.html';
-function formatRs(n){return '₹'+(Number(n)||0).toLocaleString('en-IN');}
-const grid=document.getElementById('products-grid');
-grid.innerHTML = '';
+const grid = document.getElementById('products-grid');
 
-PRODUCTS.forEach(p=>{
-  const card=document.createElement('article');
-  card.className='card';
-  const imgSrc = p.image ? p.image : 'Qr.jpg';
-  // determine button markup
-  const isOut = !!p.outofstock;
-  const btnHtml = isOut
-    ? `<button class="btn out" disabled data-id="${p.id}">Out of Stock</button>`
-    : `<button class="btn buy-now" data-id="${p.id}">Buy Now</button>`;
+function renderProducts(){
+  grid.innerHTML = '';
+  PRODUCTS.forEach(p=>{
+    const card = document.createElement('article');
+    card.className = 'card';
+    const imgSrc = p.image ? p.image : 'Qr.jpg';
+    const isOut = !!p.outofstock;
+    const btnHtml = isOut
+      ? `<button class="btn out" disabled data-id="${p.id}">Out of Stock</button>`
+      : `<button class="btn buy-now" data-id="${p.id}">Buy Now</button>`;
 
-  card.innerHTML=`
-    <div class="thumb" data-src="${imgSrc}" tabindex="0" role="button" aria-label="Open image of ${p.title}">
-      <img src="${imgSrc}" alt="${p.title}">
-    </div>
-    <div class="row">
-      <div>
-        <div style="font-weight:800">${p.title}</div>
-        <div class="meta">Firmware: ${p.fw} · ${p.games || '—'} · 1 controller · ${p.warranty}</div>
+    card.innerHTML = `
+      <div class="thumb" data-src="${imgSrc}" tabindex="0" role="button" aria-label="Open image of ${p.title}">
+        <img src="${imgSrc}" alt="${p.title}">
       </div>
-      <div style="text-align:right">
-        <div class="price">${formatRs(p.price)}</div>
-        <div style="margin-top:6px"><span class="badge">PS4</span> <span class="prepaid">Prepaid only</span></div>
+      <div class="row">
+        <div>
+          <div style="font-weight:800">${p.title}</div>
+          <div class="meta">Firmware: ${p.fw} · ${p.games || '—'} · 1 controller</div>
+        </div>
+        <div style="text-align:right">
+          <div style="margin-top:6px"><span class="badge">Console</span> <span class="prepaid">Prepaid only</span></div>
+        </div>
       </div>
-    </div>
-    <div class="specs">
-      <div><strong>Firmware</strong><div>${p.fw}</div></div>
-      <div><strong>Games</strong><div>${p.games || '—'}</div></div>
-      <div><strong>Warranty</strong><div>${p.warranty}</div></div>
-      <div><strong>Storage</strong><div>${p.storage || '—'}</div></div>
-    </div>
-    <div class="controls">${btnHtml}</div>
-  `;
-  grid.appendChild(card);
-});
+      <div class="specs">
+        <div><strong>Firmware</strong><div>${p.fw}</div></div>
+        <div><strong>Games</strong><div>${p.games || '—'}</div></div>
+        <div><strong>Storage</strong><div>${p.storage || '—'}</div></div>
+        <div><strong>SKU</strong><div>${p.id}</div></div>
+      </div>
+      <div class="controls">${btnHtml}</div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+renderProducts();
 
 /* Click handlers: Buy, thumbnails, modal close */
-document.addEventListener('click',e=>{
-  const buy = e.target.closest('.buy-now'); if(buy){
-    const id = buy.getAttribute('data-id'); const product = PRODUCTS.find(x=>x.id===id); if(!product) return;
+document.addEventListener('click', e=>{
+  const buy = e.target.closest('.buy-now');
+  if(buy){
+    const id = buy.getAttribute('data-id');
+    const product = PRODUCTS.find(x=>x.id === id);
+    if(!product) return;
+    // Only send product name to prefill
     const params = new URLSearchParams();
     params.set('product', product.title);
-    params.set('variant', `Firmware ${product.fw}, ${product.storage}`);
-    params.set('base', String(product.price));
     window.location.href = PREFILL_PAGE + '?' + params.toString();
     return;
   }
+
   const thumb = e.target.closest('.thumb');
-  if(thumb){ const src = thumb.getAttribute('data-src') || thumb.querySelector('img')?.src; openImageModal(src, thumb); }
-  if(e.target.id === 'modalClose' || e.target.classList.contains('img-modal')){ closeImageModal(); }
+  if(thumb){
+    const src = thumb.getAttribute('data-src') || thumb.querySelector('img')?.src;
+    openImageModal(src, thumb);
+  }
+
+  if(e.target.id === 'modalClose' || e.target.classList.contains('img-modal')){
+    closeImageModal();
+  }
 });
 
 /* Keyboard & accessibility */
@@ -210,13 +209,15 @@ modal.addEventListener('click', (ev) => { if(ev.target === modal){ closeImageMod
 
 /* WhatsApp / call links */
 const waDigits = '917983624797';
-const waPrefill = encodeURIComponent('Hello, I want to buy a PS4 and I agree with your console prices. Please give me payment options.');
+const waPrefill = encodeURIComponent('Hello, I want to buy a console. Please share payment options.');
 const waUrl = `https://api.whatsapp.com/send?phone=${waDigits}&text=${waPrefill}`;
 document.getElementById('headerWa').href = waUrl;
 document.getElementById('footerWa').href = waUrl;
-document.getElementById('waIconBtn').href = waUrl;
-document.getElementById('waIconBtn').addEventListener('keydown', (e) => { if(e.key==='Enter' || e.key===' ') { e.preventDefault(); window.open(waUrl, '_blank'); } });
-document.getElementById('callIconBtn').addEventListener('keydown', (e) => { if(e.key==='Enter' || e.key===' ') { e.preventDefault(); window.location.href = 'tel:+917983624797'; } });
+const waIconBtn = document.getElementById('waIconBtn');
+if(waIconBtn) waIconBtn.href = waUrl;
+const callIconBtn = document.getElementById('callIconBtn');
+if(callIconBtn) callIconBtn.href = 'tel:+917983624797';
+
 </script>
 </body>
 </html>
