@@ -267,25 +267,32 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 <script>
 /* ---------- PRODUCTS DATA ---------- */
 
+
 const PRODUCTS = [
+  // PS4 Slim
   { id:'ps4s-white-500', title:'PS4 Slim (White) — 500GB', fw:'12.02', price:24999, warranty:'60 days', outofstock:true },
   { id:'ps4s-white-1tb', title:'PS4 Slim (White) — 1TB', fw:'12.02', price:27499, warranty:'60 days', outofstock:true },
   { id:'ps4s-black-500', title:'PS4 Slim (Black) — 500GB', fw:'12.02', price:24999, warranty:'60 days', outofstock:true },
   { id:'ps4s-black-1tb', title:'PS4 Slim (Black) — 1TB', fw:'12.02', price:27499, warranty:'60 days', available:true },
 
+  // PS4 Pro
   { id:'ps4pro-used', title:'PS4 Pro (Used) — 1TB', fw:'12.02', price:24999, warranty:'15 days (testing)', available:true },
   { id:'ps4pro-9-1tb', title:'PS4 Pro (Imported) — 1TB', fw:'9.00', price:33999, warranty:'60 days', available:true },
   { id:'ps4pro-12-1tb-a', title:'PS4 Pro (Imported) — 1TB', fw:'12.02', price:32999, warranty:'60 days', available:true },
   { id:'ps4pro-12-1tb-b', title:'PS4 Pro (Imported) — 1TB', fw:'12.02', price:32999, warranty:'60 days', available:true },
   { id:'ps4pro-9-2tb', title:'PS4 Pro (Imported) — 2TB', fw:'9.00', price:37499, warranty:'60 days', available:true },
 
+  // PS3
   { id:'ps3-slim-500', title:'PS3 Slim (Used) — 500GB', fw:'4.92', price:15999, warranty:'30 days', available:true },
   { id:'ps3-super-500', title:'PS3 Super Slim (Used) — 500GB', fw:'4.90+', price:12499, warranty:'15 days', available:true },
 
+  // Xbox 360
   { id:'xbox360-500', title:'Xbox 360 (JTAG) — 500GB Black', fw:'JTAG', price:13999, warranty:'30 days', available:true },
 
+  // PS2 (ps2now link)
   { id:'ps2-7xxx', title:'PS2 (Model 7xxxx Series) — 64GB/128GB/256GB/500GB (Black/White/Silver)', fw:'FMCB Compatible', price:6299, warranty:'30 days', ps2now:true }
 ];
+
 
 const PREFILL_PAGE = 'https://gamesplanet13.github.io/ps2now/';
 function formatRs(n){return '₹'+(Number(n)||0).toLocaleString('en-IN');}
