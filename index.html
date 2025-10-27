@@ -295,24 +295,19 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 /* ---------- PRODUCTS DATA ---------- */
 
 const PRODUCTS = [
-  { id:'ps4s-white-500', title:'PS4 Slim (White) — 500GB', image:'Ps4slim500gb11.50wht.jpeg', storage:'500 GB', games:'—', fw:'12.02', outofstock:true },
-  { id:'ps4s-white-1tb', title:'PS4 Slim (White) — 1TB', image:'Ps4slim1tb12.02wht.jpeg', storage:'1 TB', games:'—', fw:'12.02', outofstock:true },
-
-  { id:'ps4s-black-500', title:'PS4 Slim (Black) — 500GB', image:'Ps4slim12.02blk.jpeg', storage:'500 GB', games:'—', fw:'12.02', outofstock:true },
-  { id:'ps4s-black-1tb', title:'PS4 Slim (Black) — 1TB', image:'Ps4slim12.02blk.jpeg', storage:'1 TB', games:'—', fw:'12.02', available:true },
-
-  { id:'ps4pro-used', title:'PS4 Pro (Used) — 1TB', image:'Ps4pro1tb9.0.jpeg', storage:'1 TB', games:'—', fw:'12.02', available:true },
-  { id:'ps4pro-9-1tb', title:'PS4 Pro (Imported) — 1TB', image:'Ps4pro1tb9.0.jpeg', storage:'1 TB', games:'—', fw:'9.00', available:true },
-  { id:'ps4pro-12-1tb-a', title:'PS4 Pro (Imported) — 1TB', image:'Ps4pro1tb9.0.jpeg', storage:'1 TB', games:'—', fw:'12.02', available:true },
-  { id:'ps4pro-12-1tb-b', title:'PS4 Pro (Imported) — 1TB', image:'Ps4pro1tb9.0.jpeg', storage:'1 TB', games:'—', fw:'12.02', available:true },
-  { id:'ps4pro-9-2tb', title:'PS4 Pro (Imported) — 2TB', image:'Ps4pro2tb.jpeg', storage:'2 TB', games:'—', fw:'9.00', available:true },
-
-  { id:'ps3-slim-500', title:'PS3 Slim (Used) — 500GB', image:'YOURQRIMAGE.jpg', storage:'500 GB', games:'—', fw:'4.92', available:true },
-  { id:'ps3-super-500', title:'PS3 Super Slim (Used) — 500GB', image:'YOURQRIMAGE.jpg', storage:'500 GB', games:'—', fw:'4.90+', available:true },
-
-  { id:'xbox360-500', title:'Xbox 360 (JTAG) — 500GB Black', image:'YOURQRIMAGE.jpg', storage:'500 GB', games:'—', fw:'JTAG', available:true },
-
-  { id:'ps2-7xxx', title:'PS2 (Model 7xxxx Series) — 64GB/128GB/256GB/500GB', image:'YOURQRIMAGE.jpg', storage:'Varies', games:'—', fw:'FMCB Compatible', ps2now:true }
+  { id:'ps4s-white-500', title:'PS4 Slim (White) — 500GB', image:'Ps4slim500gb11.50wht.jpeg', price:24999, fw:'12.02', warranty:'60 days', outofstock:true },
+  { id:'ps4s-white-1tb', title:'PS4 Slim (White) — 1TB', image:'Ps4slim1tb12.02wht.jpeg', price:27500, fw:'12.02', warranty:'60 days', outofstock:true },
+  { id:'ps4s-black-500', title:'PS4 Slim (Black) — 500GB', image:'Ps4slim12.02blk.jpeg', price:24999, fw:'12.02', warranty:'60 days', outofstock:true },
+  { id:'ps4s-black-1tb', title:'PS4 Slim (Black) — 1TB', image:'Ps4slim12.02blk.jpeg', price:27500, fw:'12.02', warranty:'60 days', available:true },
+  { id:'ps4pro-used', title:'PS4 Pro (Used) — 1TB', image:'Ps4pro1tb9.0.jpeg', price:25000, fw:'12.02', warranty:'15 days (testing)', available:true },
+  { id:'ps4pro-9-1tb', title:'PS4 Pro (Imported) — 1TB (9.00)', image:'Ps4pro1tb9.0.jpeg', price:33999, fw:'9.00', warranty:'60 days', available:true },
+  { id:'ps4pro-12-1tb-a', title:'PS4 Pro (Imported) — 1TB (12.02)', image:'Ps4pro1tb9.0.jpeg', price:32999, fw:'12.02', warranty:'60 days', available:true },
+  { id:'ps4pro-12-1tb-b', title:'PS4 Pro (Imported) — 1TB (12.02)', image:'Ps4pro1tb9.0.jpeg', price:32999, fw:'12.02', warranty:'60 days', available:true },
+  { id:'ps4pro-9-2tb', title:'PS4 Pro (Imported) — 2TB (9.00)', image:'Ps4pro2tb.jpeg', price:37499, fw:'9.00', warranty:'60 days', available:true },
+  { id:'ps3-slim-500', title:'PS3 Slim (Used) — 500GB', image:'YOURQRIMAGE.jpg', price:15999, fw:'4.92', warranty:'30 days', available:true },
+  { id:'ps3-super-500', title:'PS3 Super Slim (Used) — 500GB', image:'YOURQRIMAGE.jpg', price:12500, fw:'4.90+', warranty:'15 days', available:true },
+  { id:'xbox360-500', title:'Xbox 360 (JTAG) — 500GB', image:'YOURQRIMAGE.jpg', price:13999, fw:'JTAG', warranty:'30 days', available:true },
+  { id:'ps2-7xxx', title:'PS2 (Model 7xxxx Series) — 64GB/128GB/256GB/500GB', image:'YOURQRIMAGE.jpg', price:6299, fw:'FMCB Compatible', warranty:'30 days', available:true },
 ];
 
 const PREFILL_PAGE = 'order-prefill.html';
