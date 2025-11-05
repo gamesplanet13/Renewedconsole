@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>PS4 Products — Games Planet</title>
+<title>PS4 Products -- Games Planet</title>
+
 <style>
 :root{
   --bg:#f6f7fb;
@@ -52,8 +53,6 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 .row{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .price{font-size:18px;font-weight:800;color:#0f172a}
 .meta{font-size:13px;color:var(--muted)}
-.badge{display:inline-block;background:#fff6f0;color:var(--danger);padding:4px 8px;border-radius:8px;font-weight:600;font-size:12px}
-.prepaid{display:inline-block;background:#eefbf2;color:#066a3b;padding:4px 8px;border-radius:8px;font-weight:600;font-size:12px}
 .specs{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;font-size:13px;color:var(--muted)}
 .specs div{background:#fbfdff;padding:8px;border-radius:8px;border:1px solid #eef2ff}
 .controls{display:flex;gap:8px}
@@ -69,7 +68,6 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 .policy-icon{font-size:20px;margin-top:2px}
 .policy-body{font-size:14px;color:var(--muted)}
 .policy-body strong{color:var(--accent);font-weight:700}
-
 /* Modal */
 .img-modal { position:fixed; inset:0; display:none; align-items:center; justify-content:center; background: rgba(0,0,0,0.75); z-index:1200; padding:18px; }
 .img-modal.open { display:flex; }
@@ -178,7 +176,7 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 
 <div class="container">
   <header>
-    <h2>PS4 Products — All Variants</h2>
+    <h2>PS4 Products -- All Variants</h2>
     <p>Prepaid only · No COD · Click <strong>Buy Now</strong> to continue to order prefill.</p>
     <div class="header-whatsapp">
       <a class="phone-link" id="headerWa" href="#" target="_blank" rel="noopener noreferrer">WhatsApp: +91 7983624797</a>
@@ -187,32 +185,28 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 
   <main class="grid" id="products-grid" aria-live="polite"></main>
 
+  <!-- Policies (merged with your latest terms) -->
   <section class="policy-wrap" aria-labelledby="policy-heading">
-    <div id="policy-heading" class="policy-title">Seller Policy & Warranty — Important</div>
+    <div id="policy-heading" class="policy-title">Store Terms & Warranty</div>
     <div class="policy-grid">
-      <div class="policy-item"><div class="policy-icon">🛡️</div><div class="policy-body"><strong>What we sell</strong><br>We sell only <strong>renewed</strong> and <strong>imported</strong> PS4 consoles.</div></div>
-      <div class="policy-item"><div class="policy-icon">⚠️</div><div class="policy-body"><strong>Price & bargaining</strong><br>If you find a significantly cheaper unit elsewhere, feel free to buy from that seller.</div></div>
-      <div class="policy-item"><div class="policy-icon">🔧</div><div class="policy-body"><strong>1 month seller warranty</strong><br>We provide a <strong>1 month seller warranty</strong> on the console hardware only.</div></div>
-      <div class="policy-item"><div class="policy-icon">💾</div><div class="policy-body"><strong>Jailbreak, software & games — <span style="color:var(--danger)">Not covered</span></strong><br>JB software, installed games, and game data are not part of the warranty.</div></div>
-      <div class="policy-item"><div class="policy-icon">📶</div><div class="policy-body"><strong>Important: Do NOT connect to the internet</strong><br>Connecting may update the system and cause issues; downgrade costs apply.</div></div>
-      <div class="policy-item"><div class="policy-icon">🚚</div><div class="policy-body"><strong>Shipping / courier</strong><br>Courier charges for returns under warranty are borne by the buyer unless agreed otherwise.</div></div>
-    </div>
-
-    <div style="margin-top:14px" class="policy-item" aria-live="polite">
-      <div class="policy-icon">ℹ️</div>
-      <div class="policy-body">
-        <strong>Important product note</strong><br>
-        All consoles are <strong>renewed</strong> and may not arrive in original retail packaging. Minor cosmetic marks or scratches can sometimes be present — this does not affect performance. Each console ships with either a <strong>brand-new True Replica controller</strong> or a <strong>refurbished original controller</strong> depending on stock. Prices shown include standard courier & packaging.
-      </div>
+      <div class="policy-item"><div class="policy-icon">🛒</div><div class="policy-body">We sell only <strong>Pre-Owned</strong> and <strong>Imported Renewed</strong> consoles.</div></div>
+      <div class="policy-item"><div class="policy-icon">🛡️</div><div class="policy-body">Warranty applies on <strong>console hardware only</strong>. No warranty on accessories.</div></div>
+      <div class="policy-item"><div class="policy-icon">💾</div><div class="policy-body">Software/games are <strong>not included</strong> in warranty.</div></div>
+      <div class="policy-item"><div class="policy-icon">📜</div><div class="policy-body">Warranty duration is <strong>mentioned on each product</strong>.</div></div>
+      <div class="policy-item"><div class="policy-icon">🚫</div><div class="policy-body"><strong>No Return</strong> · <strong>No Replacement</strong>. Only manufacturer hardware fault covered.</div></div>
+      <div class="policy-item"><div class="policy-icon">📶</div><div class="policy-body"><strong>Do not update firmware.</strong> Jailbreak/software not covered.</div></div>
+      <div class="policy-item"><div class="policy-icon">✅</div><div class="policy-body">All products are <strong>tested & quality-certified</strong> under CCTV before packaging.</div></div>
+      <div class="policy-item"><div class="policy-icon">🎮</div><div class="policy-body">Each console includes <strong>1 Compatible Controller</strong>.</div></div>
     </div>
   </section>
 
   <div class="site-footer" role="contentinfo" aria-label="After delivery and contact information">
-    <div><strong>After delivery:</strong> Contact us immediately — we will guide you through final setup and show how to run the console and offline games.</div>
+    <div><strong>After delivery:</strong> We guide you through setup and how to run offline games.</div>
     <div class="kv"><strong>Contact:</strong> <a id="footerWa" class="phone-link" href="#" target="_blank" rel="noopener noreferrer">WhatsApp +91 7983624797</a></div>
-    <div class="kv"><strong>Note:</strong> This page and policies are part of the sale terms. By ordering you confirm that you have read and accepted these terms.</div>
+    <div class="kv"><strong>Note:</strong> By ordering you confirm that you have read and accepted these terms.</div>
   </div>
 
+  <!-- Social + Map (original preserved) -->
   <section class="social-wrap" aria-label="Social media and location">
     <div style="font-weight:800">Connect with us</div>
 
@@ -253,7 +247,7 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
         <a class="map-btn" href="https://maps.app.goo.gl/3EdTqEw37URqFSMU8" target="_blank" rel="noopener noreferrer">View larger map</a>
       </div>
 
-      <div style="margin-top:8px;font-size:13px;color:var(--muted)"><strong>Place:</strong> Invent Computers & Games Planet Rampur — <a href="https://maps.app.goo.gl/3EdTqEw37URqFSMU8" target="_blank" rel="noopener noreferrer">Open in Google Maps</a></div>
+      <div style="margin-top:8px;font-size:13px;color:var(--muted)"><strong>Place:</strong> Invent Computers & Games Planet Rampur -- <a href="https://maps.app.goo.gl/3EdTqEw37URqFSMU8" target="_blank" rel="noopener noreferrer">Open in Google Maps</a></div>
     </div>
   </section>
 
@@ -270,49 +264,47 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 <!-- Floating small buttons: WhatsApp (icon) + Call (icon) -->
 <div class="float-stack" aria-hidden="false" aria-label="Chat and call actions">
   <div class="float-item">
-    <a id="waIconBtn" class="float-btn float-wa" href="#" role="button" aria-label="Chat on WhatsApp (opens in new tab)" target="_blank" rel="noopener noreferrer">
-      <!-- WhatsApp SVG -->
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20.52 3.48A11.88 11.88 0 0012 .5 11.9 11.9 0 003.48 3.48 11.83 11.83 0 000 12c0 2.1.55 4.16 1.59 5.97L0 24l6.3-1.65A11.86 11.86 0 0012 24c5.31 0 9.71-3.88 10.52-9.02.73-4.68-1.44-8.88-2-11.5z" fill="#fff"/>
-        <path d="M17 14.5c-.26-.13-1.53-.76-1.77-.85s-.41-.13-.59.13-.68.85-.84 1.02-.31.2-.58.07a9.1 9.1 0 01-2.67-1.64c-.99-.98-1.66-2.18-1.85-2.55s0-.56.19-.74.42-.45.63-.68a.8.8 0 00.13-.6c-.03-.2-.59-1.44-.81-1.97s-.43-.45-.59-.46-.35-.01-.53-.01-.46.07-.7.34c-.25.28-.94.91-.94 2.22s.96 2.58 1.09 2.76c.12.19 1.9 2.9 4.61 3.96 3.22 1.27 3.22.85 3.8.79.59-.06 1.56-.62 1.78-1.22.22-.6.22-1.12.15-1.22-.07-.1-.26-.14-.52-.27z" fill="#fff"/>
-      </svg>
-    </a>
+    <a id="waIconBtn" class="float-btn float-wa" href="#" role="button" aria-label="Chat on WhatsApp (opens in new tab)" target="_blank" rel="noopener noreferrer"></a>
     <div class="float-label" aria-hidden="true">Chat on WhatsApp</div>
   </div>
 
   <div class="float-item">
-    <a id="callIconBtn" class="float-btn float-call" href="tel:+917983624797" role="button" aria-label="Call +91 7983624797">
-      <!-- Phone SVG -->
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6.6 10a15.1 15.1 0 006.4 6.4l2.2-2.2a1 1 0 01.9-.25c1 .25 2 .38 3 .38a1 1 0 011 1v3a1 1 0 01-1 1C9.9 20 4 14.1 4 6.5A1 1 0 015 5.5h3a1 1 0 011 1c0 1 .12 2 .38 3a1 1 0 01-.25.9L6.6 10z" fill="#fff"/>
-      </svg>
-    </a>
+    <a id="callIconBtn" class="float-btn float-call" href="tel:+917983624797" role="button" aria-label="Call +91 7983624797"></a>
     <div class="float-label" aria-hidden="true">Call us</div>
   </div>
 </div>
 
 <script>
-/* ---------- PRODUCTS DATA ---------- */
-
+/* ---------- PRODUCTS DATA (merged & cleaned) ---------- */
 const PRODUCTS = [
-  { id:'ps4s-black-1tb', title:'PS4 Slim (Black) — 1TB', image:'Ps4slim12.02blk.jpeg', price:27500, fw:'12.02', warranty:'60 days', available:true },
-  { id:'ps4pro-used', title:'PS4 Pro (Used) — 1TB', image:'Ps4pro1tb9.0.jpeg', price:25000, fw:'12.02', warranty:'15 days (testing)', available:true },
-  { id:'ps4pro-9-1tb', title:'PS4 Pro (Imported) — 1TB (9.00)', image:'Ps4pro1tb9.0.jpeg', price:33999, fw:'9.00', warranty:'60 days', available:true },
-  { id:'ps4pro-12-1tb-a', title:'PS4 Pro (Imported) — 1TB (12.02)', image:'Ps4pro1tb9.0.jpeg', price:32999, fw:'12.02', warranty:'60 days', available:true },
-  { id:'ps4pro-12-1tb-b', title:'PS4 Pro (Imported) — 1TB (12.02)', image:'Ps4pro1tb9.0.jpeg', price:32999, fw:'12.02', warranty:'60 days', available:true },
-  { id:'ps4pro-9-2tb', title:'PS4 Pro (Imported) — 2TB (9.00)', image:'Ps4pro2tb.jpeg', price:37499, fw:'9.00', warranty:'60 days', available:true },
-  { id:'ps4s-white-500', title:'PS4 Slim (White) — 500GB', image:'Ps4slim500gb11.50wht.jpeg', price:24999, fw:'12.02', warranty:'60 days', outofstock:true },
-  { id:'ps4s-white-1tb', title:'PS4 Slim (White) — 1TB', image:'Ps4slim1tb12.02wht.jpeg', price:27500, fw:'12.02', warranty:'60 days', outofstock:true },
-  { id:'ps4s-black-500', title:'PS4 Slim (Black) — 500GB', image:'Ps4slim12.02blk.jpeg', price:24999, fw:'12.02', warranty:'60 days', outofstock:true },
-  { id:'ps3-slim-500', title:'PS3 Slim (Used) — 500GB', image:'ps3slim.jpeg', price:15999, fw:'4.92', warranty:'30 days', available:true },
-  { id:'ps3-super-500', title:'PS3 Super Slim (Used) — 500GB', image:'ps3superslim.jpg', price:12999, fw:'4.90+', warranty:'15 days', available:true },
-  { id:'xbox360-500', title:'Xbox 360 (JTAG) — 500GB', image:'xbox360.jpg', price:13999, fw:'JTAG', warranty:'30 days', available:true },
-  { id:'ps2-7xxx', title:'PS2 (Model 7xxxx Series) — 64GB/128GB/256GB/500GB', image:'ps2.jpg', price:6299, fw:'FMCB Compatible', warranty:'30 days', available:true },
+  // PS4 Slim (White & 500GB removed as requested)
+  { id:'ps4s-black-1tb', title:'PS4 Slim (Black) -- 1TB', image:'Ps4slim12.02blk.jpeg', price:24999, fw:'12.02', storage:'1TB', warranty:'60 Days', condition:'Renewed', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
+
+  // PS4 Pro
+  { id:'ps4pro-preowned-1tb', title:'PS4 Pro (Pre-Owned) -- 1TB', image:'Ps4pro1tb9.0.jpeg', price:22999, fw:'12.02', storage:'1TB', warranty:'15 Days (Testing)', condition:'Pre-Owned', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
+  { id:'ps4pro-9-1tb', title:'PS4 Pro (Imported) -- 1TB (9.00)', image:'Ps4pro1tb9.0.jpeg', price:31999, fw:'9.00', storage:'1TB', warranty:'60 Days', condition:'Renewed', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
+  { id:'ps4pro-12-1tb-a', title:'PS4 Pro (Imported) -- 1TB (12.02)', image:'Ps4pro1tb9.0.jpeg', price:30999, fw:'12.02', storage:'1TB', warranty:'60 Days', condition:'Renewed', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
+  { id:'ps4pro-9-2tb', title:'PS4 Pro (Imported) -- 2TB (9.00)', image:'Ps4pro2tb.jpeg', price:34999, fw:'9.00', storage:'2TB', warranty:'60 Days', condition:'Renewed', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
+
+  // PS3
+  { id:'ps3-slim-500', title:'PS3 Slim (Imported) -- 500GB', image:'ps3slim.jpeg', price:14999, fw:'4.92', storage:'500GB', warranty:'30 Days', condition:'Pre-Owned', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
+
+  // PS3 Super Slim (updated + new 1TB)
+  { id:'ps3-super-500', title:'PS3 Super Slim (Pre-Owned) -- 500GB', image:'ps3superslim.jpg', price:11999, fw:'4.90+', storage:'500GB', warranty:'30 Days', condition:'Pre-Owned', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
+  { id:'ps3-super-1tb', title:'PS3 Super Slim (Pre-Owned) -- 1TB', image:'ps3superslim.jpg', price:14999, fw:'4.90+', storage:'1TB', warranty:'30 Days', condition:'Pre-Owned', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
+
+  // Xbox 360
+  { id:'xbox360-500', title:'Xbox 360 (JTAG) -- 500GB', image:'xbox360.jpg', price:12999, fw:'JTAG', storage:'500GB', warranty:'30 Days', condition:'Pre-Owned', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
+
+  // PS2
+  { id:'ps2-7xxx', title:'PS2 (Model 7xxxx Series)', image:'ps2.jpg', price:6299, fw:'FMCB', storage:'64GB/128GB/256GB/500GB (Choose)', warranty:'30 Days', condition:'Renewed', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
 ];
 
 const PREFILL_PAGE = 'order-prefill.html';
 function formatRs(n){return '₹'+(Number(n)||0).toLocaleString('en-IN');}
 const grid=document.getElementById('products-grid');
+
+/* Render cards */
 PRODUCTS.forEach(p=>{
   const card=document.createElement('article');
   card.className='card';
@@ -323,18 +315,19 @@ PRODUCTS.forEach(p=>{
     <div class="row">
       <div>
         <div style="font-weight:800">${p.title}</div>
-        <div class="meta">Firmware: ${p.fw} · ${p.games} · 1 controller · ${p.warranty}</div>
+        <div class="meta">FW ${p.fw} · ${p.condition} · ${p.controllersIncluded} · ${p.warranty}</div>
       </div>
       <div style="text-align:right">
         <div class="price">${formatRs(p.price)}</div>
-        <div style="margin-top:6px"><span class="badge">PS4</span> <span class="prepaid">Prepaid only</span></div>
       </div>
     </div>
     <div class="specs">
       <div><strong>Firmware</strong><div>${p.fw}</div></div>
-      <div><strong>Games</strong><div>${p.games}</div></div>
       <div><strong>Warranty</strong><div>${p.warranty}</div></div>
       <div><strong>Storage</strong><div>${p.storage}</div></div>
+      <div><strong>Condition</strong><div>${p.condition}</div></div>
+      <div><strong>Controllers</strong><div>${p.controllersIncluded}</div></div>
+      <div><strong>Controller Type</strong><div>${p.controllerType}</div></div>
     </div>
     <div class="controls">
       <button class="btn buy-now" data-id="${p.id}">Buy Now</button>
@@ -349,7 +342,7 @@ document.addEventListener('click',e=>{
     const id = buy.getAttribute('data-id'); const product = PRODUCTS.find(x=>x.id===id); if(!product) return;
     const params = new URLSearchParams();
     params.set('product', product.title);
-    params.set('variant', `Firmware ${product.fw}, ${product.storage}`);
+    params.set('variant', `Firmware ${product.fw}, ${product.storage}, ${product.condition}, ${product.controllersIncluded} (${product.controllerType})`);
     params.set('base', String(product.price));
     window.location.href = PREFILL_PAGE + '?' + params.toString();
     return;
@@ -378,7 +371,7 @@ modal.addEventListener('click', (ev) => { if(ev.target === modal){ closeImageMod
 
 /* ------------- WhatsApp & Call links ------------- */
 const waDigits = '917983624797'; // international without +
-const waPrefill = encodeURIComponent('Hello, I want to buy a PS4 and I agree with your console prices. Please give me payment options.');
+const waPrefill = encodeURIComponent('Hello, I want to order and I agree to the terms.');
 const waUrl = `https://api.whatsapp.com/send?phone=${waDigits}&text=${waPrefill}`;
 
 // Set header/footer number links to WhatsApp
@@ -389,14 +382,13 @@ document.getElementById('footerWa').href = waUrl;
 const waIconBtn = document.getElementById('waIconBtn');
 waIconBtn.href = waUrl;
 
-// Floating Call button (tel link already set in markup) — ensure supported format
+// Floating Call button (tel link already set in markup)
 const callIconBtn = document.getElementById('callIconBtn');
 callIconBtn.href = 'tel:+917983624797';
 
-/* For keyboard users: open WhatsApp when Enter/Space on icon */
+// Keyboard open actions
 waIconBtn.addEventListener('keydown', (e) => { if(e.key==='Enter' || e.key===' ') { e.preventDefault(); window.open(waUrl, '_blank'); } });
 callIconBtn.addEventListener('keydown', (e) => { if(e.key==='Enter' || e.key===' ') { e.preventDefault(); window.location.href = 'tel:+917983624797'; } });
-
 </script>
 
 </body>
