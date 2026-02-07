@@ -161,22 +161,22 @@
           <option value="BLACK CONTROLLER (OG) FOR PS4" data-price="2999">BLACK CONTROLLER (OG) — ₹2999</option>
           <option value="PLAYx Controller P5 STYLE FOR PS4" data-price="1599">PLAYx Controller — ₹1599</option>
           <option value="PlayX Controller (Spiderman Theme) P5 STYLE FOR PS4" data-price="1799">PlayX Controller (Spiderman Theme) — ₹1799</option>
-          <option value="USB Cable (OG) Micro USB for Controller Charge OF PS4" data-price="399">USB Cable (OG) Micro USB for Controller Charge — ₹399</option>
+          <option value="USB Cable (OG) Micro USB for Controller Charge OF PS4" data-price="299">USB Cable (OG) Micro USB for Controller Charge — ₹299</option>
           <option value="USB Cable (Generic) Micro USB for Controller Charge FOR PS4" data-price="99">USB Cable (Generic) Micro USB for Controller Charge — ₹99</option>
           <option value="PS4 Slim Power Cable" data-price="299">PS4 Slim Power Cable — ₹299</option>
           <option value="PS4 Slim Sticker" data-price="99">PS4 Slim Sticker — ₹99</option>
           <option value="PS4 Controller Skin" data-price="299">PS4 Controller Skin — ₹299</option>
           <option value="PS4-5 Thumb Grip" data-price="50">PS4-5 Thumb Grip — ₹50</option>
-          <option value="USB to C Type Cable for PS4 and PS5 (OG)" data-price="399">USB to C Type Cable for PS4 and PS5 (OG) — ₹399</option>
+          <option value="USB to C Type Cable for PS4 and PS5 (OG)" data-price="299">USB to C Type Cable for PS4 and PS5 (OG) — ₹299</option>
           <option value="USB to C Type Cable for PS4 and PS5 (Generic)" data-price="99">USB to C Type Cable for PS4 and PS5 (Generic) — ₹99</option>
           <option value="CONTROLLER for PS3 (Generic)" data-price="890"> CONTROLLER for PS3 (Generic) — ₹890</option>
           <option value="HDMI Generic 1.5m" data-price="99">HDMI Generic 1.5m — ₹99</option>
           <option value="HDMI P5 1.5m" data-price="399">HDMI P5 1.5m — ₹399</option>
           <option value="HDMI Honeywell 2m (Premium Cable)" data-price="650">HDMI Honeywell 2m (Premium Cable) — ₹650</option>
-          <option value="5m Generic HDMI Cable" data-price="299">5m Generic HDMI Cable — ₹299</option>
-          <option value="500GB USB External HDD (Preloaded with Games)" data-price="2999">500GB USB External HDD (Preloaded with Games) — ₹2999</option>
-          <option value="1TB USB External HDD (Preloaded with Games)" data-price="5699">1TB USB External HDD (Preloaded with Games) — ₹5699</option>
-          <option value="2TB USB External HDD (Preloaded with Games)" data-price="10999">2TB USB External HDD (Preloaded with Games) — ₹10999</option>
+          
+          <option value="500GB USB External HDD (Preloaded with Games)" data-price="4500">500GB USB External HDD (Preloaded with Games) — ₹4500</option>
+          <option value="1TB USB External HDD (Preloaded with Games)" data-price="8500">1TB USB External HDD (Preloaded with Games) — ₹8500</option>
+          <option value="2TB USB External HDD (Preloaded with Games)" data-price="15999">2TB USB External HDD (Preloaded with Games) — ₹15999</option>
 
         </select>
       </div>
@@ -193,7 +193,23 @@
       </div>
     </div>
     <div class="hint" id="addonsHelp">Add-ons are optional. Pick from dropdown → set Qty → “Add this to your order”. Names & prices fixed; only quantity editable.</div>
+  
+  <!-- Games Pack -->
+  <div style="margin-top:14px">
+    <span class="badge">Games Pack</span>
+    <div class="inline" style="margin-top:8px">
+      <div style="flex:1 1 260px">
+        <div class="label">Select Games Pack</div>
+        <select id="gamesPackSelect">
+          <option value="none" data-price="0">No Need Games Pack</option>
+          <option value="500gb" data-price="2500">500GB Games Pack — ₹2500</option>
+          <option value="1tb" data-price="3500">1TB Games Pack — ₹3500</option>
+          <option value="2tb" data-price="5500">2TB Games Pack — ₹5500</option>
+        </select>
+      </div>
+    </div>
   </div>
+
 
   <!-- Payment Mode -->
   <div class="card">
@@ -746,6 +762,49 @@ document.getElementById("addonSelect").addEventListener("change", e=>{
   document.getElementById("addonPrice").value = opt.value ? price : "";
   document.getElementById("addAddonBtn").disabled = !opt.value;
 });
+
+/* ===== Games Pack Logic ===== */
+let gamesPackPrice = 0;
+
+function detectStorageFromVariant(){
+  const v = (document.getElementById("variant").value || "").toLowerCase();
+  if(v.includes("2tb")) return "2tb";
+  if(v.includes("1tb")) return "1tb";
+  if(v.includes("500gb")) return "500gb";
+  return "none";
+}
+
+function applyGamesPackSelection(){
+  const sel = document.getElementById("gamesPackSelect");
+  const opt = sel.selectedOptions[0];
+  const price = Number(opt.dataset.price || 0);
+
+  // remove previous games pack price from base
+  const baseEl = document.getElementById("basePrice");
+  const currentBase = Number(baseEl.value || 0);
+  baseEl.value = Math.max(0, currentBase - gamesPackPrice);
+
+  // add new games pack price
+  gamesPackPrice = price;
+  baseEl.value = Number(baseEl.value || 0) + gamesPackPrice;
+
+  computeTotals();
+}
+
+// auto select default based on storage
+function autoSelectGamesPack(){
+  const storage = detectStorageFromVariant();
+  const sel = document.getElementById("gamesPackSelect");
+  if(!sel) return;
+  sel.value = storage;
+  applyGamesPackSelection();
+}
+
+document.getElementById("gamesPackSelect").addEventListener("change", applyGamesPackSelection);
+
+// run after prefill
+setTimeout(autoSelectGamesPack, 200);
+
 </script>
 </body>
 </html>
