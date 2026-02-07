@@ -280,9 +280,7 @@ const PRODUCTS = [
   // PS4 Slim (White & 500GB removed as requested)
   { id:'ps4s-black-1tb', title:'PS4 Slim (Black) -- 1TB', image:'Ps4slim12.02blk.jpeg', price:24999, fw:'12.02', storage:'1TB', warranty:'60 Days', condition:'Renewed', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
 
-  // PS4 Pro
-  { id:'ps4pro-preowned-1tb', title:'PS4 Pro (Pre-Owned) -- 1TB', image:'Ps4pro1tb9.0.jpeg', price:22999, fw:'12.02', storage:'1TB', warranty:'15 Days (Testing)', condition:'Pre-Owned', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
-  { id:'ps4pro-9-1tb', title:'PS4 Pro (Imported) -- 1TB (9.00)', image:'Ps4pro1tb9.0.jpeg', price:31999, fw:'9.00', storage:'1TB', warranty:'60 Days', condition:'Renewed', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
+  // PS4 Pro  { id:'ps4pro-9-1tb', title:'PS4 Pro (Imported) -- 1TB (9.00)', image:'Ps4pro1tb9.0.jpeg', price:31999, fw:'9.00', storage:'1TB', warranty:'60 Days', condition:'Renewed', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
   { id:'ps4pro-12-1tb-a', title:'PS4 Pro (Imported) -- 1TB (12.02)', image:'Ps4pro1tb9.0.jpeg', price:30999, fw:'12.02', storage:'1TB', warranty:'60 Days', condition:'Renewed', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
   { id:'ps4pro-9-2tb', title:'PS4 Pro (Imported) -- 2TB (9.00)', image:'Ps4pro2tb.jpeg', price:34999, fw:'9.00', storage:'2TB', warranty:'60 Days', condition:'Renewed', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
 
@@ -290,9 +288,6 @@ const PRODUCTS = [
   { id:'ps3-slim-500', title:'PS3 Slim (Imported) -- 500GB', image:'ps3slim.jpeg', price:14999, fw:'4.92', storage:'500GB', warranty:'30 Days', condition:'Pre-Owned', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
 
   // PS3 Super Slim (updated + new 1TB)
-  { id:'ps3-super-500', title:'PS3 Super Slim (Pre-Owned) -- 500GB', image:'ps3superslim.jpg', price:11999, fw:'4.90+', storage:'500GB', warranty:'30 Days', condition:'Pre-Owned', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
-  { id:'ps3-super-1tb', title:'PS3 Super Slim (Pre-Owned) -- 1TB', image:'ps3superslim.jpg', price:14999, fw:'4.90+', storage:'1TB', warranty:'30 Days', condition:'Pre-Owned', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
-
   // Xbox 360
   { id:'xbox360-500', title:'Xbox 360 (JTAG) -- 500GB', image:'xbox360.jpg', price:12999, fw:'JTAG', storage:'500GB', warranty:'30 Days', condition:'Pre-Owned', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
 
@@ -330,7 +325,10 @@ PRODUCTS.forEach(p=>{
       <div><strong>Controller Type</strong><div>${p.controllerType}</div></div>
     </div>
     <div class="controls">
-      <button class="btn buy-now" data-id="${p.id}">Buy Now</button>
+      ${p.id === 'ps2-7xxx' 
+        ? `<a class="btn buy-now" href="https://gamesplanet13.github.io/ps2now/" target="_blank">Buy Now</a>`
+        : `<button class="btn buy-now" data-id="${p.id}">Buy Now</button>`
+      }
     </div>
   `;
   grid.appendChild(card);
