@@ -97,6 +97,7 @@
     <!-- Mini Preview under pincode -->
     <div id="miniPreview" class="hint" style="margin-top:8px; display:none">
       <div>🟢 <b>Prepaid</b> — ⏳ ETA: <span id="preEta">—</span> • 📅 Delivery: <span id="preRange">—</span></div>
+      <div>🔴 <b>COD</b> — ⏳ ETA: <span id="codEta">—</span> • 📅 Delivery: <span id="codRange">—</span></div>
     </div>
 
     <div class="grid3" style="margin-top:8px">
@@ -155,29 +156,30 @@
         <div class="label">Choose add-on</div>
         <select id="addonSelect">
           <option value="" data-price="0">— Select —</option>
+          <!-- Existing add-ons -->
+          <option value="Wire Gamepad" data-price="365">Wire Gamepad — ₹365</option>
 
-          <!-- Custom list as requested (spelling & sentences corrected) -->
-          <option value="BLACK CONTROLLER for PS4 (Generic)" data-price="1199">BLACK CONTROLLER for PS4 (Generic) — ₹1199</option>
-          <option value="BLACK CONTROLLER (OG) FOR PS4" data-price="2999">BLACK CONTROLLER (OG) — ₹2999</option>
-          <option value="PLAYx Controller P5 STYLE FOR PS4" data-price="1599">PLAYx Controller — ₹1599</option>
-          <option value="PlayX Controller (Spiderman Theme) P5 STYLE FOR PS4" data-price="1799">PlayX Controller (Spiderman Theme) — ₹1799</option>
-          <option value="USB Cable (OG) Micro USB for Controller Charge OF PS4" data-price="299">USB Cable (OG) Micro USB for Controller Charge — ₹299</option>
-          <option value="USB Cable (Generic) Micro USB for Controller Charge FOR PS4" data-price="99">USB Cable (Generic) Micro USB for Controller Charge — ₹99</option>
-          <option value="PS4 Slim Power Cable" data-price="299">PS4 Slim Power Cable — ₹299</option>
-          <option value="PS4 Slim Sticker" data-price="99">PS4 Slim Sticker — ₹99</option>
-          <option value="PS4 Controller Skin" data-price="299">PS4 Controller Skin — ₹299</option>
-          <option value="PS4-5 Thumb Grip" data-price="50">PS4-5 Thumb Grip — ₹50</option>
-          <option value="USB to C Type Cable for PS4 and PS5 (OG)" data-price="299">USB to C Type Cable for PS4 and PS5 (OG) — ₹299</option>
-          <option value="USB to C Type Cable for PS4 and PS5 (Generic)" data-price="99">USB to C Type Cable for PS4 and PS5 (Generic) — ₹99</option>
-          <option value="CONTROLLER for PS3 (Generic)" data-price="890"> CONTROLLER for PS3 (Generic) — ₹890</option>
-          <option value="HDMI Generic 1.5m" data-price="99">HDMI Generic 1.5m — ₹99</option>
-          <option value="HDMI P5 1.5m" data-price="399">HDMI P5 1.5m — ₹399</option>
-          <option value="HDMI Honeywell 2m (Premium Cable)" data-price="650">HDMI Honeywell 2m (Premium Cable) — ₹650</option>
-          
-          <option value="500GB USB External HDD (Preloaded with Games)" data-price="4500">500GB USB External HDD (Preloaded with Games) — ₹4500</option>
-          <option value="1TB USB External HDD (Preloaded with Games)" data-price="8500">1TB USB External HDD (Preloaded with Games) — ₹8500</option>
-          <option value="2TB USB External HDD (Preloaded with Games)" data-price="15999">2TB USB External HDD (Preloaded with Games) — ₹15999</option>
+<option value="Wireless Gamepad" data-price="499">Wireless Gamepad — ₹499</option>
 
+<option value="PS2 Slim Sticker/Skin" data-price="60">PS2 Slim Sticker/Skin — ₹60</option>
+
+<option value="HDMI Converter" data-price="279">HDMI Converter — ₹279</option>
+
+<option value="HDMI Cable" data-price="99">HDMI Cable — ₹99</option>
+
+<option value="Best HDMI Cable" data-price="349">Best HDMI Cable — ₹349</option>
+
+<option value="Blank Memory Card 8MB" data-price="299">Blank Memory Card 8MB — ₹299</option>
+
+<option value="AAA Batteries of duaracel PACK OF 4" data-price="88">AAA Batteries of duaracel PACK OF 4 — ₹88</option>
+
+<option value="AAA RECHARGEABLE BATTERIES PACK OF 4" data-price="599">AAA RECHARGEABLE BATTERIES PACK OF 4 — ₹599</option>
+
+<option value="AAA/AA BARTERIES CHARGER 4 SLOT" data-price="450">AAA/AA BARTERIES CHARGER 4 SLOT — ₹450</option>
+
+<option value="AAA 4 BATTERIES AND 4 PORT CHARGER COMBO" data-price="919">AAA 4 BATTERIES AND 4 PORT CHARGER COMBO — ₹919</option>
+
+<option value="TRACKON.IN PRIME COURIER SERVICE" data-price="200">TRACKON.IN PRIME COURIER SERVICE — ₹200</option>
         </select>
       </div>
       <div>
@@ -189,43 +191,27 @@
         <input id="addonQty" type="number" min="1" step="1" value="1" />
       </div>
       <div style="align-self:flex-end">
-        <button id="addAddonBtn" class="ghost" aria-label="add-addon" onclick="addAddonFromPicker()" disabled>Add this to your order</button>
+        <button id="addAddonBtn" class="ghost" onclick="addAddonFromPicker()" disabled>Add this to your order</button>
       </div>
     </div>
     <div class="hint" id="addonsHelp">Add-ons are optional. Pick from dropdown → set Qty → “Add this to your order”. Names & prices fixed; only quantity editable.</div>
-  
-  <!-- Games Pack -->
-  <div style="margin-top:14px">
-    <span class="badge">Games Pack</span>
-    <div class="inline" style="margin-top:8px">
-      <div style="flex:1 1 260px">
-        <div class="label">Select Games Pack</div>
-        <select id="gamesPackSelect">
-          <option value="none" data-price="0">No Need Games Pack</option>
-          <option value="500gb" data-price="2500">500GB Games Pack — ₹2500</option>
-          <option value="1tb" data-price="3500">1TB Games Pack — ₹3500</option>
-          <option value="2tb" data-price="5500">2TB Games Pack — ₹5500</option>
-        </select>
-      </div>
-    </div>
   </div>
-
 
   <!-- Payment Mode -->
   <div class="card">
     <span class="badge">Payment Mode</span>
     <div class="btns">
-      <!-- COD button removed; only Prepaid -->
       <button id="btn-prepaid" class="ghost" onclick="setMode('prepaid')">🟢 Prepaid</button>
+      <button id="btn-cod" class="ghost" onclick="setMode('cod')">🔴 COD</button>
     </div>
-    <div class="hint" id="codNote">Only Prepaid payments are allowed.</div>
+    <div class="hint" id="codNote">COD rules: ≥ ₹1899 → ₹0 • ₹1399–₹1898 → ₹99 • &lt; ₹1399 → No COD</div>
   </div>
 
   <!-- Coupon (Prepaid only) -->
   <div class="card" id="couponCard" style="display:none">
     <span class="badge">Coupon</span>
     <div class="grid2">
-      <input id="couponCode" placeholder="Enter Coupon Code" autocomplete="off">
+      <input id="couponCode" placeholder="Enter Coupon Code (gpz2025)" autocomplete="off">
       <button class="ghost" onclick="applyCoupon()">Apply</button>
     </div>
     <div class="hint" id="couponNote"></div>
@@ -244,7 +230,7 @@
       <input id="amountPaid_pre" type="number" placeholder="₹ (auto)" readonly>
     </div>
 
-    <!-- COD block left in code but will remain hidden because COD button removed and mode won't be set to cod -->
+    <!-- COD only -->
     <div id="codBlock" style="display:none">
       <div class="label">COD Charges</div>
       <input id="codCharges" type="number" placeholder="₹ (auto)" readonly>
@@ -290,7 +276,7 @@ const WHATSAPP_PHONE="917983624797";
 const UPI_ID="paytmqr5hyx5o@ptys";
 const UPI_NAME="Surender Kaur";
 
-/* === COD RULES (kept for compatibility but COD UI removed) === */
+/* === COD RULES === */
 const COD_ALLOW_MIN = 1399;      // below this → No COD
 const COD_FREE_THRESHOLD = 1899;  // ≥ this → COD charges 0
 const COD_MID_CHARGE = 99;        // between 1399 and 1898 → ₹99
@@ -311,85 +297,20 @@ function setPackBadge(pack){
   el.className='badge right '+(isOpt?'pack-opt':'pack-top');
 }
 
-/* ---- Mobile clean for WhatsApp: remove leading 0 / +91 / 91 and spaces ---- */
-function cleanMobileForWA(num){
-  if(!num) return "";
-  let s = num.toString().trim();
-  s = s.replace(/[\s\-()]/g,"");            // remove spaces/dashes/parens
-  s = s.replace(/^(\+91|91|0)+/,"");        // remove leading +91 or 91 or 0
-  return s;
-}
-
-/* ===== Add-ons rows and transfer-to-base logic (with qty-change reflecting basePrice) ===== */
-
-function addRow(name="", price=0, qty=1, transferred=false){
+/* ===== Add-ons rows ===== */
+function addRow(name="",price="",qty=1){
   const box=document.getElementById("items");
   const row=document.createElement("div");
   row.className="row addon-row";
-
-  // display price is shown for non-transferred items. If transferred, we display 0 to avoid double-count.
-  const displayPrice = transferred ? 0 : Number(price||0);
-  const origPrice = Number(price||0);
-
-  row.innerHTML = `
+  row.innerHTML=`
     <input class="i-name" value="${name}" readonly>
-    <input class="i-price" type="number" value="${displayPrice}" readonly
-           data-orig="${origPrice}" data-transferred="${transferred?1:0}">
+    <input class="i-price" type="number" value="${Number(price)||0}" readonly>
     <input class="i-qty" type="number" min="1" step="1" value="${Number(qty)||1}">
-    <button class="ghost" aria-label="Remove add-on">✕</button>`;
-
-  // keep track of last known qty for delta calculations
-  const qtyInput = row.querySelector(".i-qty");
-  qtyInput.dataset.lastQty = String(Number(qty||1));
-
-  // If transferred -> immediately add (origPrice * qty) to basePrice
-  if(transferred && origPrice>0){
-    const baseEl = document.getElementById("basePrice");
-    const current = Number(baseEl.value || 0);
-    baseEl.value = +(current + (origPrice * Number(qty || 1)));
-  }
-
-  // When qty changes:
-  qtyInput.addEventListener("input", function(){
-    const newQty = Math.max(0, Number(this.value||0));
-    const lastQty = Number(this.dataset.lastQty || 0);
-    const priceInput = row.querySelector(".i-price");
-    const orig = Number(priceInput.dataset.orig || 0);
-    const transferredFlag = priceInput.dataset.transferred === '1';
-
-    // If this add-on was transferred to base earlier, adjust basePrice by delta (orig * (new-last))
-    if(transferredFlag && orig>0){
-      const deltaQty = newQty - lastQty;
-      if(deltaQty !== 0){
-        const baseEl = document.getElementById("basePrice");
-        const current = Number(baseEl.value || 0);
-        baseEl.value = Math.max(0, +(current + (orig * deltaQty)));
-      }
-    }
-    // Update lastQty
-    this.dataset.lastQty = String(newQty);
-    recomputeAddons();
-  });
-
-  // Remove button: subtract transferred amount if transferred
-  row.querySelector("button").addEventListener("click", function(){
-    const priceInput = row.querySelector(".i-price");
-    const orig = Number(priceInput.dataset.orig || 0);
-    const transferredFlag = priceInput.dataset.transferred === '1';
-    const q = Number(row.querySelector(".i-qty").value || 0);
-    if(transferredFlag && orig>0 && q>0){
-      const baseEl = document.getElementById("basePrice");
-      const current = Number(baseEl.value || 0);
-      baseEl.value = Math.max(0, +(current - (orig * q)));
-    }
-    row.remove();
-    recomputeAddons();
-  });
-
+    <button class="ghost" aria-label="Remove add-on" onclick="this.parentNode.remove(); recomputeAddons()">✕</button>`;
+  row.querySelector(".i-qty").addEventListener("input",()=>{recomputeAddons();});
   box.appendChild(row);
   recomputeAddons();
 }
-
 function addAddonFromPicker(){
   const sel=document.getElementById("addonSelect");
   const opt=sel.selectedOptions[0];
@@ -397,31 +318,18 @@ function addAddonFromPicker(){
   const pr=Number(opt?.dataset?.price||0);
   const qty=Number(document.getElementById("addonQty").value||1);
   if(!name){ alert("Please choose an add-on."); return; }
-
-  // Add row AND transfer price into basePrice immediately (transferred=true)
-  addRow(name, pr, qty, true);
-
-  // reset picker UI
+  addRow(name, pr, qty);
   document.getElementById("addonQty").value=1;
   sel.value="";
   document.getElementById("addonPrice").value="";
   document.getElementById("addAddonBtn").disabled = true;
 }
-
-/* sumAddons now sums only displayed (non-transferred) addon prices */
-function sumAddons(){
-  let total=0;
-  document.querySelectorAll("#items .addon-row").forEach(r=>{
-    const p=Number(r.querySelector(".i-price").value||0);
-    const q=Number(r.querySelector(".i-qty").value||0);
-    total += (p*q);
-  });
-  return total;
-}
-function recomputeAddons(){
-  document.getElementById("addonsTotal").value = sumAddons();
-  computeTotals();
-}
+document.getElementById("addonSelect").addEventListener("change", e=>{
+  const opt=e.target.selectedOptions[0];
+  const price=Number(opt?.dataset?.price||0);
+  document.getElementById("addonPrice").value = opt.value ? price : "";
+  document.getElementById("addAddonBtn").disabled = !opt.value;
+});
 
 /* ===== Coupon helpers & logic ===== */
 function norm(s){return (s||"").toString().trim().toUpperCase();}
@@ -476,9 +384,22 @@ function applyCoupon(){
 }
 
 /* ===== Add-ons sum & totals helpers ===== */
+function sumAddons(){
+  let total=0;
+  document.querySelectorAll("#items .addon-row").forEach(r=>{
+    const p=Number(r.querySelector(".i-price").value||0);
+    const q=Number(r.querySelector(".i-qty").value||0);
+    total += (p*q);
+  });
+  return total;
+}
 function getSubtotal(){
   const base=+document.getElementById("basePrice").value||0;
   return base + sumAddons();
+}
+function recomputeAddons(){
+  document.getElementById("addonsTotal").value = sumAddons();
+  computeTotals();
 }
 
 /* ===== COD gating & charges ===== */
@@ -492,42 +413,35 @@ function currentCodCharge(sub){
   return null; // not allowed
 }
 function updateCodButton(){
-  // guard: btn-cod may be removed from DOM — handle safely
-  const codBtn = document.getElementById("btn-cod");
+  const codBtn=document.getElementById("btn-cod");
   const sub=getSubtotal();
   const eligible=codEligible();
   const charge=currentCodCharge(sub);
 
-  if(codBtn){
-    if(!eligible){
-      codBtn.setAttribute("disabled","disabled");
-      const noteEl = document.getElementById("codNote");
-      if(noteEl) noteEl.textContent="COD not available below ₹1399";
-      if(mode==="cod"){ mode="prepaid"; setModeBadge(); document.getElementById("prepaidBlock").style.display="block"; document.getElementById("codBlock").style.display="none"; }
-    }else{
-      codBtn.removeAttribute("disabled");
-      const noteEl = document.getElementById("codNote");
-      if(noteEl) noteEl.textContent = (charge===0)
-        ? "COD charges: ₹0 (Subtotal ≥ ₹1899)"
-        : "COD charges: ₹99 (Subtotal ₹1399–₹1898)";
-    }
-  } else {
-    // no COD button in UI; ensure COD block hidden and prepaid active
-    const noteEl = document.getElementById("codNote");
-    if(noteEl) noteEl.textContent = "Only Prepaid payments are allowed.";
+  if(!eligible){
+    codBtn.setAttribute("disabled","disabled");
+    document.getElementById("codNote").textContent="COD not available below ₹1399";
     if(mode==="cod"){ mode="prepaid"; setModeBadge(); document.getElementById("prepaidBlock").style.display="block"; document.getElementById("codBlock").style.display="none"; }
+  }else{
+    codBtn.removeAttribute("disabled");
+    document.getElementById("codNote").textContent = (charge===0)
+      ? "COD charges: ₹0 (Subtotal ≥ ₹1899)"
+      : "COD charges: ₹99 (Subtotal ₹1399–₹1898)";
   }
 }
 
 /* ===== Mode toggle ===== */
 function setMode(m){
-  // Only Prepaid mode is allowed in this patched version.
-  mode = 'prepaid';
-  document.getElementById("btn-prepaid").className=(mode==="prepaid"?"ghost act":"ghost");
-  // ensure coupon & blocks show prepaid
-  document.getElementById("couponCard").style.display="block";
-  document.getElementById("prepaidBlock").style.display="block";
-  document.getElementById("codBlock").style.display="none";
+  if(m==="cod" && !codEligible()){
+    alert("Subtotal ₹1399 se niche hai — COD allowed nahi.");
+    return;
+  }
+  mode=m;
+  document.getElementById("btn-prepaid").className=(m==="prepaid"?"ghost act":"ghost");
+  document.getElementById("btn-cod").className=(m==="cod"?"ghost act":"ghost");
+  document.getElementById("couponCard").style.display=(m==="prepaid")?"block":"none";
+  document.getElementById("prepaidBlock").style.display=(m==="prepaid")?"block":"none";
+  document.getElementById("codBlock").style.display=(m==="cod")?"block":"none";
   setModeBadge();
   computeTotals();
 }
@@ -559,7 +473,6 @@ function computeTotals(){
     }
     document.getElementById("amountPaid_pre").value = paid;
   }else{
-    // COD branch left for compatibility but will not be used in this patched version
     document.getElementById("prepaidBlock").style.display="none";
     document.getElementById("codBlock").style.display="block";
     const charge = currentCodCharge(subtotal);
@@ -602,8 +515,7 @@ function productWithAddons(){
 
 /* ===== WA template (House no. merged into Address, amounts no-commas) ===== */
 function buildWhatsAppTemplate(forMode){
-  // always prepaid in patched version
-  const isCod = false;
+  const isCod = (forMode==="cod");
   const basePrice = +document.getElementById("basePrice").value || 0;
 
   // Build Address with House no. prefixed if present
@@ -614,12 +526,14 @@ function buildWhatsAppTemplate(forMode){
   // eta/date
   const etaPre = document.getElementById("etaText").value || "";
   const rangePre = document.getElementById("dateRange").value || "";
+  const etaCod = document.getElementById("etaTextCod")?.value || etaPre;
+  const rangeCod = document.getElementById("dateRangeCOD")?.value || rangePre;
 
   const common = [
     `Order ID: ${document.getElementById("orderId").value || orderIdNow()}`,
     `Name: ${document.getElementById("name").value || ""}`,
-    `Mobile: ${cleanMobileForWA(document.getElementById("mobile").value || "")}`,
-    `Alt Mobile: ${cleanMobileForWA(document.getElementById("altMobile").value || "")}`,
+    `Mobile: ${document.getElementById("mobile").value || ""}`,
+    `Alt Mobile: ${document.getElementById("altMobile").value || ""}`,
     `Email: ${document.getElementById("email").value || ""}`,
     `Address: ${fullAddress}`,
     `Landmark: ${document.getElementById("landmark").value || ""}`,
@@ -632,23 +546,40 @@ function buildWhatsAppTemplate(forMode){
     `Base Price: ${rs(basePrice)}`
   ];
 
-  const paid = +document.getElementById("amountPaid_pre").value || 0;
-  return [
-    "🟢 Prepaid Order on WhatsApp",
-    "",
-    ...common,
-    `Discount Applied:${(typeof discountValue==='number' && discountValue>0) ? " "+rs(discountValue) : ""}`,
-    `Amount Paid: ${rs(paid)}`,
-    "",
-    `📏 Distance: ${document.getElementById("distance").value || ""}`,
-    `⏳ Prepaid Order ETA: ${etaPre}`,
-    `📅 Estimated Delivery: ${rangePre}`
-  ].join("\n");
+  if(!isCod){
+    const paid = +document.getElementById("amountPaid_pre").value || 0;
+    return [
+      "🟢 Prepaid Order on WhatsApp",
+      "",
+      ...common,
+      `Discount Applied:${(typeof discountValue==='number' && discountValue>0) ? " "+rs(discountValue) : ""}`,
+      `Amount Paid: ${rs(paid)}`,
+      "",
+      `📏 Distance: ${document.getElementById("distance").value || ""}`,
+      `⏳ Prepaid Order ETA: ${etaPre}`,
+      `📅 Estimated Delivery: ${rangePre}`
+    ].join("\n");
+  }else{
+    const paid = +document.getElementById("amountPaid_cod").value || 0;
+    const rest = +document.getElementById("restAmount").value || 0;
+    return [
+      "🔴 COD Order on WhatsApp",
+      "",
+      ...common,
+      `Discount Applied:`,
+      `Amount Paid: ${rs(paid)}`,
+      `Rest on Delivery: ${rs(rest)}`,
+      "",
+      `📏 Distance: ${document.getElementById("distance").value || ""}`,
+      `⏳ COD Order ETA: ${etaCod}`,
+      `📅 Estimated Delivery: ${rangeCod}`
+    ].join("\n");
+  }
 }
 
 /* ===== Single action: Submit this order ===== */
 function submitOrder(){
-  const text = buildWhatsAppTemplate("prepaid");
+  const text = buildWhatsAppTemplate(mode === "cod" ? "cod" : "prepaid");
   window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(text)}`,'_blank','noopener,noreferrer');
 }
 
@@ -734,16 +665,33 @@ document.getElementById("pincode").addEventListener("input",function(){
           const pre=parseEta(eta);
           const preRangeFull = formatDateRange(pre.min, pre.max);
 
+          // COD = Prepaid +2 to +3 days
+          const cod={min: pre.min+2, max: pre.max+3};
+          const codEtaText = (cod.min===cod.max) ? `${cod.min} days` : `${cod.min}–${cod.max} days`;
+          const codRangeFull = formatDateRange(cod.min, cod.max);
+
           // Keep meta in hidden inputs
           document.getElementById("distance").value=`${d} km`;
           document.getElementById("etaText").value=eta;
           document.getElementById("dateRange").value=preRangeFull;
 
+          // Hidden for COD template
+          if(!document.getElementById("etaTextCod")){
+            const h1=document.createElement("input"); h1.type="hidden"; h1.id="etaTextCod";
+            const h2=document.createElement("input"); h2.type="hidden"; h2.id="dateRangeCOD";
+            document.body.appendChild(h1); document.body.appendChild(h2);
+          }
+          document.getElementById("etaTextCod").value = codEtaText;
+          document.getElementById("dateRangeCOD").value = codRangeFull;
+
           // Mini preview under pincode
           document.getElementById("deliveryEstimate").innerText=`📍 Distance: ${d} km\n⏳ Prepaid ETA: ${eta}\n📅 Prepaid Delivery: ${preRangeFull}`;
           document.getElementById("preEta").textContent = eta;
           document.getElementById("preRange").textContent = preRangeFull;
+          document.getElementById("codEta").textContent = codEtaText;
+          document.getElementById("codRange").textContent = codRangeFull;
           document.getElementById("miniPreview").style.display="block";
+          getCourier();
         }
       }
     });
@@ -752,59 +700,275 @@ document.getElementById("pincode").addEventListener("input",function(){
 
 /* Live updates that might affect totals/eligibility */
 ["name","mobile","altMobile","email","address","landmark","pincode","state","city","product","variant","basePrice","house"]
-.forEach(id=>{const el=document.getElementById(id); if(el){ el.addEventListener("input",()=>{ /* no-op: submit builds fresh text */ computeTotals(); }); }});
-document.getElementById("postoffice").addEventListener("change",()=>{computeTotals();});
+.forEach(id=>{const el=document.getElementById(id); if(el){ el.addEventListener("input",()=>{ /* no-op: submit builds fresh text */ }); }});
+document.getElementById("postoffice").addEventListener("change",()=>{});
 
-/* keep addonSelect UI helper */
-document.getElementById("addonSelect").addEventListener("change", e=>{
-  const opt=e.target.selectedOptions[0];
-  const price=Number(opt?.dataset?.price||0);
-  document.getElementById("addonPrice").value = opt.value ? price : "";
-  document.getElementById("addAddonBtn").disabled = !opt.value;
-});
+async function getCourier(){
+const pin=document.getElementById("pincode").value;
+if(pin.length!=6) return;
 
-/* ===== Games Pack Logic ===== */
-let gamesPackPrice = 0;
+if(typeof __finalWeightAddon!=="function") return;
 
-function detectStorageFromVariant(){
-  const v = (document.getElementById("variant").value || "").toLowerCase();
-  if(v.includes("2tb")) return "2tb";
-  if(v.includes("1tb")) return "1tb";
-  if(v.includes("500gb")) return "500gb";
-  return "none";
+const weight=__finalWeightAddon();
+const mode=(window.mode==="cod")?"COD":"Prepaid";
+
+try{
+const res=await fetch("courier.php?pin="+pin+"&weight="+weight+"&mode="+mode);
+const data=await res.json();
+
+if(!data || !data.rate || !data.rate.length) return;
+
+const rate=data.rate[0];
+
+const courier =
+Number(rate.freight_charge||0)+
+Number(rate.fuel_surcharge||0)+
+Number(rate.cod_charge||0)+
+Number(rate.gst||0);
+
+const subtotal=getSubtotal();
+
+if(mode==="Prepaid"){
+const el=document.getElementById("amountPaid_pre");
+if(el) el.value = subtotal + courier;
+}else{
+const el=document.getElementById("codCharges");
+if(el) el.value = courier;
 }
 
-function applyGamesPackSelection(){
-  const sel = document.getElementById("gamesPackSelect");
-  const opt = sel.selectedOptions[0];
-  const price = Number(opt.dataset.price || 0);
-
-  // remove previous games pack price from base
-  const baseEl = document.getElementById("basePrice");
-  const currentBase = Number(baseEl.value || 0);
-  baseEl.value = Math.max(0, currentBase - gamesPackPrice);
-
-  // add new games pack price
-  gamesPackPrice = price;
-  baseEl.value = Number(baseEl.value || 0) + gamesPackPrice;
-
-  computeTotals();
+if(data.service && data.service.delivery_codes && data.service.delivery_codes.length){
+const cod=data.service.delivery_codes[0].cod;
+if(!cod){
+const btn=document.getElementById("btn-cod");
+if(btn) btn.style.display="none";
+}
 }
 
-// auto select default based on storage
-function autoSelectGamesPack(){
-  const storage = detectStorageFromVariant();
-  const sel = document.getElementById("gamesPackSelect");
-  if(!sel) return;
-  sel.value = storage;
-  applyGamesPackSelection();
+}catch(e){
+console.log("Courier API error",e);
 }
-
-document.getElementById("gamesPackSelect").addEventListener("change", applyGamesPackSelection);
-
-// run after prefill
-setTimeout(autoSelectGamesPack, 200);
+}
 
 </script>
+
+<script>
+/* ===== ADD-ON: WEIGHT & COURIER LOGIC (NON-DESTRUCTIVE PATCH) ===== */
+
+/* Packaging weight (grams) */
+const PACKAGING_WEIGHT = 400;
+
+/* Product weights (grams) */
+const PRODUCT_WEIGHTS = {
+  "Push Button":12,
+  "Plate":15,
+  "Switch":5,
+  "PS4 Controller (Replica)":250,
+  "PS3 Controller (Replica)":250,
+  "PS5 Controller":250,
+  "PS3 Controller Charging Cable":65,
+  "PS4 Controller Charging Cable":65,
+  "PS5 Controller Charging Cable":65,
+  "Power Cable for PS2":100,
+  "HDMI Cable":100,
+  "AV Cable for PS2":70,
+  "PS2 8MB Memory Card":25,
+  "HDMI Converter for PS2":80,
+  "Coin Packet":620,
+  "12 Core Wire (Per Meter)":70,
+  "32GB USB for PS2 with Arcade Games":5,
+  "Coin Acrylic Machine":120,
+  "Coin Drop Switch Button":12,
+  "Rasila Handle (Without Switch)":280,
+  "Rasila Handle (With Switch)":300,
+  "MD Handle (With Switch)":280
+};
+
+/* Compute final weight = products + add-ons + packaging */
+function __finalWeightAddon(){
+  let total = 0;
+
+  // Base product
+  const base = document.getElementById("product")?.value || "";
+  if(PRODUCT_WEIGHTS[base]) total += PRODUCT_WEIGHTS[base];
+
+  // Add-ons rows
+  document.querySelectorAll("#items .addon-row").forEach(r=>{
+    const name = r.querySelector(".i-name")?.value || "";
+    const qty  = Number(r.querySelector(".i-qty")?.value || 0);
+    if(PRODUCT_WEIGHTS[name]) total += PRODUCT_WEIGHTS[name] * qty;
+  });
+
+  // Packaging (always)
+  total += PACKAGING_WEIGHT;
+  return total; // grams
+}
+
+/* Courier charge: ₹100/kg prepaid, COD double */
+function __courierChargeAddon(mode){
+  const kg = Math.ceil(__finalWeightAddon() / 1000);
+  const prepaid = kg * 100;
+  return mode === "cod" ? prepaid * 2 : prepaid;
+}
+
+/* --- Hook into totals WITHOUT changing existing UI text --- */
+(function(){
+  const _computeTotals = window.computeTotals;
+  if(typeof _computeTotals === "function"){
+    window.computeTotals = function(){
+      _computeTotals();
+
+      // Add courier charges to payment calculations (add-on)
+      const sub = getSubtotal();
+      const courier = __courierChargeAddon(mode);
+
+      if(mode === "prepaid"){
+        const paidEl = document.getElementById("amountPaid_pre");
+        if(paidEl){
+          paidEl.value = Math.max(0, Number(paidEl.value||0) + courier);
+        }
+      }else{
+        const codEl = document.getElementById("codCharges");
+        if(codEl){
+          codEl.value = Number(codEl.value||0) + courier;
+        }
+        const paidEl = document.getElementById("amountPaid_cod");
+        const restEl = document.getElementById("restAmount");
+        if(paidEl && restEl){
+          const paid = Math.max(500, Math.ceil((sub + Number(codEl.value||0)) * 0.10));
+          paidEl.value = paid;
+          restEl.value = Math.max(0, sub + Number(codEl.value||0) - paid);
+        }
+      }
+    }
+  }
+
+  // Patch WhatsApp message to append lines ONLY
+  const _wa = window.buildWhatsAppTemplate;
+  if(typeof _wa === "function"){
+    window.buildWhatsAppTemplate = function(forMode){
+      const msg = _wa(forMode);
+      return msg +
+        "\nWeight Total: " + __finalWeightAddon() + " grams" +
+        "\nCourier Charges: ₹" + __courierChargeAddon(forMode);
+    }
+  }
+})();
+
+/* ===== END ADD-ON ===== */
+</script>
+
+
+<!-- ===== PATCH: NEW COURIER + COD LOGIC (OVERRIDE, NON-DESTRUCTIVE) ===== -->
+<script>
+/*
+ This patch OVERRIDES old courier/COD logic without deleting original code.
+ Rules:
+ - Product weight + Add-ons weight + 300g packaging (hidden)
+ - Slab per KG
+ - Prepaid ₹100/kg, COD ₹300/kg
+ - COD button HIDE if total < ₹1500, SHOW otherwise
+ - COD advance ₹500 fixed
+*/
+
+(function(){
+  const PACKAGING_WEIGHT = 300;
+  const PREPAID_RATE = 100;
+  const COD_RATE = 300;
+  const COD_MIN_TOTAL = 1500;
+  const COD_ADVANCE = 500;
+
+  // Fixed add-on weights (confirmed)
+  const ADDON_WEIGHT_MAP = {
+    "Wire Gamepad":250,
+    "Wireless Gamepad":300,
+    "PS2 Slim Sticker/Skin":50,
+    "HDMI Converter":80,
+    "HDMI Cable":100,
+    "Best HDMI Cable":120,
+    "Blank Memory Card 8MB":25,
+    "TRACKON.IN PRIME COURIER SERVICE":0
+  };
+
+  function addonsWeight(){
+    let w = 0;
+    document.querySelectorAll(".addon-row").forEach(r=>{
+      const name = r.querySelector(".i-name")?.value || "";
+      const qty = Number(r.querySelector(".i-qty")?.value || 0);
+      w += (ADDON_WEIGHT_MAP[name] || 0) * qty;
+    });
+    return w;
+  }
+
+  function addonsPrice(){
+    let t = 0;
+    document.querySelectorAll(".addon-row").forEach(r=>{
+      const p = Number(r.querySelector(".i-price")?.value || 0);
+      const q = Number(r.querySelector(".i-qty")?.value || 0);
+      t += p*q;
+    });
+    return t;
+  }
+
+  // Force override of compute/recalc if present
+  window.__patchedRecalc = function(){
+    const base = Number(document.getElementById("basePrice")?.value || 0);
+    const pw = Number(document.getElementById("productWeight")?.value || 0);
+    const aw = addonsWeight();
+    const addons = addonsPrice();
+
+    const finalWeight = pw + aw + PACKAGING_WEIGHT;
+    const kg = Math.ceil(finalWeight / 1000);
+
+    const mode = window.mode || "prepaid";
+    const courier = (mode === "cod" ? COD_RATE : PREPAID_RATE) * kg;
+    const total = base + addons + courier;
+
+    const setVal = (id, v)=>{ const el=document.getElementById(id); if(el) el.value=v; };
+
+    setVal("subtotal", base + addons);
+    setVal("weightTotal", finalWeight + " g");
+    setVal("courierCharge", "₹" + courier);
+    setVal("totalAmount", "₹" + total);
+
+    const codBtn = document.getElementById("codBtn");
+    if(codBtn){
+      if(total >= COD_MIN_TOTAL){
+        codBtn.style.display = "";
+      }else{
+        codBtn.style.display = "none";
+        if(window.mode === "cod"){ window.mode = "prepaid"; }
+      }
+    }
+
+    const codBlock = document.getElementById("codBlock");
+    if(window.mode === "cod"){
+      if(codBlock) codBlock.style.display = "";
+      setVal("codAdvance", "₹" + COD_ADVANCE);
+      setVal("codRest", "₹" + (total - COD_ADVANCE));
+    }else{
+      if(codBlock) codBlock.style.display = "none";
+    }
+  };
+
+  // Hook common triggers
+  document.addEventListener("input", e=>{
+    if(e.target.closest(".addon-row")) window.__patchedRecalc();
+  });
+
+  const _oldSetMode = window.setMode;
+  window.setMode = function(m){
+    window.mode = m;
+    if(typeof _oldSetMode === "function"){ try{ _oldSetMode(m); }catch(e){} }
+    window.__patchedRecalc();
+  };
+
+  // Initial run after load
+  window.addEventListener("load", ()=>{
+    window.__patchedRecalc();
+  });
+})();
+</script>
+<!-- ===== END PATCH ===== -->
+
 </body>
 </html>
