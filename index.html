@@ -166,8 +166,8 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 /* clickable phone link style used elsewhere */
 .phone-link{color:var(--cta);font-weight:800;text-decoration:none}
 </style>
-<link rel="stylesheet" href="https://gamesplanet13.github.io/arcade-accessories-/website-theme.css?v=20261023-web"><script defer src="https://gamesplanet13.github.io/arcade-accessories-/website-shell.js?v=20261023-web"></script></head>
-<body><a href="https://gamesplanet13.github.io/arcade-accessories-/console-store.html" style="display:block;max-width:1100px;margin:12px auto;padding:14px 18px;background:#163e36;color:#fff;border-radius:10px;text-align:center;text-decoration:none;font:600 13px/1.6 system-ui">Explore the new Console Collection · PS2 / PS3 / PS4 / PS4 Pro ↗</a>
+</head>
+<body>
 
 <!-- Glowing title -->
 <div class="hero" role="banner" aria-label="Games Planet">
@@ -278,21 +278,21 @@ header p{color:var(--muted);margin:6px 0 0;font-size:14px}
 /* ---------- PRODUCTS DATA (merged & cleaned) ---------- */
 const PRODUCTS = [
   // PS4 Slim (White & 500GB removed as requested)
-  { id:'ps4s-black-1tb', title:'PS4 Slim (Black) -- 1TB', image:'images/Ps4slim12.02blk.jpeg', price:25999, fw:'12.52', storage:'1TB', warranty:'60 Days', condition:'Renewed', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
+  { id:'ps4s-black-1tb', title:'PS4 Slim (Black) -- 1TB', image:'Ps4slim12.02blk.jpeg', price:25999, fw:'12.52', storage:'1TB', warranty:'60 Days', condition:'Renewed', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
 
-  // PS4 Pro  { id:'ps4pro-9-1tb', title:'PS4 Pro (Imported) -- 1TB (9.00)', image:'images/Ps4pro1tb9.0.jpeg', price:32999, fw:'9.00', storage:'1TB', warranty:'60 Days', condition:'Renewed', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
-  { id:'ps4pro-12-1tb-a', title:'PS4 Pro (Imported) -- 1TB (12.02)', image:'images/Ps4pro1tb9.0.jpeg', price:31999, fw:'12.02', storage:'1TB', warranty:'60 Days', condition:'Renewed', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
-  { id:'ps4pro-9-2tb', title:'PS4 Pro (Imported) -- 2TB (9.00)', image:'images/Ps4pro2tb.jpeg', price:34999, fw:'9.00', storage:'2TB', warranty:'60 Days', condition:'Renewed', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
+  // PS4 Pro  { id:'ps4pro-9-1tb', title:'PS4 Pro (Imported) -- 1TB (9.00)', image:'Ps4pro1tb9.0.jpeg', price:32999, fw:'9.00', storage:'1TB', warranty:'60 Days', condition:'Renewed', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
+  { id:'ps4pro-12-1tb-a', title:'PS4 Pro (Imported) -- 1TB (12.02)', image:'Ps4pro1tb9.0.jpeg', price:31999, fw:'12.02', storage:'1TB', warranty:'60 Days', condition:'Renewed', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
+  { id:'ps4pro-9-2tb', title:'PS4 Pro (Imported) -- 2TB (9.00)', image:'Ps4pro2tb.jpeg', price:34999, fw:'9.00', storage:'2TB', warranty:'60 Days', condition:'Renewed', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
 
   // PS3
-  { id:'ps3-slim-500', title:'PS3 Slim (Imported) -- 500GB', image:'images/ps3slim.jpeg', price:15999, fw:'4.92', storage:'500GB', warranty:'30 Days', condition:'Pre-Owned', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
+  { id:'ps3-slim-500', title:'PS3 Slim (Imported) -- 500GB', image:'ps3slim.jpeg', price:15999, fw:'4.92', storage:'500GB', warranty:'30 Days', condition:'Pre-Owned', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
 
   // PS3 Super Slim (updated + new 1TB)
   // Xbox 360
-  { id:'xbox360-500', title:'Xbox 360 (JTAG) -- 500GB', image:'images/xbox360.jpg', price:12999, fw:'JTAG', storage:'500GB', warranty:'30 Days', condition:'Pre-Owned', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
+  { id:'xbox360-500', title:'Xbox 360 (JTAG) -- 500GB', image:'xbox360.jpg', price:12999, fw:'JTAG', storage:'500GB', warranty:'30 Days', condition:'Pre-Owned', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
 
   // PS2
-  { id:'ps2-7xxx', title:'PS2 (Model 7xxxx Series)', image:'images/ps2.jpg', price:6299, fw:'FMCB', storage:'64GB/128GB/256GB/500GB (Choose)', warranty:'30 Days', condition:'Renewed', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
+  { id:'ps2-7xxx', title:'PS2 (Model 7xxxx Series)', image:'ps2.jpg', price:6299, fw:'FMCB', storage:'64GB/128GB/256GB/500GB (Choose)', warranty:'30 Days', condition:'Renewed', controllersIncluded:'1 Controller', controllerType:'Compatible', available:true },
 ];
 
 const PREFILL_PAGE = 'order-prefill.html';
